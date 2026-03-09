@@ -757,10 +757,20 @@ html.lenis body {
     margin-bottom: 10px;
   }
 
+  .tea-meta {
+    gap: 6px;
+  }
+
   /* Meta pills: tighter */
   .meta-pill {
-    font-size: 12px;
-    padding: 3px 8px;
+    font-size: 11px;
+    padding: 2px 6px;
+    gap: 3px;
+  }
+
+  .meta-pill svg {
+    width: 12px;
+    height: 12px;
   }
 
   /* Hairline indent matches new padding */
@@ -779,13 +789,11 @@ html.lenis body {
 /* Modal Styles */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   width: 100vw;
   height: 100vh;
   height: 100dvh;
+  height: max(100vh, 100dvh);
   z-index: 9999;
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
