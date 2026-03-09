@@ -104,13 +104,16 @@ function App() {
   useEffect(() => {
     if (selectedTea || isAdminOpen) {
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
       if (lenisRef.current) lenisRef.current.stop();
     } else {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
       if (lenisRef.current) lenisRef.current.start();
     }
     return () => {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
       if (lenisRef.current) lenisRef.current.start();
     };
   }, [selectedTea, isAdminOpen]);

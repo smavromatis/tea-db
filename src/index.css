@@ -799,6 +799,7 @@ html.lenis body {
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  touch-action: none;
 }
 
 .modal-content {
@@ -813,6 +814,7 @@ html.lenis body {
   display: flex;
   flex-direction: column;
   overscroll-behavior: contain;
+  touch-action: pan-y;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -947,6 +949,7 @@ html.lenis body {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     background-color: rgba(0, 0, 0, 0.65);
+    touch-action: none;
   }
 
   .modal-content {
