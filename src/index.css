@@ -959,7 +959,29 @@ html.lenis body {
   }
 
   .detail-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+  }
+
+  .detail-item {
+    gap: 8px;
+  }
+
+  .detail-icon {
+    width: 14px;
+    height: 14px;
+    margin-top: 2px;
+  }
+
+  .detail-label {
+    font-size: 10px;
+  }
+
+  .detail-value {
+    font-size: 13px;
   }
 }
 
