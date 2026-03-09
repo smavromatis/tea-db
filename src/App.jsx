@@ -104,17 +104,11 @@ function App() {
   useEffect(() => {
     if (selectedTea || isAdminOpen) {
       document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
-      if (lenisRef.current) lenisRef.current.stop();
     } else {
       document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-      if (lenisRef.current) lenisRef.current.start();
     }
     return () => {
       document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-      if (lenisRef.current) lenisRef.current.start();
     };
   }, [selectedTea, isAdminOpen]);
 
@@ -459,6 +453,7 @@ function App() {
           >
             <motion.div
               className="modal-content"
+              data-lenis-prevent
               initial={{ y: 50, opacity: 0, scale: 0.95 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: 20, opacity: 0, scale: 0.95 }}

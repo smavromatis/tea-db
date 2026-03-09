@@ -795,11 +795,9 @@ html.lenis body {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  overscroll-behavior: none;
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  touch-action: none;
 }
 
 .modal-content {
@@ -814,7 +812,7 @@ html.lenis body {
   display: flex;
   flex-direction: column;
   overscroll-behavior: contain;
-  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -949,7 +947,6 @@ html.lenis body {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     background-color: rgba(0, 0, 0, 0.65);
-    touch-action: none;
   }
 
   .modal-content {
