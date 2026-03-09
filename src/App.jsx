@@ -530,7 +530,7 @@ function App() {
                 )}
 
                 {selectedTea.location && (
-                  <div style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '12px', marginTop: '32px' }}>
+                  <div style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '12px', marginTop: '8px' }}>
                     Location: {selectedTea.location}
                   </div>
                 )}
