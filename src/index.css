@@ -802,6 +802,7 @@ html.lenis body {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  overscroll-behavior: none;
 }
 
 .modal-overlay::before {
@@ -832,6 +833,7 @@ html.lenis body {
   position: relative;
   display: flex;
   flex-direction: column;
+  overscroll-behavior: contain;
 }
 
 @media (prefers-color-scheme: dark) {

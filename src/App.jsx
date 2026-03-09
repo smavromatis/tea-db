@@ -100,6 +100,21 @@ function App() {
     return () => lenis.destroy();
   }, []);
 
+  // Lock body scroll when overlay is active
+  useEffect(() => {
+    if (selectedTea || isAdminOpen) {
+      document.body.style.overflow = 'hidden';
+      if (lenisRef.current) lenisRef.current.stop();
+    } else {
+      document.body.style.overflow = '';
+      if (lenisRef.current) lenisRef.current.start();
+    }
+    return () => {
+      document.body.style.overflow = '';
+      if (lenisRef.current) lenisRef.current.start();
+    };
+  }, [selectedTea, isAdminOpen]);
+
   const allCategories = useMemo(() => {
     const cats = new Set();
     teasData.forEach(t => {
