@@ -629,6 +629,9 @@ html.lenis body {
   border-radius: var(--border-radius-pill);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 8px;
 }
 
 .out-of-stock .tea-name,
@@ -778,8 +781,11 @@ html.lenis body {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   z-index: 9999;
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
