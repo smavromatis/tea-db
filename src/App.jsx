@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef } from 'react';
+import { useState, useMemo, useEffect, useRef, lazy, Suspense } from 'react';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 import { Search, Menu, MapPin, Clock, Thermometer, Leaf, Pencil, Star, X, Info, Tag } from 'lucide-react';
@@ -56,7 +56,9 @@ const itemVariants = {
 };
 import teasData from './data/teas.json';
 import './admin.css';
-import TeaAdmin from './TeaAdmin';
+
+const TeaAdmin = lazy(() => import('./TeaAdmin'));
+
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -555,7 +557,11 @@ function App() {
       </AnimatePresence>
 
 
-      {isAdminOpen && <TeaAdmin teas={teasData} onClose={() => setIsAdminOpen(false)} />}
+      {isAdminOpen && (
+        <Suspense fallback={null}>
+          <TeaAdmin teas={teasData} onClose={() => setIsAdminOpen(false)} />
+        </Suspense>
+      )}
 
       {import.meta.env.DEV && !isAdminOpen && (
         <button className="floating-edit-btn" onClick={() => setIsAdminOpen(true)}>
