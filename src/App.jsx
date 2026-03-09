@@ -366,7 +366,7 @@ function App() {
                             {!tea.inStock && <span className="badge">Out of Stock</span>}
                           </div>
 
-                          <p className="tea-desc">{tea.flavorNotes}</p>
+                          <p className="tea-desc">{tea.flavourNotes}</p>
 
                           <div className="tea-meta">
                             {(() => {
@@ -511,8 +511,8 @@ function App() {
                 </div>
 
                 <div className="detail-section">
-                  <h3>Flavor Notes</h3>
-                  <p>{selectedTea.flavorNotes}</p>
+                  <h3>Flavour Notes</h3>
+                  <p>{selectedTea.flavourNotes}</p>
                 </div>
 
                 {selectedTea.tips && (

@@ -509,13 +509,17 @@ html.lenis body {
   transition: background-color 0.15s ease;
 }
 
-.list-row:hover {
-  background-color: rgba(0, 0, 0, 0.02);
+@media (hover: hover) {
+  .list-row:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-  .list-row:hover {
-    background-color: rgba(255, 255, 255, 0.03);
+  @media (hover: hover) {
+    .list-row:hover {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
   }
 }
 
@@ -775,7 +779,7 @@ html.lenis body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1000;
+  z-index: 9999;
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);

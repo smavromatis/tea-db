@@ -9,7 +9,6 @@
     "brewTime": "3-5 min",
     "temperature": "100°C",
     "description": "A mix of black tea and spices like cinnamon, cardamom, ginger, black pepper, and star anise. Inspired by Indian masala chai.",
-    "flavorNotes": "Cinnamon, cardamom, ginger, black pepper kick",
     "tips": "Tastes best as a latte with milk and honey. You can also add some Turmeric Ginger (available as a House Add-on) for more warmth.",
     "caffeinated": "Yes",
     "location": "David's tea wheel",
@@ -20,7 +19,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Cinnamon, cardamom, ginger, black pepper kick"
   },
   {
     "id": "1773011480036",
@@ -31,8 +31,7 @@
     "origin": "Unknown",
     "brewTime": "3-5 min",
     "temperature": "100°C",
-    "description": "A decaffeinated version of the classic Earl Grey. It has the standard black tea base with oil of bergamot for a citrus flavor.",
-    "flavorNotes": "Bergamot citrus, smooth black tea, clean finish",
+    "description": "A decaffeinated version of the classic Earl Grey. It has the standard black tea base with oil of bergamot for a citrus flavour.",
     "tips": "A good choice for the evening since it has no caffeine. Nice with a splash of milk.",
     "caffeinated": "No (decaf)",
     "location": "David's tea wheel",
@@ -43,7 +42,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Bergamot citrus, smooth black tea, clean finish"
   },
   {
     "id": "1773011480037",
@@ -55,8 +55,7 @@
     "brewTime": "3 min",
     "temperature": "80°C",
     "description": "A green tea blend with ginger, lemongrass, and notes of pear. It has a slightly spicy and fruity taste.",
-    "flavorNotes": "Ginger, lemongrass, pear",
-    "tips": "The pear flavor is quite noticeable. It is best to drink it without milk.",
+    "tips": "The pear flavour is quite noticeable. It is best to drink it without milk.",
     "caffeinated": "Yes",
     "location": "David's tea wheel",
     "brand": "Tazo",
@@ -66,7 +65,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Ginger, lemongrass, pear"
   },
   {
     "id": "1773011480038",
@@ -78,7 +78,6 @@
     "brewTime": "5 min",
     "temperature": "100°C",
     "description": "A caffeine-free infusion with hibiscus, orange peel, rosehips, and a bit of cinnamon. It has a tart and tropical profile.",
-    "flavorNotes": "Hibiscus, orange peel, rosehip, cinnamon",
     "tips": "Works well as an iced tea. The tartness goes well with a spoonful of Greek Honey (available as a House Add-on).",
     "caffeinated": "No",
     "location": "David's tea wheel",
@@ -89,7 +88,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Hibiscus, orange peel, rosehip, cinnamon"
   },
   {
     "id": "1773011480039",
@@ -101,7 +101,6 @@
     "brewTime": "3 min",
     "temperature": "80°C",
     "description": "A blend of green tea, spearmint, lemon verbena, and lemongrass. It is a refreshing cup that balances light mint with citrus notes.",
-    "flavorNotes": "Spearmint, lemon verbena, lemongrass, green tea",
     "tips": "Best to drink this one as is, since the mint and citrus are already balanced.",
     "caffeinated": "Yes",
     "location": "David's tea wheel",
@@ -112,7 +111,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": true
+    "favoriteK": true,
+    "flavourNotes": "Spearmint, lemon verbena, lemongrass, green tea"
   },
   {
     "id": "1773011480040",
@@ -124,7 +124,6 @@
     "brewTime": "3-5 min",
     "temperature": "100°C",
     "description": "A Moroccan digestive blend that uses caraway, rosemary, and peppermint. It is made to be used after meals.",
-    "flavorNotes": "Earthy caraway, rosemary, peppermint",
     "tips": "Drink after a heavy dinner to help with digestion. Best without any added sugar or honey.",
     "caffeinated": "No",
     "location": "David's tea wheel",
@@ -135,7 +134,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Earthy caraway, rosemary, peppermint"
   },
   {
     "id": "1773011480041",
@@ -146,8 +146,7 @@
     "origin": "China",
     "brewTime": "3-5 min",
     "temperature": "100°C",
-    "description": "A variation of Earl Grey with blueberry notes added to the bergamot flavor, using a Chinese black tea base.",
-    "flavorNotes": "Bergamot, blueberry, black tea",
+    "description": "A variation of Earl Grey with blueberry notes added to the bergamot flavour, using a Chinese black tea base.",
     "tips": "Adding a few Rose Petals (available as a House Add-on) can give it a nice floral touch.",
     "caffeinated": "Yes",
     "location": "Original tin",
@@ -158,7 +157,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Bergamot, blueberry, black tea"
   },
   {
     "id": "1773011480042",
@@ -171,7 +171,6 @@
     "brewTime": "3-5 min",
     "temperature": "95°C",
     "description": "A blend of black tea and green tea with mango. Named after the character from One Thousand and One Nights.",
-    "flavorNotes": "Mango, mixed black and green tea",
     "tips": "The mix of different teas gives it quite a bit of depth. Best to drink it as it is.",
     "caffeinated": "Yes",
     "location": "Big black jar",
@@ -182,7 +181,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": true
+    "favoriteK": true,
+    "flavourNotes": "Mango, mixed black and green tea"
   },
   {
     "id": "1773011480043",
@@ -194,7 +194,6 @@
     "brewTime": "Short",
     "temperature": "100°C",
     "description": "A black tea from the Yunnan province of China. It has a malty taste and a smooth finish.",
-    "flavorNotes": "Malt, roasted notes, smooth finish",
     "tips": "A good tea for the morning. It can take a bit of milk if you prefer.",
     "caffeinated": "Yes",
     "location": "Big black jar",
@@ -205,7 +204,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Malt, roasted notes, smooth finish"
   },
   {
     "id": "1773011480045",
@@ -217,7 +217,6 @@
     "brewTime": "5-7 min",
     "temperature": "90°C",
     "description": "An organic herbal blend with raspberry leaves, lemongrass, marjoram, and wild rose. It has a light and fresh taste.",
-    "flavorNotes": "Raspberry leaf, lemongrass, marjoram, wild rose",
     "tips": "A good afternoon tea. You can add some Bee Balm (available as a House Add-on) for more floral notes.",
     "caffeinated": "No",
     "location": "Small blue jar",
@@ -228,7 +227,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": true
+    "favoriteK": true,
+    "flavourNotes": "Raspberry leaf, lemongrass, marjoram, wild rose"
   },
   {
     "id": "1773011480046",
@@ -240,7 +240,6 @@
     "brewTime": "5-7 min",
     "temperature": "90°C",
     "description": "An organic chamomile from Camellia Sinensis mixed with rose and lemongrass. It is a floral take on the traditional bedtime tea.",
-    "flavorNotes": "Chamomile, lemongrass, rose",
     "tips": "Good for the evening. A bit of Greek Honey (available as a House Add-on) makes it very soothing.",
     "caffeinated": "No",
     "location": "Small blue jar",
@@ -251,7 +250,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": true,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Chamomile, lemongrass, rose"
   },
   {
     "id": "1773011480047",
@@ -262,8 +262,7 @@
     "origin": "Taiwan",
     "brewTime": "4-5 min",
     "temperature": "85°C",
-    "description": "A Taiwanese Oolong known as Milk Oolong. It has a naturally buttery and creamy texture without any added flavors.",
-    "flavorNotes": "Creamy, buttery, light floral notes",
+    "description": "A Taiwanese Oolong known as Milk Oolong. It has a naturally buttery and creamy texture without any added flavours.",
     "tips": "Best to drink this alone to really taste the smooth texture.",
     "caffeinated": "Yes",
     "location": "Small beige jar",
@@ -274,7 +273,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Creamy, buttery, light floral notes"
   },
   {
     "id": "1773011480048",
@@ -287,8 +287,7 @@
     "brewTime": "3-4 min",
     "temperature": "95°C",
     "description": "An organic blend of jasmine green tea and black tea with rose petals and bergamot. It is a floral version of Earl Grey.",
-    "flavorNotes": "Bergamot, jasmine, rose",
-    "tips": "Drink it black to avoid covering up the jasmine and rose flavors.",
+    "tips": "Drink it black to avoid covering up the jasmine and rose flavours.",
     "caffeinated": "Yes",
     "location": "Beige packet",
     "brand": "Camellia Sinensis",
@@ -298,7 +297,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Bergamot, jasmine, rose"
   },
   {
     "id": "1773011480049",
@@ -310,8 +310,7 @@
     "origin": "Sri Lanka",
     "brewTime": "3-5 min",
     "temperature": "95°C",
-    "description": "A mix of black and green tea from Sri Lanka with vanilla and jasmine flavors.",
-    "flavorNotes": "Vanilla, jasmine, hint of bergamot",
+    "description": "A mix of black and green tea from Sri Lanka with vanilla and jasmine flavours.",
     "tips": "The vanilla adds a natural sweetness, so you might not need any sugar.",
     "caffeinated": "Yes",
     "location": "Black packet",
@@ -322,7 +321,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Vanilla, jasmine, hint of bergamot"
   },
   {
     "id": "1773011480051",
@@ -334,7 +334,6 @@
     "brewTime": "5-7 min",
     "temperature": "100°C",
     "description": "A pure peppermint herbal tea. It has a very refreshing and cool taste from the natural menthol.",
-    "flavorNotes": "Peppermint, cool menthol",
     "tips": "A good choice for settling the stomach. You can steep it for a long time to get a stronger mint taste.",
     "caffeinated": "No",
     "location": "Clear plastic",
@@ -345,7 +344,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Peppermint, cool menthol"
   },
   {
     "id": "1773011480052",
@@ -357,7 +357,6 @@
     "brewTime": "Short",
     "temperature": "90°C",
     "description": "A Chinese green tea that has been scented with jasmine flowers. It has a very strong floral perfume.",
-    "flavorNotes": "Sweet jasmine, vegetal green tea notes",
     "tips": "Keep the steeping time short for this one. You can use the same leaves for 3 or 4 infusions.",
     "caffeinated": "Yes",
     "location": "Small beige jar",
@@ -368,7 +367,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": true,
-    "favoriteK": true
+    "favoriteK": true,
+    "flavourNotes": "Sweet jasmine, vegetal green tea notes"
   },
   {
     "id": "1773011480053",
@@ -380,7 +380,6 @@
     "brewTime": "4-5 min",
     "temperature": "90°C",
     "description": "A refreshing herbal blend made with fennel seeds, mint, and hibiscus. It is meant to help with digestion.",
-    "flavorNotes": "Fennel, mint, tart hibiscus",
     "tips": "Nice to have after a meal. The fennel adds a natural sweetness.",
     "caffeinated": "No",
     "location": "Red tin",
@@ -391,7 +390,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Fennel, mint, tart hibiscus"
   },
   {
     "id": "1773011480054",
@@ -403,8 +403,7 @@
     "brewTime": "3-4 min",
     "temperature": "85°C",
     "description": "An organic green tea blend with raspberry, rose, and strawberry notes. It has a fruity and floral taste.",
-    "flavorNotes": "Rose, raspberry, strawberry",
-    "tips": "Makes a good iced tea for the summer, where the berry flavors come out more.",
+    "tips": "Makes a good iced tea for the summer, where the berry flavours come out more.",
     "caffeinated": "Yes",
     "location": "Pink tin",
     "brand": "Unknown",
@@ -414,7 +413,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Rose, raspberry, strawberry"
   },
   {
     "id": "1773011480055",
@@ -424,9 +424,8 @@
     ],
     "origin": "Unknown",
     "brewTime": "",
-    "description": "Dried rose petals used for adding a floral scent and flavor to other teas.",
-    "flavorNotes": "Floral rose, natural sweetness",
-    "tips": "You can add these to black teas or chamomile for a bit of flower flavor.",
+    "description": "Dried rose petals used for adding a floral scent and flavour to other teas.",
+    "tips": "You can add these to black teas or chamomile for a bit of flower flavour.",
     "caffeinated": "No",
     "location": "Glass jar",
     "brand": "Tearelae",
@@ -436,7 +435,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Floral rose, natural sweetness"
   },
   {
     "id": "1773011480056",
@@ -447,8 +447,7 @@
     "origin": "Egypt",
     "brewTime": "",
     "description": "A type of mint from Egypt that is strong and earthier than regular peppermint.",
-    "flavorNotes": "Bold mint, earthy notes",
-    "tips": "Can be added to black teas like Chai or Assam if you want a minty flavor.",
+    "tips": "Can be added to black teas like Chai or Assam if you want a minty flavour.",
     "caffeinated": "No",
     "location": "Glass jar",
     "brand": "Unknown",
@@ -458,7 +457,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": true
+    "favoriteK": true,
+    "flavourNotes": "Bold mint, earthy notes"
   },
   {
     "id": "1773011480057",
@@ -469,7 +469,6 @@
     "origin": "Unknown",
     "brewTime": "",
     "description": "A mix of turmeric and ginger in powder form. It can be used for making golden milk or added to other teas.",
-    "flavorNotes": "Earthy turmeric, spicy ginger",
     "tips": "You can mix this into Chai or Assam with milk. A tiny bit of black pepper helps with the absorption of the turmeric.",
     "caffeinated": "No",
     "location": "Metal tin",
@@ -480,7 +479,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Earthy turmeric, spicy ginger"
   },
   {
     "id": "1773011480058",
@@ -491,8 +491,7 @@
     "origin": "Canada",
     "brewTime": "",
     "description": "Dried bee balm flowers that have a spicy and floral taste, somewhat like oregano.",
-    "flavorNotes": "Spicy floral, honey-like notes",
-    "tips": "Nice to add to herbal blends like La belle humeur for more flavor.",
+    "tips": "Nice to add to herbal blends like La belle humeur for more flavour.",
     "caffeinated": "No",
     "location": "Paper packet",
     "brand": "Champ Floral",
@@ -502,7 +501,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Spicy floral, honey-like notes"
   },
   {
     "id": "1773011480059",
@@ -514,7 +514,6 @@
     "brewTime": "Short",
     "temperature": "85°C",
     "description": "Green tea from Fujian that has been rolled into small pearls and scented with jasmine flowers.",
-    "flavorNotes": "Jasmine, light green tea",
     "tips": "You can watch the pearls open as they steep. They can be infused several times and usually get sweeter.",
     "caffeinated": "Yes",
     "location": "Metal packet",
@@ -525,7 +524,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": true,
-    "favoriteK": true
+    "favoriteK": true,
+    "flavourNotes": "Jasmine, light green tea"
   },
   {
     "id": "1773011480060",
@@ -537,7 +537,6 @@
     "brewTime": "4-5 min",
     "temperature": "90°C",
     "description": "A hand-tied bundle of green tea leaves and flowers that opens up into a flower shape when steeped.",
-    "flavorNotes": "Light green tea, subtle floral notes",
     "tips": "Use a clear glass teapot so you can see the flower bloom.",
     "caffeinated": "Yes",
     "location": "Black packet",
@@ -548,7 +547,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Light green tea, subtle floral notes"
   },
   {
     "id": "1773011480061",
@@ -559,8 +559,7 @@
     "origin": "Unknown",
     "brewTime": "2-3 min",
     "temperature": "80°C",
-    "description": "A green tea with coconut, lemongrass, ginger, and vanilla flavors.",
-    "flavorNotes": "Coconut, lemongrass, ginger, hint of vanilla",
+    "description": "A green tea with coconut, lemongrass, ginger, and vanilla flavours.",
     "tips": "This is also sold as 'Bangkok' by Harney & Sons. It works well both hot and iced.",
     "caffeinated": "Yes",
     "location": "N/A (out)",
@@ -571,7 +570,8 @@
     "inStock": false,
     "favorite": false,
     "favoriteS": true,
-    "favoriteK": true
+    "favoriteK": true,
+    "flavourNotes": "Coconut, lemongrass, ginger, hint of vanilla"
   },
   {
     "id": "1773011480062",
@@ -583,7 +583,6 @@
     "brewTime": "3-5 min",
     "temperature": "100°C",
     "description": "A herbal blend with lemongrass, lemon verbena, ginger, and zinc to help support the immune system.",
-    "flavorNotes": "Lemon verbena, ginger, hint of licorice, +zinc+",
     "tips": "The zinc content means it is best to limit yourself to a couple of cups a day. A spoonful of Greek Honey (available as a House Add-on) can make it more soothing. Warning: Do not mix with multi-vitamins or zinc supplements.",
     "caffeinated": "No",
     "location": "Yellow tin",
@@ -594,7 +593,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": true,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Lemon verbena, ginger, hint of licorice, +zinc+"
   },
   {
     "id": "1773011480063",
@@ -606,7 +606,6 @@
     "brewTime": "4-6 min",
     "temperature": "100°C",
     "description": "Pure chamomile flowers sourced from Egypt. A very simple and relaxing herbal tea.",
-    "flavorNotes": "Chamomile, light honey-like sweetness",
     "tips": "A classic tea for before bed. It goes very well with a bit of Greek Honey (available as a House Add-on).",
     "caffeinated": "No",
     "location": "David's tea wheel",
@@ -617,7 +616,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Chamomile, light honey-like sweetness"
   },
   {
     "id": "1773011480064",
@@ -629,7 +629,6 @@
     "brewTime": "Short",
     "temperature": "85°C",
     "description": "A well-known Chinese green tea from Zhejiang. The leaves are flat and it has a nutty taste.",
-    "flavorNotes": "Nutty, toasted, marine vegetal notes",
     "tips": "Use water that is not too hot to avoid a bitter taste. Best enjoyed on its own.",
     "caffeinated": "Yes",
     "location": "Metal packet",
@@ -640,7 +639,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Nutty, toasted, marine vegetal notes"
   },
   {
     "id": "1773011480065",
@@ -651,8 +651,7 @@
     "origin": "Fujian, China",
     "brewTime": "3-4 min",
     "temperature": "95°C",
-    "description": "A black tea from China that is dried over pinewood fires, giving it a very smoky flavor.",
-    "flavorNotes": "Strong pinewood smoke, campfire notes",
+    "description": "A black tea from China that is dried over pinewood fires, giving it a very smoky flavour.",
     "tips": "It has a very strong taste that isn't for everyone. Be careful not to steep it for too long.",
     "caffeinated": "Yes",
     "location": "Red and white packet",
@@ -663,7 +662,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Strong pinewood smoke, campfire notes"
   },
   {
     "id": "1773011480066",
@@ -674,8 +674,7 @@
     "origin": "Sun Moon Lake, Taiwan",
     "brewTime": "3 min",
     "temperature": "90°C",
-    "description": "A high-quality black tea from Taiwan grown near Sun Moon Lake. It has a very complex set of flavors.",
-    "flavorNotes": "Cinnamon, mint, honey, hint of cocoa",
+    "description": "A high-quality black tea from Taiwan grown near Sun Moon Lake. It has a very complex set of flavours.",
     "tips": "A special tea that should be drunk pure to taste the cinnamon and mint notes.",
     "caffeinated": "Yes",
     "location": "Red and white packet",
@@ -686,7 +685,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Cinnamon, mint, honey, hint of cocoa"
   },
   {
     "id": "1773011480067",
@@ -696,8 +696,7 @@
     ],
     "origin": "Canada",
     "brewTime": "",
-    "description": "Dried rosehip fruit that is naturally high in Vitamin C. It adds a tart flavor and a red color to herbal blends.",
-    "flavorNotes": "Tart berry, citrus notes",
+    "description": "Dried rosehip fruit that is naturally high in Vitamin C. It adds a tart flavour and a red color to herbal blends.",
     "tips": "You can add this to other herbal teas for a boost of Vitamin C. It goes well with hibiscus teas.",
     "caffeinated": "No",
     "location": "Packet",
@@ -708,7 +707,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Tart berry, citrus notes"
   },
   {
     "id": "1773011480068",
@@ -720,7 +720,6 @@
     "brewTime": "5 min",
     "temperature": "95°C",
     "description": "An organic herbal blend with ginger, apple, orange peel, hibiscus, echinacea, turmeric, and cinnamon. It is designed to help support the body when feeling unwell.",
-    "flavorNotes": "Ginger, orange, turmeric, cinnamon",
     "tips": "A good tea for when you have a cold. Adding a bit of Greek Honey (available as a House Add-on) can help.",
     "caffeinated": "No",
     "location": "Metal packet",
@@ -731,7 +730,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Ginger, orange, turmeric, cinnamon"
   },
   {
     "id": "1773011480069",
@@ -743,7 +743,6 @@
     "brewTime": "5-10 min",
     "temperature": "100°C",
     "description": "Traditional Greek mountain tea made from the Sideritis plant. It is an earthy herbal tea that is very popular in Greece.",
-    "flavorNotes": "Earthy herbs, mild sweetness",
     "tips": "The traditional way to drink this is with local Greek Honey (available as a House Add-on) and a squeeze of lemon.",
     "caffeinated": "No",
     "location": "Plastic bag",
@@ -754,7 +753,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Earthy herbs, mild sweetness"
   },
   {
     "id": "1773011480070",
@@ -766,7 +766,6 @@
     "brewTime": "4-5 min",
     "temperature": "100°C",
     "description": "A blend of ginger, lemon, and turmeric that also includes probiotics. It is intended for digestive health.",
-    "flavorNotes": "Lemon, ginger, hint of turmeric",
     "tips": "A good option for when you aren't feeling well. It goes well with Greek Honey (available as a House Add-on).",
     "caffeinated": "No",
     "location": "Ginger tin",
@@ -777,7 +776,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Lemon, ginger, hint of turmeric"
   },
   {
     "id": "1773011480071",
@@ -788,8 +788,7 @@
     "origin": "Unknown",
     "brewTime": "3-5 min",
     "temperature": "100°C",
-    "description": "A caffeine-free blend with ginger root, lemongrass, and hibiscus. It has a warming and slightly tart flavor.",
-    "flavorNotes": "Ginger, lemongrass, hint of hibiscus",
+    "description": "A caffeine-free blend with ginger root, lemongrass, and hibiscus. It has a warming and slightly tart flavour.",
     "tips": "You can steep it for longer if you want a stronger ginger taste.",
     "caffeinated": "No",
     "location": "Ginger tin",
@@ -800,7 +799,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Ginger, lemongrass, hint of hibiscus"
   },
   {
     "id": "1773011480072",
@@ -811,8 +811,7 @@
     "origin": "Darjeeling, India",
     "brewTime": "3-4 min",
     "temperature": "100°C",
-    "description": "A black tea from the Darjeeling region in India. It is lighter than most other black teas and has a distinctive grape-like flavor.",
-    "flavorNotes": "Muscatel grape, light tea flavor",
+    "description": "A black tea from the Darjeeling region in India. It is lighter than most other black teas and has a distinctive grape-like flavour.",
     "tips": "Best to drink without milk to taste the delicate grape notes.",
     "caffeinated": "Yes",
     "location": "Original tin",
@@ -823,7 +822,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Muscatel grape, light tea flavour"
   },
   {
     "id": "1773011480073",
@@ -835,7 +835,6 @@
     "brewTime": "5 min",
     "temperature": "100°C",
     "description": "A popular black tea blend with three types of cinnamon, orange peel, and sweet cloves. It has a very sweet taste despite having no added sugar.",
-    "flavorNotes": "Strong cinnamon, orange, cloves",
     "tips": "It is naturally sweet, so it doesn't need any extra sugar. Good as a dessert tea.",
     "caffeinated": "Yes",
     "location": "Original tin",
@@ -846,7 +845,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": true
+    "favoriteK": true,
+    "flavourNotes": "Strong cinnamon, orange, cloves"
   },
   {
     "id": "1773011480074",
@@ -857,8 +857,7 @@
     "origin": "Japan",
     "brewTime": "3 min",
     "temperature": "90°C",
-    "description": "A green tea with cherry blossom and vanilla flavors. It is inspired by the Japanese spring season.",
-    "flavorNotes": "Cherry blossom, vanilla, light green tea",
+    "description": "A green tea with cherry blossom and vanilla flavours. It is inspired by the Japanese spring season.",
     "tips": "A light tea that should not be steeped for too long. Best enjoyed by itself.",
     "caffeinated": "Yes",
     "location": "Original tin",
@@ -869,7 +868,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Cherry blossom, vanilla, light green tea"
   },
   {
     "id": "1773011480075",
@@ -881,7 +881,6 @@
     "brewTime": "3-5 min",
     "temperature": "80°C",
     "description": "A simple green tea.",
-    "flavorNotes": "Vegetal green tea, grassy notes",
     "tips": "Can be used as a base for lattes. You can also add some Egyptian Mint (available as a House Add-on) for a different taste.",
     "caffeinated": "Yes",
     "location": "Green box",
@@ -892,7 +891,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Vegetal green tea, grassy notes"
   },
   {
     "id": "1773011480076",
@@ -903,8 +903,7 @@
     "origin": "South Africa",
     "brewTime": "3-5 min",
     "temperature": "95°C",
-    "description": "A rooibos tea from South Africa with raspberry flavor. It is naturally caffeine-free and has an earthy and fruity taste.",
-    "flavorNotes": "Earthy rooibos, raspberry flavor",
+    "description": "A rooibos tea from South Africa with raspberry flavour. It is naturally caffeine-free and has an earthy and fruity taste.",
     "tips": "Tastes good both hot and cold. It has enough sweetness on its own.",
     "caffeinated": "No",
     "location": "White packet",
@@ -915,7 +914,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Earthy rooibos, raspberry flavour"
   },
   {
     "id": "1773011480077",
@@ -927,7 +927,6 @@
     "brewTime": "5-7 min",
     "temperature": "100°C",
     "description": "A rooibos blend with mint, wild rose, and rosehip. It is inspired by Ayurvedic traditions and is caffeine-free.",
-    "flavorNotes": "Earthy rooibos, wild rose, rosehip, mint",
     "tips": "A good tea for relaxing in the evening. Steep for the full 7 minutes for a better taste.",
     "caffeinated": "No",
     "location": "Sample packet",
@@ -938,7 +937,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Earthy rooibos, wild rose, rosehip, mint"
   },
   {
     "id": "1773011480078",
@@ -949,8 +949,7 @@
     "origin": "Unknown",
     "brewTime": "4 min",
     "temperature": "95°C",
-    "description": "A black tea blend that combines the citrus flavor of bergamot with orange and tangerine notes. It is a fruity taking on Earl Grey.",
-    "flavorNotes": "Bergamot, orange, tangerine, black tea",
+    "description": "A black tea blend that combines the citrus flavour of bergamot with orange and tangerine notes. It is a fruity taking on Earl Grey.",
     "tips": "It has a very bright citrus scent. You can try it with a splash of milk for a creamy citrus taste.",
     "caffeinated": "Yes",
     "location": "Sample packet",
@@ -961,7 +960,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Bergamot, orange, tangerine, black tea"
   },
   {
     "id": "1773011480079",
@@ -973,8 +973,7 @@
     "brewTime": "4 min",
     "temperature": "95°C",
     "description": "A black tea base from Sri Lanka blended with raspberry and jasmine. It has a fruity and floral character.",
-    "flavorNotes": "Raspberry, jasmine, medium-bodied black tea",
-    "tips": "The raspberry flavor is quite distinct. Best to drink it as it is to enjoy the balance of fruit and flower.",
+    "tips": "The raspberry flavour is quite distinct. Best to drink it as it is to enjoy the balance of fruit and flower.",
     "caffeinated": "Yes",
     "location": "White packet",
     "brand": "Amour Des Thés",
@@ -984,7 +983,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Raspberry, jasmine, medium-bodied black tea"
   },
   {
     "id": "1773011480080",
@@ -996,7 +996,6 @@
     "brewTime": "3-4 min",
     "temperature": "85°C",
     "description": "A Japanese Sencha green tea flavoured with mango and mixed with pineapple pieces. It is a refreshing and tropical blend.",
-    "flavorNotes": "Grassy green tea, mango, pineapple",
     "tips": "This tea makes a very good iced tea. Be sure the water is not boiling so the green tea does not get bitter.",
     "caffeinated": "Yes",
     "location": "White packet",
@@ -1007,7 +1006,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": true,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Grassy green tea, mango, pineapple"
   },
   {
     "id": "1773011480081",
@@ -1019,7 +1019,6 @@
     "brewTime": "4 min",
     "temperature": "95°C",
     "description": "A black tea from the Nuwara Eliya region of Sri Lanka mixed with blueberry. It is named after the blueberries of the Saguenay region in Quebec.",
-    "flavorNotes": "Blueberry, smooth black tea",
     "tips": "The blueberry taste is gentle. It is best enjoyed without adding milk.",
     "caffeinated": "Yes",
     "location": "White packet",
@@ -1030,7 +1029,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Blueberry, smooth black tea"
   },
   {
     "id": "1773011480082",
@@ -1042,7 +1042,6 @@
     "brewTime": "4-5 min",
     "temperature": "95°C",
     "description": "A herbal tea that combines chamomile and lavender. It is a relaxing blend for the evening.",
-    "flavorNotes": "Chamomile, lavender",
     "tips": "A good tea for before bed. You can add a spoonful of Greek Honey (available as a House Add-on) for a more soothing cup.",
     "caffeinated": "No",
     "location": "White packet",
@@ -1053,7 +1052,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Chamomile, lavender"
   },
   {
     "id": "1773011480083",
@@ -1065,7 +1065,6 @@
     "brewTime": "2-3 min",
     "temperature": "80°C",
     "description": "A Chinese green tea from the Jiangxi province that has been scented with jasmine flowers. It has a light and floral taste.",
-    "flavorNotes": "Jasmine, light green tea, subtle bitterness",
     "tips": "You can brew the same leaves multiple times. It gets more delicate with each infusion.",
     "caffeinated": "Yes",
     "location": "White packet",
@@ -1076,7 +1075,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Jasmine, light green tea, subtle bitterness"
   },
   {
     "id": "1773011480084",
@@ -1088,7 +1088,6 @@
     "brewTime": "3-4 min",
     "temperature": "75°C",
     "description": "A Japanese Sencha green tea blend with lemongrass, ginger, and blueberry leaf.",
-    "flavorNotes": "Lemongrass, ginger, grassy green tea",
     "tips": "Keep the water at 75°C to avoid the tea becoming too bitter.",
     "caffeinated": "Yes",
     "location": "White packet",
@@ -1099,7 +1098,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Lemongrass, ginger, grassy green tea"
   },
   {
     "id": "1773011480085",
@@ -1111,8 +1111,7 @@
     "brewTime": "5-7 min",
     "temperature": "100°C",
     "description": "A simple herbal infusion made with lemongrass and ginger. It is caffeine-free and has a clean taste.",
-    "flavorNotes": "Lemongrass, ginger",
-    "tips": "The longer you steep it, the more the ginger flavor will come out.",
+    "tips": "The longer you steep it, the more the ginger flavour will come out.",
     "caffeinated": "No",
     "location": "White packet",
     "brand": "Amour Des Thés",
@@ -1122,7 +1121,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Lemongrass, ginger"
   },
   {
     "id": "1773011480086",
@@ -1134,7 +1134,6 @@
     "brewTime": "4-5 min",
     "temperature": "95°C",
     "description": "A rooibos tea blend with peach pieces, calendula, and blackberry leaf. It is naturally caffeine-free.",
-    "flavorNotes": "Peach, earthy rooibos",
     "tips": "It is a very good tea to have cold. You can brew it strong and then add ice.",
     "caffeinated": "No",
     "location": "White packet",
@@ -1145,7 +1144,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Peach, earthy rooibos"
   },
   {
     "id": "1773011480087",
@@ -1156,8 +1156,7 @@
     "origin": "Unknown",
     "brewTime": "5-7 min",
     "temperature": "95°C",
-    "description": "An organic herbal blend that has a strong lemon flavor with a bit of ginger. It is designed to be very refreshing when served cold.",
-    "flavorNotes": "Lemon punch, light ginger",
+    "description": "An organic herbal blend that has a strong lemon flavour with a bit of ginger. It is designed to be very refreshing when served cold.",
     "tips": "One of the best options for making iced tea. Brew it strong and serve with plenty of ice.",
     "caffeinated": "No",
     "location": "White packet",
@@ -1168,7 +1167,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Lemon punch, light ginger"
   },
   {
     "id": "1773011480088",
@@ -1180,8 +1180,7 @@
     "brewTime": "3-4 min",
     "temperature": "75°C",
     "description": "A high-quality Japanese green tea made from young buds and leaves. It has a rich, full-bodied taste with marine notes.",
-    "flavorNotes": "Marine umami, rich texture, grassy sweetness",
-    "tips": "A very well-balanced tea. Use water at 75°C to get the best flavor from the buds.",
+    "tips": "A very well-balanced tea. Use water at 75°C to get the best flavour from the buds.",
     "caffeinated": "Yes",
     "location": "White packet",
     "brand": "Amour Des Thés",
@@ -1191,7 +1190,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": true,
-    "favoriteK": true
+    "favoriteK": true,
+    "flavourNotes": "Marine umami, rich texture, grassy sweetness"
   },
   {
     "id": "1773011480089",
@@ -1203,7 +1203,6 @@
     "brewTime": "4-10 min",
     "temperature": "100°C",
     "description": "An evening herbal blend with hibiscus, fennel, and rosemary. It is designed to help with relaxation and digestion.",
-    "flavorNotes": "Tart hibiscus, sweet fennel, aromatic rosemary",
     "tips": "You can steep it for up to 10 minutes for more digestive benefits. A bit of Greek Honey (available as a House Add-on) goes well with the fennel and rosemary.",
     "caffeinated": "No",
     "location": "White packet",
@@ -1214,7 +1213,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Tart hibiscus, sweet fennel, aromatic rosemary"
   },
   {
     "id": "1773011480090",
@@ -1226,7 +1226,6 @@
     "brewTime": "3-4 min",
     "temperature": "95°C",
     "description": "A Chinese black tea from the Fujian province that is mixed with rose petals. It is a smooth and aromatic tea.",
-    "flavorNotes": "Smooth black tea, rose scent",
     "tips": "You can add extra Rose Petals (available as a House Add-on) if you want a stronger floral taste.",
     "caffeinated": "Yes",
     "location": "White packet",
@@ -1237,7 +1236,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Smooth black tea, rose scent"
   },
   {
     "id": "1773011480091",
@@ -1249,7 +1249,6 @@
     "brewTime": "3-4 min",
     "temperature": "100°C",
     "description": "A strong, malty black tea from the Assam region of India. It has a full-bodied taste and a dark amber color.",
-    "flavorNotes": "Malt, caramel, full-bodied",
     "tips": "A good tea to have with milk. It also goes well with some Egyptian Mint (available as a House Add-on) for a refreshing change.",
     "caffeinated": "Yes",
     "location": "Metal tin",
@@ -1260,7 +1259,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Malt, caramel, full-bodied"
   },
   {
     "id": "1773011480092",
@@ -1271,9 +1271,8 @@
     "origin": "Unknown",
     "brewTime": "3-5 min",
     "temperature": "95°C",
-    "description": "An organic black tea with bergamot flavor and vanilla. It also contains marigold and cornflower petals.",
-    "flavorNotes": "Bergamot, vanilla, creamy black tea",
-    "tips": "Many people like this one as a latte with frothed milk. The vanilla flavor is usually enough that you don't need sugar.",
+    "description": "An organic black tea with bergamot flavour and vanilla. It also contains marigold and cornflower petals.",
+    "tips": "Many people like this one as a latte with frothed milk. The vanilla flavour is usually enough that you don't need sugar.",
     "caffeinated": "Yes",
     "location": "Metal packet",
     "brand": "DAVIDsTEA",
@@ -1283,7 +1282,8 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Bergamot, vanilla, creamy black tea"
   },
   {
     "id": "1773011480093",
@@ -1294,7 +1294,6 @@
     "origin": "Greece",
     "brewTime": "",
     "description": "Pure honey from Greece. It has a rich and floral taste that is more complex than usual clover honey.",
-    "flavorNotes": "Floral sweetness, wildflower",
     "tips": "Add a small amount to chamomile or mountain tea. It is a House Add-on that you can ask for.",
     "caffeinated": "No",
     "location": "Kitchen",
@@ -1305,6 +1304,7 @@
     "inStock": true,
     "favorite": false,
     "favoriteS": false,
-    "favoriteK": false
+    "favoriteK": false,
+    "flavourNotes": "Floral sweetness, wildflower"
   }
 ]

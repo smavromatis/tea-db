@@ -366,12 +366,12 @@ export default function TeaAdmin({ teas: initialTeas, onClose }) {
 
                                             <div className="field-group">
                                                 <label>Description</label>
-                                                <textarea value={tea.description || ''} onChange={e => updateTea(tea.id, 'description', e.target.value)} placeholder="Describe the flavor, aroma, and notes..." className="admin-input admin-textarea" />
+                                                <textarea value={tea.description || ''} onChange={e => updateTea(tea.id, 'description', e.target.value)} placeholder="Describe the flavour, aroma, and notes..." className="admin-input admin-textarea" />
                                             </div>
 
                                             <div className="field-group">
-                                                <label>Flavor Notes</label>
-                                                <input value={tea.flavorNotes || ''} onChange={e => updateTea(tea.id, 'flavorNotes', e.target.value)} placeholder="e.g. Earthy herbs, mild sweetness" className="admin-input" />
+                                                <label>Flavour Notes</label>
+                                                <input value={tea.flavourNotes || ''} onChange={e => updateTea(tea.id, 'flavourNotes', e.target.value)} placeholder="e.g. Earthy herbs, mild sweetness" className="admin-input" />
                                             </div>
 
                                             <div className="field-group">
