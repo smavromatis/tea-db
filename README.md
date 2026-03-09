@@ -2,6 +2,8 @@
 
 A personal catalog of fine teas, curated to share with family and guests. 
 
+https://smavromatis.github.io/tea-db/
+
 This is a simple React application that displays the tea collection, with categorization, search, and detailed information on how to brew each type perfectly. It is designed to be hosted statically on GitHub Pages.
 
 The data is saved directly to the local JSON file when running in development mode.
