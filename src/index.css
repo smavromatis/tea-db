@@ -59,6 +59,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Scroll Lock Helper */
+.lock-scroll {
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+}
+
 /* Background Gradients */
 .bg-gradient {
   position: fixed;
@@ -798,6 +804,8 @@ html.lenis body {
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  /* Stop background touch events */
+  touch-action: none;
 }
 
 .modal-content {
@@ -813,6 +821,8 @@ html.lenis body {
   flex-direction: column;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+  /* Re-enable vertical touch for the content box specifically */
+  touch-action: pan-y;
 }
 
 @media (prefers-color-scheme: dark) {

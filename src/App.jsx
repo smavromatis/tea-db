@@ -103,12 +103,15 @@ function App() {
   // Lock body scroll when overlay is active
   useEffect(() => {
     if (selectedTea || isAdminOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('lock-scroll');
+      if (lenisRef.current) lenisRef.current.stop();
     } else {
-      document.body.style.overflow = '';
+      document.body.classList.remove('lock-scroll');
+      if (lenisRef.current) lenisRef.current.start();
     }
     return () => {
-      document.body.style.overflow = '';
+      document.body.classList.remove('lock-scroll');
+      if (lenisRef.current) lenisRef.current.start();
     };
   }, [selectedTea, isAdminOpen]);
 
@@ -465,23 +468,21 @@ function App() {
               </button>
 
               <div className="modal-header">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-                  <h2 style={{ marginBottom: 0 }}>{selectedTea.name}</h2>
+                <h2 style={{ marginBottom: '12px' }}>{selectedTea.name}</h2>
+                <div className="modal-tags">
+                  {selectedTea.categories?.map(c => <span key={c} className={`modal-tag ${getCategoryColorClass(c)}`}>{c}</span>)}
                   {selectedTea.favoriteS && (
                     <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <Star className="favorite-icon" size={24} fill="#FF9500" color="#FF9500" />
-                      <span style={{ position: 'absolute', fontSize: '11px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>S</span>
+                      <Star className="favorite-icon" size={20} fill="#FF9500" color="#FF9500" />
+                      <span style={{ position: 'absolute', fontSize: '9px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>S</span>
                     </div>
                   )}
                   {selectedTea.favoriteK && (
                     <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <Star className="favorite-icon" size={24} fill="#34C759" color="#34C759" />
-                      <span style={{ position: 'absolute', fontSize: '11px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>K</span>
+                      <Star className="favorite-icon" size={20} fill="#34C759" color="#34C759" />
+                      <span style={{ position: 'absolute', fontSize: '9px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>K</span>
                     </div>
                   )}
-                </div>
-                <div className="modal-tags">
-                  {selectedTea.categories?.map(c => <span key={c} className={`modal-tag ${getCategoryColorClass(c)}`}>{c}</span>)}
                 </div>
               </div>
 
