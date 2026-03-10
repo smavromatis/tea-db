@@ -361,11 +361,26 @@ html.lenis body {
 }
 
 
+.search-row {
+  display: flex;
+  margin: 0 20px 8px;
+  gap: 12px;
+  align-items: stretch;
+}
+
+@media (max-width: 480px) {
+  .search-row {
+    margin: 0 14px 8px;
+    gap: 8px;
+  }
+}
+
 .search-container {
   position: relative;
   display: flex;
   align-items: center;
-  margin: 0 20px 8px;
+  flex: 1;
+  min-width: 0;
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
@@ -377,6 +392,7 @@ html.lenis body {
 
 .search-input {
   width: 100%;
+  min-width: 0;
   height: 42px;
   padding: 0 16px 0 40px;
   border-radius: 14px;
@@ -1004,6 +1020,81 @@ html.lenis body {
   margin: 0 20px 8px;
   display: flex;
   justify-content: center;
+  gap: 8px;
+}
+
+
+
+.surprise-me-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(175, 82, 222, 0.2);
+  background: linear-gradient(135deg, rgba(90, 200, 250, 0.1), rgba(175, 82, 222, 0.1), rgba(255, 45, 85, 0.1), rgba(255, 149, 0, 0.1));
+  color: #af52de;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 0 16px;
+  transition: all 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  flex-shrink: 0;
+  max-width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.surprise-me-btn:hover {
+  background: linear-gradient(135deg, rgba(90, 200, 250, 0.15), rgba(175, 82, 222, 0.15), rgba(255, 45, 85, 0.15), rgba(255, 149, 0, 0.15));
+  border-color: rgba(175, 82, 222, 0.3);
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(175, 82, 222, 0.12);
+}
+
+.surprise-me-btn:active {
+  transform: scale(0.96);
+}
+
+.surprise-text {
+  font-weight: 500;
+  font-size: 14px;
+  margin-left: 6px;
+  white-space: nowrap;
+  transition: all 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  overflow: hidden;
+  max-width: 100px;
+  opacity: 1;
+}
+
+.nav-surprise-btn {
+  /* Inherits from surprise-me-btn */
+  height: 42px;
+  min-width: 42px;
+}
+
+.nav-surprise-btn.collapsed {
+  padding: 0;
+  max-width: 42px;
+  border-radius: 21px;
+}
+
+.nav-surprise-btn.collapsed .surprise-text {
+  max-width: 0;
+  margin-left: 0;
+  opacity: 0;
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+  .surprise-me-btn {
+    background: linear-gradient(135deg, rgba(90, 200, 250, 0.15), rgba(175, 82, 222, 0.15), rgba(255, 45, 85, 0.15), rgba(255, 149, 0, 0.15));
+    border: 1px solid rgba(175, 82, 222, 0.3);
+    color: #e5a1ff;
+  }
+
+  .surprise-me-btn:hover {
+    background: linear-gradient(135deg, rgba(90, 200, 250, 0.25), rgba(175, 82, 222, 0.25), rgba(255, 45, 85, 0.25), rgba(255, 149, 0, 0.25));
+    box-shadow: 0 4px 16px rgba(175, 82, 222, 0.2);
+  }
 }
 
 .caffeine-segmented-control {
@@ -1076,4 +1167,145 @@ html.lenis body {
 
 .floating-nav-container.collapsed .filter-controls-row {
   display: none;
+}
+
+/* House Add-Ons Modal Styling */
+.inline-addon-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background-color: rgba(175, 82, 222, 0.1);
+  color: #af52de;
+  border: 1px solid rgba(175, 82, 222, 0.2);
+  padding: 1px 6px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  vertical-align: middle;
+  margin: 0 4px;
+  transform: translateY(-1px);
+}
+
+.inline-addon-sparkle {
+  color: #af52de;
+}
+
+.addon-pills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.addon-suggestion-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--pill-bg);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: var(--text-primary);
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.addon-sparkle {
+  color: #af52de;
+}
+
+.addon-suggestion-btn:hover {
+  background-color: var(--border-color);
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .inline-addon-badge {
+    background-color: rgba(175, 82, 222, 0.15);
+    border: 1px solid rgba(175, 82, 222, 0.3);
+    color: #e5a1ff;
+  }
+
+  .inline-addon-sparkle {
+    color: #e5a1ff;
+  }
+
+  .addon-sparkle {
+    color: #e5a1ff;
+  }
+
+  .addon-suggestion-btn {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .addon-suggestion-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.addon-suggestion-btn.active {
+  background-color: var(--text-primary);
+  color: var(--bg-color);
+  border-color: transparent;
+  transform: scale(1.02);
+}
+
+@media (prefers-color-scheme: dark) {
+  .addon-suggestion-btn.active {
+    background-color: #fff;
+    color: #000;
+  }
+}
+
+.expanded-addon-card {
+  overflow: hidden;
+}
+
+.expanded-addon-content {
+  background-color: rgba(175, 82, 222, 0.05);
+  border: 1px solid rgba(175, 82, 222, 0.15);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.expanded-addon-content h4 {
+  font-size: 15px;
+  color: #af52de;
+  margin-bottom: 6px;
+}
+
+.addon-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.addon-tips {
+  font-size: 13px;
+  color: var(--text-primary);
+  background-color: rgba(175, 82, 222, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  line-height: 1.4;
+}
+
+@media (prefers-color-scheme: dark) {
+  .expanded-addon-content {
+    background-color: rgba(175, 82, 222, 0.1);
+    border-color: rgba(175, 82, 222, 0.2);
+  }
+
+  .expanded-addon-content h4 {
+    color: #e5a1ff;
+  }
+
+  .addon-tips {
+    background-color: rgba(175, 82, 222, 0.15);
+  }
 }

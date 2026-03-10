@@ -228,7 +228,7 @@ export default function TeaAdmin({ teas: initialTeas, onClose }) {
                         <input
                             type="text"
                             className="search-input"
-                            placeholder="Search catalog to edit..."
+                            placeholder="Search..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />

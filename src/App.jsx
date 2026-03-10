@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect, useRef, lazy, Suspense } from 'react';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
-import { Search, Menu, MapPin, Clock, Thermometer, Leaf, Pencil, Star, X, Info, Tag } from 'lucide-react';
+import { Search, Menu, MapPin, Clock, Thermometer, Leaf, Pencil, Star, X, Info, Tag, Sparkles } from 'lucide-react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -59,6 +59,27 @@ import './admin.css';
 
 const TeaAdmin = lazy(() => import('./TeaAdmin'));
 
+const renderTextWithAddonHighlight = (text) => {
+  if (!text) return null;
+  const parts = text.split('(available as a House Add-on)');
+  if (parts.length === 1) return text;
+
+  return (
+    <>
+      {parts.map((part, i) => (
+        <span key={i}>
+          {part}
+          {i !== parts.length - 1 && (
+            <span className="inline-addon-badge">
+              <Sparkles size={11} className="inline-addon-sparkle" />
+              <span style={{ marginLeft: '1px' }}>House Add-on</span>
+            </span>
+          )}
+        </span>
+      ))}
+    </>
+  );
+};
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -67,7 +88,9 @@ function App() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchForced, setIsSearchForced] = useState(false);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [selectedTea, setSelectedTea] = useState(null);
+  const [expandedAddon, setExpandedAddon] = useState(null);
   const lenisRef = useRef(null);
   const searchInputRef = useRef(null);
 
@@ -116,6 +139,29 @@ function App() {
       if (lenisRef.current) lenisRef.current.start();
     };
   }, [selectedTea, isAdminOpen]);
+
+  // Reset expanded add-on when selected tea changes
+  useEffect(() => {
+    setExpandedAddon(null);
+  }, [selectedTea]);
+
+  const handleSurpriseMe = (e) => {
+    e?.preventDefault();
+    const eligibleTeas = teasData.filter(tea => {
+      const cats = tea.categories || (tea.category ? [tea.category] : []);
+      const isAddOn = cats.includes("Add-Ons");
+      const isOutOfStock = tea.inStock === false;
+      const isCurrentlySelected = selectedTea && selectedTea.id === tea.id;
+      return !isAddOn && !isOutOfStock && !isCurrentlySelected;
+    });
+    if (eligibleTeas.length > 0) {
+      const randomArray = new Uint32Array(1);
+      window.crypto.getRandomValues(randomArray);
+      const randomIndex = randomArray[0] % eligibleTeas.length;
+      const randomTea = eligibleTeas[randomIndex];
+      setSelectedTea(randomTea);
+    }
+  };
 
   const allCategories = useMemo(() => {
     const cats = new Set();
@@ -213,16 +259,28 @@ function App() {
   const renderNav = (isForced) => (
     <div className="floating-nav">
       <div className="nav-content">
-        <div className="search-container">
-          <Search className="search-icon" size={18} />
-          <input
-            ref={isForced ? searchInputRef : null}
-            type="text"
-            className="search-input"
-            placeholder="Search catalog..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
+        <div className="search-row">
+          <div className="search-container">
+            <Search className="search-icon" size={18} />
+            <input
+              ref={isForced ? searchInputRef : null}
+              type="text"
+              className="search-input"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onFocus={() => setIsSearchFocused(true)}
+              onBlur={() => setIsSearchFocused(false)}
+            />
+          </div>
+          <button
+            className={`surprise-me-btn nav-surprise-btn ${(isSearchFocused || searchQuery.trim() !== "") ? 'collapsed' : ''}`}
+            onClick={handleSurpriseMe}
+            title="Surprise me with a random tea!"
+          >
+            <Sparkles size={18} />
+            <span className="surprise-text">Surprise</span>
+          </button>
         </div>
 
         <div className="filter-controls-row">
@@ -263,17 +321,6 @@ function App() {
               {cat}
             </button>
           ))}
-          <div className="category-divider"></div>
-          <button
-            key="Add-Ons"
-            className={`category-pill addon-pill ${activeCategory === 'Add-Ons' ? 'active' : ''} ${activeCategory !== 'Add-Ons' ? getCategoryColorClass('Add-Ons') : ''}`}
-            onClick={() => {
-              setActiveCategory('Add-Ons');
-              lenisRef.current?.scrollTo(0, { immediate: false, duration: 1.2 });
-            }}
-          >
-            Add-Ons
-          </button>
         </div>
       </div>
     </div>
@@ -306,9 +353,8 @@ function App() {
           <motion.div
             className="fixed-search-overlay"
             initial={{ y: -120 }}
-            animate={{ y: 0 }}
-            exit={{ y: -120 }}
-            transition={{ type: "spring", stiffness: 350, damping: 30 }}
+            animate={{ y: 0, transition: { type: "spring", stiffness: 350, damping: 30 } }}
+            exit={{ y: -120, transition: { duration: 0.2, ease: "easeIn" } }}
           >
             {renderNav(true)}
           </motion.div>
@@ -489,7 +535,7 @@ function App() {
               </div>
 
               <div className="modal-body">
-                <p className="modal-desc">{selectedTea.description}</p>
+                <p className="modal-desc">{renderTextWithAddonHighlight(selectedTea.description)}</p>
 
                 <div className="detail-grid">
                   {selectedTea.temperature && (
@@ -534,7 +580,7 @@ function App() {
                 {selectedTea.tips && (
                   <div className="detail-section">
                     <h3>Pro Tips</h3>
-                    <p>{selectedTea.tips}</p>
+                    <p>{renderTextWithAddonHighlight(selectedTea.tips)}</p>
                   </div>
                 )}
 
@@ -542,6 +588,44 @@ function App() {
                   <div className="detail-section">
                     <h3>Brand</h3>
                     <p>{selectedTea.brand}</p>
+                  </div>
+                )}
+
+                {(!selectedTea.categories || !selectedTea.categories.includes("Add-Ons")) && (
+                  <div className="detail-section">
+                    <h3>House Add-Ons</h3>
+                    <div className="addon-pills-container">
+                      {teasData.filter(t => t.categories?.includes("Add-Ons")).map(addon => (
+                        <button key={addon.id} className={`addon-suggestion-btn ${expandedAddon?.id === addon.id ? 'active' : ''}`} onClick={(e) => {
+                          e.stopPropagation();
+                          setExpandedAddon(prev => prev?.id === addon.id ? null : addon);
+                        }}>
+                          <Sparkles size={14} className="addon-sparkle" />
+                          <span>{addon.name}</span>
+                        </button>
+                      ))}
+                    </div>
+                    <AnimatePresence>
+                      {expandedAddon && (
+                        <motion.div
+                          className="expanded-addon-card"
+                          initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                          animate={{ opacity: 1, height: 'auto', marginTop: 12 }}
+                          exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                          transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+                        >
+                          <div className="expanded-addon-content">
+                            <h4>{expandedAddon.name}</h4>
+                            <p className="addon-desc">{expandedAddon.description}</p>
+                            {expandedAddon.tips && (
+                              <div className="addon-tips">
+                                <strong>Tip: </strong> {expandedAddon.tips}
+                              </div>
+                            )}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 )}
 
