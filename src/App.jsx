@@ -56,6 +56,7 @@ const itemVariants = {
 };
 import teasData from './data/teas.json';
 import './admin.css';
+import { aiSearch } from './ai/aiService';
 
 const TeaAdmin = lazy(() => import('./TeaAdmin'));
 
@@ -91,6 +92,10 @@ function App() {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [selectedTea, setSelectedTea] = useState(null);
   const [expandedAddon, setExpandedAddon] = useState(null);
+  const [isAiReady, setIsAiReady] = useState(false);
+  const [isAiWakingUp, setIsAiWakingUp] = useState(true);
+  const [aiSearchResults, setAiSearchResults] = useState(null);
+  const [aiExplanations, setAiExplanations] = useState({});
   const lenisRef = useRef(null);
   const searchInputRef = useRef(null);
 
@@ -115,14 +120,20 @@ function App() {
       }
     });
 
+    let animationFrameId;
     function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+      if (!lenisRef.current) return;
+      lenisRef.current.raf(time);
+      animationFrameId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    animationFrameId = requestAnimationFrame(raf);
 
-    return () => lenis.destroy();
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      lenis.destroy();
+      lenisRef.current = null;
+    };
   }, []);
 
   // Lock body scroll when overlay is active
@@ -140,10 +151,46 @@ function App() {
     };
   }, [selectedTea, isAdminOpen]);
 
-  // Reset expanded add-on when selected tea changes
-  useEffect(() => {
+  const handleSelectTea = (tea) => {
+    setSelectedTea(tea);
     setExpandedAddon(null);
-  }, [selectedTea]);
+  };
+
+  // Initialize AI Search
+  useEffect(() => {
+    aiSearch.init(teasData, () => {
+      setIsAiReady(true);
+      setIsAiWakingUp(false);
+    });
+  }, []);
+
+  // Update AI search query
+  useEffect(() => {
+    let active = true;
+    const performSearch = async () => {
+      if (isAiReady) {
+        if (searchQuery.trim().length > 1) {
+          const res = await aiSearch.search(searchQuery);
+          if (active) {
+            if (res && res.results) {
+              setAiSearchResults(res.results);
+              setAiExplanations(res.explanations || {});
+            } else {
+              setAiSearchResults(res);
+              setAiExplanations({});
+            }
+          }
+        } else {
+          if (active) {
+            setAiSearchResults(null);
+            setAiExplanations({});
+          }
+        }
+      }
+    };
+    performSearch();
+    return () => { active = false; };
+  }, [searchQuery, isAiReady]);
 
   const handleSurpriseMe = (e) => {
     e?.preventDefault();
@@ -159,7 +206,7 @@ function App() {
       window.crypto.getRandomValues(randomArray);
       const randomIndex = randomArray[0] % eligibleTeas.length;
       const randomTea = eligibleTeas[randomIndex];
-      setSelectedTea(randomTea);
+      handleSelectTea(randomTea);
     }
   };
 
@@ -219,20 +266,40 @@ function App() {
 
     if (searchQuery.trim() !== "") {
       const q = searchQuery.toLowerCase();
-      filtered = filtered.filter((tea) => {
-        const cats = tea.categories || (tea.category ? [tea.category] : []);
-        const catsMatch = cats.join(' ').toLowerCase().includes(q);
-        const ObjectValuesMatch = Object.values(tea).some(val =>
-          String(val).toLowerCase().includes(q)
-        );
-        return ObjectValuesMatch || catsMatch;
-      });
+      if (aiSearchResults && aiSearchResults.length > 0) {
+        // AI returned results
+        filtered = filtered.filter(tea => aiSearchResults.some(r => r.id === tea.id));
+      } else if (aiSearchResults && aiSearchResults.length === 0) {
+        // AI returned empty
+        filtered = [];
+      } else {
+        // Fallback to text search
+        filtered = filtered.filter((tea) => {
+          const cats = tea.categories || (tea.category ? [tea.category] : []);
+          const catsMatch = cats.join(' ').toLowerCase().includes(q);
+          const ObjectValuesMatch = Object.values(tea).some(val =>
+            String(val).toLowerCase().includes(q)
+          );
+          return ObjectValuesMatch || catsMatch;
+        });
+      }
     }
 
-    // Sort globally: Alphabetically by name everywhere
-    const sortedFiltered = [...filtered].sort((a, b) => {
-      return a.name.localeCompare(b.name);
-    });
+    // Sort globally
+    let sortedFiltered = [...filtered];
+    if (aiSearchResults && aiSearchResults.length > 0 && searchQuery.trim() !== "") {
+      // Sort by AI confidence
+      sortedFiltered.sort((a, b) => {
+        const scoreA = aiSearchResults.find(r => r.id === a.id)?.score || 0;
+        const scoreB = aiSearchResults.find(r => r.id === b.id)?.score || 0;
+        return scoreB - scoreA;
+      });
+    } else {
+      // Alphabetically by name everywhere
+      sortedFiltered.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      });
+    }
 
     const groups = {};
     if (activeCategory === "All" || activeCategory === "Favorites" || activeCategory === "Add-Ons") {
@@ -251,7 +318,7 @@ function App() {
     }
 
     return groups;
-  }, [searchQuery, activeCategory, caffeineFilter]);
+  }, [searchQuery, activeCategory, caffeineFilter, aiSearchResults]);
 
   // Sort groups alphabetically
   const displayedCategories = Object.keys(groupedTeas).sort();
@@ -260,13 +327,19 @@ function App() {
     <div className="floating-nav">
       <div className="nav-content">
         <div className="search-row">
-          <div className="search-container">
-            <Search className="search-icon" size={18} />
+          <div className={`search-container ${isAiWakingUp ? 'ai-waking-up' : ''} ${isAiReady ? 'ai-ready' : ''}`}>
+            <div className="search-icon-wrapper">
+              {isAiWakingUp ? (
+                <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1.5, ease: 'linear' }} className="ai-spinner" />
+              ) : (
+                <Search className={isAiReady ? "search-icon ai-glowing-icon" : "search-icon"} size={18} />
+              )}
+            </div>
             <input
               ref={isForced ? searchInputRef : null}
               type="text"
               className="search-input"
-              placeholder="Search..."
+              placeholder={isAiWakingUp ? "Brewing AI..." : (isAiReady ? "Spill the tea!" : "Search...")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onFocus={() => setIsSearchFocused(true)}
@@ -400,72 +473,93 @@ function App() {
                   initial="hidden"
                   animate="visible"
                 >
-                  {groupedTeas[category].map((tea, index) => {
-                    const isAddOn = (tea.categories || []).includes('Add-Ons');
-                    return (
-                      <motion.div
-                        key={tea.id}
-                        className={`list-row ${!tea.inStock ? 'out-of-stock' : ''}`}
-                        variants={itemVariants}
-                        layout="position"
-                      >
-                        <div className="row-content" onClick={() => setSelectedTea(tea)} style={{ cursor: 'pointer' }}>
-                          <div className="row-header">
-                            <div className="title-group">
-                              {tea.favoriteS && (
-                                <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-                                  <Star className="favorite-icon" size={18} fill="#FF9500" color="#FF9500" />
-                                  <span style={{ position: 'absolute', fontSize: '9px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>S</span>
-                                </div>
-                              )}
-                              {tea.favoriteK && (
-                                <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-                                  <Star className="favorite-icon" size={18} fill="#34C759" color="#34C759" />
-                                  <span style={{ position: 'absolute', fontSize: '9px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>K</span>
-                                </div>
-                              )}
-                              <span className="tea-name">{tea.name}</span>
-                            </div>
-                            {!tea.inStock && <span className="badge">Out of Stock</span>}
-                          </div>
-
-                          <p className="tea-desc">{tea.flavourNotes}</p>
-
-                          <div className="tea-meta">
-                            {(() => {
-                              const showAllTags = activeCategory === "All" || activeCategory === "Favorites";
-                              const hasSubCat = tea.categories?.some(c => isSubCategory(c));
-                              if (showAllTags || hasSubCat) {
-                                return tea.categories?.map((c, i) => (
-                                  <div key={i} className={`meta-pill category-meta ${getCategoryColorClass(c)}`}>
-                                    <Tag size={12} /> <span>{c}</span>
+                  <AnimatePresence mode="popLayout" initial={false}>
+                    {groupedTeas[category].map((tea, index) => {
+                      const isAddOn = (tea.categories || []).includes('Add-Ons');
+                      return (
+                        <motion.div
+                          key={tea.id}
+                          className={`list-row ${!tea.inStock ? 'out-of-stock' : ''}`}
+                          variants={itemVariants}
+                          initial="hidden"
+                          animate="visible"
+                          exit={{ opacity: 0, scale: 0.96 }}
+                          layout
+                        >
+                          <div className="row-content" onClick={() => handleSelectTea(tea)} style={{ cursor: 'pointer' }}>
+                            <div className="row-header">
+                              <div className="title-group">
+                                {tea.favoriteS && (
+                                  <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <Star className="favorite-icon" size={18} fill="#FF9500" color="#FF9500" />
+                                    <span style={{ position: 'absolute', fontSize: '9px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>S</span>
                                   </div>
-                                ));
-                              }
-                              return null;
-                            })()}
-                            {tea.origin && tea.origin !== "Unknown" && (
-                              <div className="meta-pill">
-                                <MapPin size={14} /> <span>{tea.origin}</span>
+                                )}
+                                {tea.favoriteK && (
+                                  <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <Star className="favorite-icon" size={18} fill="#34C759" color="#34C759" />
+                                    <span style={{ position: 'absolute', fontSize: '9px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>K</span>
+                                  </div>
+                                )}
+                                <span className="tea-name">{tea.name}</span>
                               </div>
-                            )}
-                            {!isAddOn && tea.temperature && (
-                              <div className="meta-pill">
-                                <Thermometer size={14} /> <span>{tea.temperature}</span>
-                              </div>
-                            )}
-                            {!isAddOn && tea.brewTime && (
-                              <div className="meta-pill">
-                                <Clock size={14} /> <span>{tea.brewTime}</span>
+                              {!tea.inStock && <span className="badge">Out of Stock</span>}
+                            </div>
+
+                            <p className="tea-desc">{tea.flavourNotes}</p>
+
+                            <div className="tea-meta">
+                              {(() => {
+                                const showAllTags = activeCategory === "All" || activeCategory === "Favorites";
+                                const hasSubCat = tea.categories?.some(c => isSubCategory(c));
+                                if (showAllTags || hasSubCat) {
+                                  return tea.categories?.map((c, i) => (
+                                    <div key={i} className={`meta-pill category-meta ${getCategoryColorClass(c)}`}>
+                                      <Tag size={12} /> <span>{c}</span>
+                                    </div>
+                                  ));
+                                }
+                                return null;
+                              })()}
+                              {tea.origin && tea.origin !== "Unknown" && (
+                                <div className="meta-pill">
+                                  <MapPin size={14} /> <span>{tea.origin}</span>
+                                </div>
+                              )}
+                              {!isAddOn && tea.temperature && (
+                                <div className="meta-pill">
+                                  <Thermometer size={14} /> <span>{tea.temperature}</span>
+                                </div>
+                              )}
+                              {!isAddOn && tea.brewTime && (
+                                <div className="meta-pill">
+                                  <Clock size={14} /> <span>{tea.brewTime}</span>
+                                </div>
+                              )}
+                            </div>
+
+                            {aiSearchResults && aiSearchResults.find(r => r.id === tea.id) && searchQuery.trim() !== "" && (
+                              <div className="ai-explanation-row">
+                                <span className="ai-explain-badge match-confidence-badge" style={{ backgroundColor: 'var(--accent-color)', color: '#fff' }}>
+                                  {Math.round(aiSearchResults.find(r => r.id === tea.id).score * 100)}% Match
+                                </span>
+                                {aiExplanations[tea.id] && aiExplanations[tea.id].length > 0 && (
+                                  <>
+                                    <Sparkles size={11} className="ai-explain-icon" style={{ marginLeft: '4px' }} />
+                                    {aiExplanations[tea.id].map((concept, ci) => (
+                                      <span key={ci} className="ai-explain-badge">{concept}</span>
+                                    ))}
+                                  </>
+                                )}
                               </div>
                             )}
                           </div>
-                        </div>
 
-                        {index !== groupedTeas[category].length - 1 && <div className="hairline"></div>}
-                      </motion.div>
-                    )
-                  })}
+                          {index !== groupedTeas[category].length - 1 && <div className="hairline"></div>}
+                        </motion.div>
+                      )
+                    })}
+                  </AnimatePresence>
                 </motion.div>
               </motion.section>
             ))
@@ -500,7 +594,7 @@ function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedTea(null)}
+            onClick={() => handleSelectTea(null)}
           >
             <motion.div
               className="modal-content"
@@ -511,7 +605,7 @@ function App() {
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <button className="modal-close" onClick={() => setSelectedTea(null)}>
+              <button className="modal-close" onClick={() => handleSelectTea(null)}>
                 <X size={24} />
               </button>
 

@@ -71,6 +71,7 @@ export default function TeaAdmin({ teas: initialTeas, onClose }) {
             if (!response.ok) throw new Error("Failed to save");
             alert("Successfully saved! Changes apply immediately.");
             onClose();
+            window.location.reload();
         } catch (e) {
             alert("Error saving: " + e.message);
         } finally {
@@ -120,7 +121,7 @@ export default function TeaAdmin({ teas: initialTeas, onClose }) {
         const teaToCopy = teas.find(t => t.id === id);
         if (!teaToCopy) return;
 
-        const newId = Date.now();
+        const newId = String(Date.now());
         const newTea = {
             ...teaToCopy,
             id: newId,
@@ -133,22 +134,31 @@ export default function TeaAdmin({ teas: initialTeas, onClose }) {
     };
 
     const addTea = () => {
-        const newId = Date.now();
+        const newId = String(Date.now());
+        const isFav = activeCategory === "Favorites";
+        const isValidCat = activeCategory !== "All" && activeCategory !== "Favorites";
         const newTeas = [{
             id: newId,
-            name: "New Tea",
-            categories: activeCategory !== "All" ? [activeCategory] : [],
+            name: "", // Empty name sorts to the very top alphabetically
+            categories: isValidCat ? [activeCategory] : [],
             origin: "",
             brewTime: "",
             temperature: "",
             description: "",
+            aiSemanticProfile: "",
             inStock: true,
-            favoriteS: false,
+            favoriteS: isFav ? true : false,
             favoriteK: false
         }, ...teas];
         setTeas(newTeas);
         setExpandedId(newId);
         setSearchQuery(""); // clear search to ensure they see the new tea
+
+        // Scroll to the top automatically to make it incredibly obvious
+        setTimeout(() => {
+            const adminOverlay = document.querySelector('.admin-content');
+            if (adminOverlay) adminOverlay.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 50);
     };
 
     const filteredTeas = useMemo(() => {
@@ -377,6 +387,11 @@ export default function TeaAdmin({ teas: initialTeas, onClose }) {
                                             <div className="field-group">
                                                 <label>Pro Tips</label>
                                                 <input value={tea.tips || ''} onChange={e => updateTea(tea.id, 'tips', e.target.value)} placeholder="e.g. Makes a good iced tea..." className="admin-input" />
+                                            </div>
+
+                                            <div className="field-group hero-field">
+                                                <label>AI Semantic Profile (Emotions, Scenarios & Concepts)</label>
+                                                <textarea value={tea.aiSemanticProfile || ''} onChange={e => updateTea(tea.id, 'aiSemanticProfile', e.target.value)} placeholder="e.g. cozy, rainy day, relaxing, deep thought, nostalgic..." className="admin-input admin-textarea" />
                                             </div>
 
                                             <div className="admin-field-row auto-grid">

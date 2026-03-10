@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import fs from 'fs'
 import path from 'path'
 import process from 'process'
+import { exec } from 'child_process'
 
 function teaAdminPlugin() {
   return {
@@ -16,8 +17,17 @@ function teaAdminPlugin() {
             try {
               const filePath = path.join(process.cwd(), 'src', 'data', 'teas.json');
               fs.writeFileSync(filePath, body);
-              res.statusCode = 200;
-              res.end('OK');
+
+              exec('npm run update-ai', (error) => {
+                if (error) {
+                  console.error('AI Update error:', error);
+                  res.statusCode = 500;
+                  res.end('Error recomputing AI models');
+                  return;
+                }
+                res.statusCode = 200;
+                res.end('OK');
+              });
             } catch (err) {
               res.statusCode = 500;
               res.end(err.message);
@@ -35,4 +45,12 @@ function teaAdminPlugin() {
 export default defineConfig({
   base: '/tea-db/',
   plugins: [react(), teaAdminPlugin()],
+  build: {
+    rollupOptions: {
+      onwarn(warning, warn) {
+        if (warning.code === 'EVAL' && warning.loc?.file?.includes('onnxruntime-web')) return;
+        warn(warning);
+      }
+    }
+  }
 })
