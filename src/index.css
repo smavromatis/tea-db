@@ -1469,3 +1469,171 @@ html.lenis body {
   .scale-flavor .tea-scale-fill { background: linear-gradient(90deg, #A5D6A7, #30D158); }
   .scale-sweetness .tea-scale-fill { background: linear-gradient(90deg, #F48FB1, #FF375F); }
 }
+
+/* ── Modern Coffee Intervention ─────────────────────────────────── */
+.coffee-intervention {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  backdrop-filter: blur(40px) saturate(150%);
+  -webkit-backdrop-filter: blur(40px) saturate(150%);
+  background-color: rgba(44, 27, 14, 0.4); /* Frosted espresso */
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+.coffee-mesh {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: -1;
+  background: 
+    radial-gradient(circle at 70% 80%, rgba(139, 69, 19, 0.5), transparent 40%),
+    radial-gradient(circle at 20% 30%, rgba(91, 122, 90, 0.3), transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(44, 27, 14, 0.8), transparent 60%);
+  filter: blur(60px);
+  animation: meshRotate 20s infinite linear;
+}
+
+@keyframes meshRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.coffee-icon-wrapper {
+  margin-bottom: 48px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 40px;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.coffee-forbidden {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #FF2D55; /* Apple Red */
+  filter: drop-shadow(0 0 15px rgba(255, 45, 85, 0.6));
+}
+
+.coffee-title {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.coffee-message {
+  font-size: 21px;
+  line-height: 1.5;
+  max-width: 580px;
+  margin-bottom: 56px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: -0.01em;
+}
+
+.coffee-actions {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+}
+
+.coffee-btn {
+  padding: 18px 32px;
+  border-radius: 20px;
+  border: none;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+}
+
+.coffee-btn-primary {
+  background-color: #ffffff;
+  color: #2C1B0E;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.coffee-btn-primary:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.coffee-btn-secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.coffee-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.coffee-btn-surprise {
+  background: linear-gradient(135deg, rgba(90, 200, 250, 0.2), rgba(175, 82, 222, 0.2), rgba(255, 45, 85, 0.2), rgba(255, 149, 0, 0.2));
+  color: #ffffff;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(175, 82, 222, 0.4) !important;
+  box-shadow: 0 10px 40px rgba(175, 82, 222, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.coffee-btn-surprise:hover {
+  background: linear-gradient(135deg, rgba(90, 200, 250, 0.3), rgba(175, 82, 222, 0.3), rgba(255, 45, 85, 0.3), rgba(255, 149, 0, 0.3));
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 50px rgba(175, 82, 222, 0.4);
+  border-color: rgba(175, 82, 222, 0.6) !important;
+}
+
+.ambulance-flash {
+  animation: flashApple 0.6s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes flashApple {
+  0% { transform: scale(1); opacity: 1; color: #FF2D55; }
+  50% { transform: scale(1.2); opacity: 0.8; color: #ffffff; }
+  100% { transform: scale(1); opacity: 1; color: #FF2D55; }
+}
+
+@media (max-width: 480px) {
+  .coffee-title {
+    font-size: 36px;
+  }
+  .coffee-message {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+  .coffee-icon-wrapper {
+    padding: 30px;
+    border-radius: 30px;
+  }
+}

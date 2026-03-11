@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, useRef, lazy, Suspense } from 'react';
 import Lenis from 'lenis';
-import { Search, Menu, MapPin, Clock, Thermometer, Leaf, Pencil, Star, X, Info, Tag, Sparkles, ChevronRight, ArrowUp, PlusCircle } from 'lucide-react';
+import { Search, Menu, MapPin, Clock, Thermometer, Leaf, Pencil, Star, X, Info, Tag, Sparkles, ChevronRight, ArrowUp, PlusCircle, Coffee, AlertTriangle } from 'lucide-react';
 import TeaCupIcon from './components/TeaCupIcon';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
@@ -107,8 +107,31 @@ function App() {
   const [aiSearchResults, setAiSearchResults] = useState(null);
   const [aiExplanations, setAiExplanations] = useState({});
   const [isTimerFlipped, setIsTimerFlipped] = useState(false);
+  const [isCoffeeInterventionActive, setIsCoffeeInterventionActive] = useState(false);
+  const [isInterventionClosing, setIsInterventionClosing] = useState(false);
   const lenisRef = useRef(null);
   const searchInputRef = useRef(null);
+
+  // Trigger intervention and reset background immediately
+  useEffect(() => {
+    if (searchQuery.toLowerCase().trim() === 'coffee') {
+      setIsCoffeeInterventionActive(true);
+      setSearchQuery("");
+    }
+  }, [searchQuery]);
+
+  const isCoffeeMode = isCoffeeInterventionActive && !isInterventionClosing;
+
+  // Handle controlled exit for smooth transitions
+  const handleExitCoffeeMode = (callback) => {
+    setIsInterventionClosing(true);
+    setTimeout(() => {
+      setIsCoffeeInterventionActive(false);
+      setIsInterventionClosing(false);
+      if (callback) callback();
+    }, 500); 
+  };
+
 
   // Initialize Lenis smooth scroll and wire scroll state to it
   useEffect(() => {
@@ -146,7 +169,7 @@ function App() {
 
   // Lock body scroll when overlay is active
   useEffect(() => {
-    if (selectedTea || isAdminOpen) {
+    if (selectedTea || isAdminOpen || isCoffeeMode) {
       document.body.classList.add('lock-scroll');
       if (lenisRef.current) lenisRef.current.stop();
     } else {
@@ -157,7 +180,7 @@ function App() {
       document.body.classList.remove('lock-scroll');
       if (lenisRef.current) lenisRef.current.start();
     };
-  }, [selectedTea, isAdminOpen]);
+  }, [selectedTea, isAdminOpen, isCoffeeMode]);
 
   const handleSelectTea = (tea) => {
     setSelectedTea(tea);
@@ -408,8 +431,80 @@ function App() {
     </div>
   );
 
+
   return (
     <div className="app-wrapper">
+      <AnimatePresence>
+        {isCoffeeMode && (
+          <motion.div 
+            className="coffee-intervention"
+            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(40px)" }}
+            exit={{ opacity: 0, scale: 1.05, backdropFilter: "blur(0px)" }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="coffee-mesh" />
+            
+            <motion.div 
+              className="coffee-icon-wrapper"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ 
+                y: { type: "spring", stiffness: 100, damping: 20, delay: 0.2 },
+                opacity: { duration: 0.5, delay: 0.2 }
+              }}
+            >
+              <Coffee size={80} strokeWidth={1} color="white" />
+              <div className="coffee-forbidden">
+                <AlertTriangle size={32} />
+              </div>
+            </motion.div>
+
+            <motion.h1 
+              className="coffee-title"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.3 }}
+            >
+              Wait, let's talk.
+            </motion.h1>
+            
+            <motion.p 
+              className="coffee-message"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.4 }}
+            >
+              It seems you've wandered into the wrong neighborhood, friend. We only speak 'Tea' here. Don't worry, we won't call for help just yet. Perhaps a surprise selection would help you find your way back?
+            </motion.p>
+
+            <motion.div 
+              className="coffee-actions"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.5 }}
+            >
+              <button 
+                className="coffee-btn coffee-btn-surprise"
+                onClick={() => {
+                  handleExitCoffeeMode(() => handleSurpriseMe());
+                }}
+              >
+                <Sparkles size={18} />
+                Surprise Me Instead
+              </button>
+              
+              <button 
+                className="coffee-btn coffee-btn-secondary"
+                onClick={() => handleExitCoffeeMode()}
+              >
+                My mistake, let's stick to tea
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <AnimatePresence>
         <motion.div
           key={activeCategory}
