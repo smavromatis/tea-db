@@ -454,21 +454,16 @@ function App() {
         {isCoffeeMode && (
           <motion.div 
             className="coffee-intervention"
-            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(25px)" }}
-            exit={{ opacity: 0, scale: 1.05, backdropFilter: "blur(0px)" }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="coffee-mesh" />
-            
             <motion.div 
               className="coffee-icon-wrapper"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ 
-                y: { type: "spring", stiffness: 100, damping: 20, delay: 0.2 },
-                opacity: { duration: 0.5, delay: 0.2 }
-              }}
+              transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
             >
               <Coffee size={80} strokeWidth={1} color="white" />
               <div className="coffee-forbidden">
@@ -478,27 +473,27 @@ function App() {
 
             <motion.h1 
               className="coffee-title"
-              initial={{ y: 20, opacity: 0 }}
+              initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
             >
               Wait, let's talk.
             </motion.h1>
             
             <motion.p 
               className="coffee-message"
-              initial={{ y: 20, opacity: 0 }}
+              initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
             >
               It seems you've wandered into the wrong neighborhood, friend. We only speak 'Tea' here. Don't worry, we won't call for help just yet. Perhaps a surprise selection would help you find your way back?
             </motion.p>
 
             <motion.div 
               className="coffee-actions"
-              initial={{ y: 20, opacity: 0 }}
+              initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
             >
               <button 
                 className="coffee-btn coffee-btn-surprise"

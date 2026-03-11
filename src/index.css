@@ -1473,11 +1473,7 @@ html.lenis body {
 /* ── Modern Coffee Intervention ─────────────────────────────────── */
 .coffee-intervention {
   position: fixed;
-  /* Aggressive overshoot to cover Safari URL bars and Dynamic Island */
-  top: -10vh;
-  left: -10vw;
-  right: -10vw;
-  bottom: -10vh;
+  inset: -10vh -10vw;
   width: 120vw;
   height: 120vh;
   z-index: 999999;
@@ -1487,9 +1483,8 @@ html.lenis body {
   justify-content: center;
   padding: 10vh 10vw;
   text-align: center;
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  background-color: rgba(28, 17, 9, 0.75); /* Deeper frosted espresso */
+  /* Solid color for perfect blending and high performance */
+  background-color: #1C1109; 
   color: #ffffff;
   font-family: 'Inter', sans-serif;
   overflow: hidden;
@@ -1500,27 +1495,6 @@ body.coffee-mode {
   background-color: #1C1109 !important;
 }
 
-.coffee-mesh {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  z-index: -1;
-  background: 
-    radial-gradient(circle at 75% 75%, rgba(139, 69, 19, 0.4), transparent 45%),
-    radial-gradient(circle at 25% 25%, rgba(91, 122, 90, 0.2), transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(28, 17, 9, 0.7), transparent 60%);
-  filter: blur(50px);
-  animation: meshRotate 25s infinite linear;
-  will-change: transform;
-  transform: translateZ(0);
-}
-
-@keyframes meshRotate {
-  from { transform: rotate(0deg) translateZ(0); }
-  to { transform: rotate(360deg) translateZ(0); }
-}
 
 .coffee-icon-wrapper {
   margin-bottom: 48px;
