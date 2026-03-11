@@ -639,6 +639,23 @@ html.lenis body {
   margin-bottom: 12px;
 }
 
+.tappable-timer {
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 4px;
+  margin: -4px;
+  transition: all 0.2s ease;
+}
+
+.tappable-timer:hover {
+  background-color: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+.tappable-timer:active {
+  transform: translateY(0);
+}
+
 .tea-meta {
   display: flex;
   flex-wrap: wrap;

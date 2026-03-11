@@ -27,6 +27,10 @@
       "mouthfeel": 70,
       "flavor": 80,
       "sweetness": 85
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 4
     }
   },
   {
@@ -57,6 +61,10 @@
       "mouthfeel": 65,
       "flavor": 70,
       "sweetness": 50
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 5
     }
   },
   {
@@ -87,6 +95,10 @@
       "mouthfeel": 50,
       "flavor": 35,
       "sweetness": 70
+    },
+    "gongfu": {
+      "baseSec": 15,
+      "maxSteeps": 4
     }
   },
   {
@@ -117,6 +129,10 @@
       "mouthfeel": 85,
       "flavor": 15,
       "sweetness": 10
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -147,6 +163,10 @@
       "mouthfeel": 25,
       "flavor": 15,
       "sweetness": 30
+    },
+    "gongfu": {
+      "baseSec": 15,
+      "maxSteeps": 5
     }
   },
   {
@@ -177,6 +197,10 @@
       "mouthfeel": 35,
       "flavor": 40,
       "sweetness": 80
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -207,6 +231,10 @@
       "mouthfeel": 55,
       "flavor": 65,
       "sweetness": 35
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 6
     }
   },
   {
@@ -238,6 +266,10 @@
       "mouthfeel": 40,
       "flavor": 40,
       "sweetness": 20
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 5
     }
   },
   {
@@ -268,6 +300,10 @@
       "mouthfeel": 60,
       "flavor": 80,
       "sweetness": 60
+    },
+    "gongfu": {
+      "baseSec": 8,
+      "maxSteeps": 8
     }
   },
   {
@@ -298,6 +334,10 @@
       "mouthfeel": 20,
       "flavor": 20,
       "sweetness": 25
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -328,6 +368,10 @@
       "mouthfeel": 10,
       "flavor": 15,
       "sweetness": 20
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -358,6 +402,10 @@
       "mouthfeel": 5,
       "flavor": 40,
       "sweetness": 15
+    },
+    "gongfu": {
+      "baseSec": 12,
+      "maxSteeps": 10
     }
   },
   {
@@ -389,6 +437,10 @@
       "mouthfeel": 50,
       "flavor": 55,
       "sweetness": 30
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 5
     }
   },
   {
@@ -420,6 +472,10 @@
       "mouthfeel": 35,
       "flavor": 60,
       "sweetness": 15
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 5
     }
   },
   {
@@ -450,6 +506,10 @@
       "mouthfeel": 80,
       "flavor": 10,
       "sweetness": 40
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -480,6 +540,10 @@
       "mouthfeel": 30,
       "flavor": 20,
       "sweetness": 25
+    },
+    "gongfu": {
+      "baseSec": 12,
+      "maxSteeps": 6
     }
   },
   {
@@ -510,6 +574,10 @@
       "mouthfeel": 20,
       "flavor": 25,
       "sweetness": 30
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -540,6 +608,10 @@
       "mouthfeel": 30,
       "flavor": 15,
       "sweetness": 10
+    },
+    "gongfu": {
+      "baseSec": 15,
+      "maxSteeps": 4
     }
   },
   {
@@ -686,6 +758,10 @@
       "mouthfeel": 35,
       "flavor": 25,
       "sweetness": 20
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 8
     }
   },
   {
@@ -716,6 +792,10 @@
       "mouthfeel": 20,
       "flavor": 20,
       "sweetness": 35
+    },
+    "gongfu": {
+      "baseSec": 15,
+      "maxSteeps": 4
     }
   },
   {
@@ -746,6 +826,10 @@
       "mouthfeel": 30,
       "flavor": 30,
       "sweetness": 15
+    },
+    "gongfu": {
+      "baseSec": 15,
+      "maxSteeps": 4
     }
   },
   {
@@ -776,6 +860,10 @@
       "mouthfeel": 55,
       "flavor": 35,
       "sweetness": 75
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 2
     }
   },
   {
@@ -806,6 +894,10 @@
       "mouthfeel": 10,
       "flavor": 15,
       "sweetness": 15
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -836,6 +928,10 @@
       "mouthfeel": 45,
       "flavor": 70,
       "sweetness": 60
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 7
     }
   },
   {
@@ -866,6 +962,10 @@
       "mouthfeel": 85,
       "flavor": 98,
       "sweetness": 90
+    },
+    "gongfu": {
+      "baseSec": 8,
+      "maxSteeps": 7
     }
   },
   {
@@ -896,6 +996,10 @@
       "mouthfeel": 55,
       "flavor": 75,
       "sweetness": 55
+    },
+    "gongfu": {
+      "baseSec": 8,
+      "maxSteeps": 8
     }
   },
   {
@@ -955,6 +1059,10 @@
       "mouthfeel": 60,
       "flavor": 60,
       "sweetness": 80
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 2
     }
   },
   {
@@ -985,6 +1093,10 @@
       "mouthfeel": 20,
       "flavor": 50,
       "sweetness": 85
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -1015,6 +1127,10 @@
       "mouthfeel": 65,
       "flavor": 25,
       "sweetness": 75
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 2
     }
   },
   {
@@ -1045,6 +1161,10 @@
       "mouthfeel": 60,
       "flavor": 25,
       "sweetness": 75
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -1075,6 +1195,10 @@
       "mouthfeel": 75,
       "flavor": 55,
       "sweetness": 40
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 6
     }
   },
   {
@@ -1105,6 +1229,10 @@
       "mouthfeel": 70,
       "flavor": 75,
       "sweetness": 10
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 4
     }
   },
   {
@@ -1135,6 +1263,10 @@
       "mouthfeel": 25,
       "flavor": 15,
       "sweetness": 20
+    },
+    "gongfu": {
+      "baseSec": 15,
+      "maxSteeps": 4
     }
   },
   {
@@ -1165,6 +1297,10 @@
       "mouthfeel": 50,
       "flavor": 35,
       "sweetness": 50
+    },
+    "gongfu": {
+      "baseSec": 12,
+      "maxSteeps": 5
     }
   },
   {
@@ -1195,6 +1331,10 @@
       "mouthfeel": 35,
       "flavor": 50,
       "sweetness": 20
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -1225,6 +1365,10 @@
       "mouthfeel": 40,
       "flavor": 65,
       "sweetness": 85
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -1255,6 +1399,10 @@
       "mouthfeel": 55,
       "flavor": 65,
       "sweetness": 30
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 5
     }
   },
   {
@@ -1285,6 +1433,10 @@
       "mouthfeel": 55,
       "flavor": 75,
       "sweetness": 40
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 5
     }
   },
   {
@@ -1315,6 +1467,10 @@
       "mouthfeel": 45,
       "flavor": 25,
       "sweetness": 15
+    },
+    "gongfu": {
+      "baseSec": 12,
+      "maxSteeps": 5
     }
   },
   {
@@ -1345,6 +1501,10 @@
       "mouthfeel": 35,
       "flavor": 30,
       "sweetness": 20
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 5
     }
   },
   {
@@ -1375,6 +1535,10 @@
       "mouthfeel": 15,
       "flavor": 25,
       "sweetness": 30
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -1405,6 +1569,10 @@
       "mouthfeel": 25,
       "flavor": 20,
       "sweetness": 25
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 7
     }
   },
   {
@@ -1435,6 +1603,10 @@
       "mouthfeel": 45,
       "flavor": 20,
       "sweetness": 15
+    },
+    "gongfu": {
+      "baseSec": 12,
+      "maxSteeps": 5
     }
   },
   {
@@ -1465,6 +1637,10 @@
       "mouthfeel": 55,
       "flavor": 30,
       "sweetness": 75
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -1495,6 +1671,10 @@
       "mouthfeel": 25,
       "flavor": 20,
       "sweetness": 10
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -1525,6 +1705,10 @@
       "mouthfeel": 80,
       "flavor": 15,
       "sweetness": 15
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -1555,6 +1739,10 @@
       "mouthfeel": 70,
       "flavor": 35,
       "sweetness": 65
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 6
     }
   },
   {
@@ -1585,6 +1773,10 @@
       "mouthfeel": 20,
       "flavor": 35,
       "sweetness": 15
+    },
+    "gongfu": {
+      "baseSec": 20,
+      "maxSteeps": 3
     }
   },
   {
@@ -1615,6 +1807,10 @@
       "mouthfeel": 45,
       "flavor": 65,
       "sweetness": 30
+    },
+    "gongfu": {
+      "baseSec": 8,
+      "maxSteeps": 7
     }
   },
   {
@@ -1645,6 +1841,10 @@
       "mouthfeel": 85,
       "flavor": 85,
       "sweetness": 55
+    },
+    "gongfu": {
+      "baseSec": 8,
+      "maxSteeps": 6
     }
   },
   {
@@ -1675,6 +1875,10 @@
       "mouthfeel": 10,
       "flavor": 60,
       "sweetness": 5
+    },
+    "gongfu": {
+      "baseSec": 10,
+      "maxSteeps": 5
     }
   },
   {

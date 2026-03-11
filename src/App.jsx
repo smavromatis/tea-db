@@ -1,7 +1,6 @@
 import { useState, useMemo, useEffect, useRef, lazy, Suspense } from 'react';
 import Lenis from 'lenis';
-import 'lenis/dist/lenis.css';
-import { Search, Menu, MapPin, Clock, Thermometer, Leaf, Pencil, Star, X, Info, Tag, Sparkles } from 'lucide-react';
+import { Search, Menu, MapPin, Clock, Thermometer, Leaf, Pencil, Star, X, Info, Tag, Sparkles, ChevronRight } from 'lucide-react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -57,6 +56,7 @@ const itemVariants = {
 import teasData from './data/teas.json';
 import './admin.css';
 import { aiSearch } from './ai/aiService';
+import SmartTimer from './SmartTimer';
 
 const TeaAdmin = lazy(() => import('./TeaAdmin'));
 
@@ -96,6 +96,7 @@ function App() {
   const [isAiWakingUp, setIsAiWakingUp] = useState(true);
   const [aiSearchResults, setAiSearchResults] = useState(null);
   const [aiExplanations, setAiExplanations] = useState({});
+  const [isTimerFlipped, setIsTimerFlipped] = useState(false);
   const lenisRef = useRef(null);
   const searchInputRef = useRef(null);
 
@@ -154,6 +155,7 @@ function App() {
   const handleSelectTea = (tea) => {
     setSelectedTea(tea);
     setExpandedAddon(null);
+    setIsTimerFlipped(false);
   };
 
   // Initialize AI Search
@@ -631,40 +633,132 @@ function App() {
               <div className="modal-body">
                 <p className="modal-desc">{renderTextWithAddonHighlight(selectedTea.description)}</p>
 
-                <div className="detail-grid">
-                  {selectedTea.temperature && (
+                {(!selectedTea.categories?.includes("Add-Ons")) ? (
+                  <div className="flip-container" style={{ margin: '24px 0', perspective: '1000px', width: '100%' }}>
+                    <motion.div
+                      className="flip-inner"
+                      initial={false}
+                      animate={{ rotateY: isTimerFlipped ? 180 : 0 }}
+                      transition={{ duration: 0.6, type: "spring", stiffness: 200, damping: 20 }}
+                      style={{ position: 'relative', width: '100%', transformStyle: 'preserve-3d' }}
+                    >
+                      {/* Front: Grid */}
+                      <div
+                        className="flip-front"
+                        style={{
+                          backfaceVisibility: 'hidden',
+                          opacity: isTimerFlipped ? 0 : 1,
+                          transition: 'opacity 0.2s',
+                          position: 'relative',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          pointerEvents: isTimerFlipped ? 'none' : 'auto'
+                        }}
+                      >
+                        <div className="detail-grid" style={{ margin: 0 }}>
+                          {selectedTea.temperature && (
+                            <div className="detail-item">
+                              <Thermometer size={18} className="detail-icon" />
+                              <div className="detail-text">
+                                <span className="detail-label">Temperature</span>
+                                <span className="detail-value">{selectedTea.temperature}</span>
+                              </div>
+                            </div>
+                          )}
+                          {selectedTea.brewTime && (
+                            <div 
+                              className="detail-item tappable-timer" 
+                              onClick={() => setIsTimerFlipped(true)}
+                              title="Start Smart Timer"
+                            >
+                              <div className="flex-row-center" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <Clock size={18} className="detail-icon" style={{ color: 'var(--accent-color)' }} />
+                                <div className="detail-text">
+                                  <span className="detail-label" style={{ color: 'var(--accent-color)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                    Steep Time <ChevronRight size={14} />
+                                  </span>
+                                  <span className="detail-value">{selectedTea.brewTime}</span>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                          <div className="detail-item">
+                            <MapPin size={18} className="detail-icon" />
+                            <div className="detail-text">
+                              <span className="detail-label">Origin</span>
+                              <span className="detail-value">{selectedTea.origin || "Unknown"}</span>
+                            </div>
+                          </div>
+                          <div className="detail-item">
+                            <Info size={18} className="detail-icon" />
+                            <div className="detail-text">
+                              <span className="detail-label">Caffeine</span>
+                              <span className="detail-value">{selectedTea.caffeinated || "Unknown"}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Back: Timer */}
+                      <div
+                        className="flip-back"
+                        style={{
+                          backfaceVisibility: 'hidden',
+                          transform: 'rotateY(180deg)',
+                          opacity: isTimerFlipped ? 1 : 0,
+                          transition: 'opacity 0.2s',
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          display: 'flex',
+                          justifyContent: 'center',
+                          pointerEvents: isTimerFlipped ? 'auto' : 'none'
+                        }}
+                      >
+                        <SmartTimer tea={selectedTea} onClose={() => setIsTimerFlipped(false)} />
+                      </div>
+                    </motion.div>
+                  </div>
+                ) : (
+                  <div className="detail-grid" style={{ margin: '24px 0' }}>
+                    {selectedTea.temperature && (
+                      <div className="detail-item">
+                        <Thermometer size={18} className="detail-icon" />
+                        <div className="detail-text">
+                          <span className="detail-label">Temperature</span>
+                          <span className="detail-value">{selectedTea.temperature}</span>
+                        </div>
+                      </div>
+                    )}
+                    {selectedTea.brewTime && (
+                      <div className="detail-item">
+                        <Clock size={18} className="detail-icon" />
+                        <div className="detail-text">
+                          <span className="detail-label">Steep Time</span>
+                          <span className="detail-value">{selectedTea.brewTime}</span>
+                        </div>
+                      </div>
+                    )}
                     <div className="detail-item">
-                      <Thermometer size={18} className="detail-icon" />
+                      <MapPin size={18} className="detail-icon" />
                       <div className="detail-text">
-                        <span className="detail-label">Temperature</span>
-                        <span className="detail-value">{selectedTea.temperature}</span>
+                        <span className="detail-label">Origin</span>
+                        <span className="detail-value">{selectedTea.origin || "Unknown"}</span>
                       </div>
                     </div>
-                  )}
-                  {selectedTea.brewTime && (
                     <div className="detail-item">
-                      <Clock size={18} className="detail-icon" />
+                      <Info size={18} className="detail-icon" />
                       <div className="detail-text">
-                        <span className="detail-label">Steep Time</span>
-                        <span className="detail-value">{selectedTea.brewTime}</span>
+                        <span className="detail-label">Caffeine</span>
+                        <span className="detail-value">{selectedTea.caffeinated || "Unknown"}</span>
                       </div>
                     </div>
-                  )}
-                  <div className="detail-item">
-                    <MapPin size={18} className="detail-icon" />
-                    <div className="detail-text">
-                      <span className="detail-label">Origin</span>
-                      <span className="detail-value">{selectedTea.origin || "Unknown"}</span>
-                    </div>
                   </div>
-                  <div className="detail-item">
-                    <Info size={18} className="detail-icon" />
-                    <div className="detail-text">
-                      <span className="detail-label">Caffeine</span>
-                      <span className="detail-value">{selectedTea.caffeinated || "Unknown"}</span>
-                    </div>
-                  </div>
-                </div>
+                )}
 
                 <div className="detail-section">
                   <h3>Flavour Notes</h3>

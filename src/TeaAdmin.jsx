@@ -374,12 +374,23 @@ export default function TeaAdmin({ teas: initialTeas, onClose }) {
                                                     <input list="origins-list" value={tea.origin} onChange={e => updateTea(tea.id, 'origin', e.target.value)} placeholder="e.g. Kyoto, Japan" className="admin-input" />
                                                 </div>
                                                 <div className="field-group">
-                                                    <label>Brew Time</label>
+                                                    <label>Brew Time (Western)</label>
                                                     <input list="brews-list" value={tea.brewTime} onChange={e => updateTea(tea.id, 'brewTime', e.target.value)} placeholder="e.g. 3-4 mins" className="admin-input" />
                                                 </div>
                                                 <div className="field-group">
                                                     <label>Temperature</label>
                                                     <input list="temps-list" value={tea.temperature} onChange={e => updateTea(tea.id, 'temperature', e.target.value)} placeholder="e.g. 85°C" className="admin-input" />
+                                                </div>
+                                            </div>
+
+                                            <div className="admin-field-row auto-grid">
+                                                <div className="field-group">
+                                                    <label>Gongfu Base (sec)</label>
+                                                    <input type="number" min="3" max="60" value={tea.gongfu?.baseSec || ''} onChange={e => updateTea(tea.id, 'gongfu', { ...(tea.gongfu || {}), baseSec: parseInt(e.target.value, 10) || 0 })} placeholder="e.g. 10" className="admin-input" />
+                                                </div>
+                                                <div className="field-group">
+                                                    <label>Gongfu Max Steeps</label>
+                                                    <input type="number" min="1" max="20" value={tea.gongfu?.maxSteeps || ''} onChange={e => updateTea(tea.id, 'gongfu', { ...(tea.gongfu || {}), maxSteeps: parseInt(e.target.value, 10) || 0 })} placeholder="e.g. 6" className="admin-input" />
                                                 </div>
                                             </div>
 
