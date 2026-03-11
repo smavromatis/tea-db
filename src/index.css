@@ -1473,23 +1473,31 @@ html.lenis body {
 /* ── Modern Coffee Intervention ─────────────────────────────────── */
 .coffee-intervention {
   position: fixed;
-  inset: 0;
-  width: 100dvw;
-  height: 100dvh;
+  /* Aggressive overshoot to cover Safari URL bars and Dynamic Island */
+  top: -10vh;
+  left: -10vw;
+  right: -10vw;
+  bottom: -10vh;
+  width: 120vw;
+  height: 120vh;
   z-index: 999999;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px env(safe-area-inset-right) calc(40px + env(safe-area-inset-bottom)) env(safe-area-inset-left);
+  padding: 10vh 10vw;
   text-align: center;
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
-  background-color: rgba(28, 17, 9, 0.6); /* Deeper frosted espresso */
+  background-color: rgba(28, 17, 9, 0.75); /* Deeper frosted espresso */
   color: #ffffff;
   font-family: 'Inter', sans-serif;
   overflow: hidden;
   touch-action: none;
+}
+
+body.coffee-mode {
+  background-color: #1C1109 !important;
 }
 
 .coffee-mesh {

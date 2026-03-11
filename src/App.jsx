@@ -171,17 +171,29 @@ function App() {
     };
   }, []);
 
-  // Lock body scroll when overlay is active
+  // Lock body scroll and manage theme-color when overlay is active
   useEffect(() => {
+    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const defaultColor = isDark ? '#131A12' : '#EDE8DC';
+    const coffeeColor = '#1C1109';
+
     if (selectedTea || isAdminOpen || isCoffeeMode) {
       document.body.classList.add('lock-scroll');
+      if (isCoffeeMode) {
+        document.body.classList.add('coffee-mode');
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', coffeeColor);
+      }
       if (lenisRef.current) lenisRef.current.stop();
     } else {
       document.body.classList.remove('lock-scroll');
+      document.body.classList.remove('coffee-mode');
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', defaultColor);
       if (lenisRef.current) lenisRef.current.start();
     }
     return () => {
       document.body.classList.remove('lock-scroll');
+      document.body.classList.remove('coffee-mode');
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', defaultColor);
       if (lenisRef.current) lenisRef.current.start();
     };
   }, [selectedTea, isAdminOpen, isCoffeeMode]);
