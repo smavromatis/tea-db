@@ -66,11 +66,28 @@ const getGongfuTime = (baseTime, infusion) => {
   return baseTime + 10 + ((infusion - 3) * 15);
 };
 
+let globalAudioCtx = null;
+
+const initAudio = () => {
+  if (typeof window === 'undefined') return;
+  if (!globalAudioCtx) {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (AudioContext) {
+      globalAudioCtx = new AudioContext();
+    }
+  }
+  if (globalAudioCtx && globalAudioCtx.state === 'suspended') {
+    globalAudioCtx.resume().catch(() => {});
+  }
+};
+
 const playChime = () => {
   try {
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContext) return;
-    const ctx = new AudioContext();
+    if (!globalAudioCtx) return;
+    const ctx = globalAudioCtx;
+    if (ctx.state === 'suspended') {
+      ctx.resume().catch(() => {});
+    }
     
     // Zen singing bowl — warm, low, slow fade
     const bowlTone = (freq, delay, dur) => {
@@ -92,9 +109,6 @@ const playChime = () => {
     // Single warm bowl strike — C5 with gentle fifth harmonic
     bowlTone(523.25, 0, 3.0);
     bowlTone(784.0, 0.05, 2.0);  // faint G5 overtone
-
-    // Close context after tones finish to prevent AudioContext leak
-    setTimeout(() => ctx.close().catch(() => {}), 4000);
 
   } catch (e) {
     console.warn('Audio not supported or blocked', e);
@@ -163,9 +177,6 @@ export default function SmartTimer({ tea, onClose }) {
   useEffect(() => {
     onCompleteRef.current = () => {
       setIsActive(false);
-      if ('vibrate' in navigator) {
-        navigator.vibrate(100);
-      }
       playChime();
     };
   });
@@ -186,14 +197,19 @@ export default function SmartTimer({ tea, onClose }) {
     return () => clearInterval(interval);
   }, [isActive]);
 
-  const toggleTimer = () => setIsActive(!isActive);
+  const toggleTimer = () => {
+    initAudio();
+    setIsActive(!isActive);
+  };
   
   const resetTimer = () => {
+    initAudio();
     setIsActive(false);
     setTimeLeft(duration);
   };
 
   const handleInfusionChange = (delta) => {
+    initAudio();
     setInfusion(prev => Math.max(1, prev + delta));
   };
 

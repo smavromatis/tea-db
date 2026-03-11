@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect, useRef, lazy, Suspense } from 'react';
 import Lenis from 'lenis';
-import { Search, Menu, MapPin, Clock, Thermometer, Leaf, Pencil, Star, X, Info, Tag, Sparkles, ChevronRight } from 'lucide-react';
+import { Search, Menu, MapPin, Clock, Thermometer, Leaf, Pencil, Star, X, Info, Tag, Sparkles, ChevronRight, ArrowUp, PlusCircle } from 'lucide-react';
+import TeaCupIcon from './components/TeaCupIcon';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -62,22 +63,31 @@ const TeaAdmin = lazy(() => import('./TeaAdmin'));
 
 const renderTextWithAddonHighlight = (text) => {
   if (!text) return null;
-  const parts = text.split('(available as a House Add-on)');
+  
+  // Extract all House Add-on names directly from data to create dynamic regex
+  const addOnNames = teasData.filter(t => t.categories?.includes("Add-Ons")).map(t => t.name);
+  addOnNames.sort((a, b) => b.length - a.length); // match longest names first
+  const namesPattern = addOnNames.map(n => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+  const regex = new RegExp(`(${namesPattern})\\s*\\(available as a House Add-on\\)`, 'gi');
+
+  const parts = text.split(regex);
   if (parts.length === 1) return text;
 
   return (
     <>
-      {parts.map((part, i) => (
-        <span key={i}>
-          {part}
-          {i !== parts.length - 1 && (
-            <span className="inline-addon-badge">
-              <Sparkles size={11} className="inline-addon-sparkle" />
-              <span style={{ marginLeft: '1px' }}>House Add-on</span>
+      {parts.map((part, i) => {
+        // Even indices are normal text, odd indices are the matched add-on name
+        if (i % 2 === 0) {
+          return <span key={i}>{part}</span>;
+        } else {
+          return (
+            <span key={i} className="inline-addon-badge">
+              <PlusCircle size={11} className="inline-addon-icon" />
+              <span style={{ marginLeft: '1px' }}>{part}</span>
             </span>
-          )}
-        </span>
-      ))}
+          );
+        }
+      })}
     </>
   );
 };
@@ -88,7 +98,7 @@ function App() {
   const [caffeineFilter, setCaffeineFilter] = useState("All");
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isSearchForced, setIsSearchForced] = useState(false);
+
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [selectedTea, setSelectedTea] = useState(null);
   const [expandedAddon, setExpandedAddon] = useState(null);
@@ -116,9 +126,6 @@ function App() {
 
     lenis.on('scroll', ({ scroll, velocity }) => {
       setIsScrolled(scroll > 50);
-      if (Math.abs(velocity) > 0.8) {
-        setIsSearchForced(false);
-      }
     });
 
     let animationFrameId;
@@ -419,22 +426,9 @@ function App() {
         <p className="page-subtitle">Our personal collection of fine teas, curated to share with family and guests.</p>
       </div>
 
-      <div className="floating-nav-container" style={{ opacity: isSearchForced ? 0 : 1, pointerEvents: isSearchForced ? 'none' : 'auto', transition: 'opacity 0.2s' }}>
+      <div className="floating-nav-container">
         {renderNav(false)}
       </div>
-
-      <AnimatePresence>
-        {isSearchForced && (
-          <motion.div
-            className="fixed-search-overlay"
-            initial={{ y: -120 }}
-            animate={{ y: 0, transition: { type: "spring", stiffness: 350, damping: 30 } }}
-            exit={{ y: -120, transition: { duration: 0.2, ease: "easeIn" } }}
-          >
-            {renderNav(true)}
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       <main className="content">
         <AnimatePresence mode="popLayout">
@@ -573,20 +567,12 @@ function App() {
       <div
         className={`floating-search-bubble ${isScrolled ? 'visible' : ''}`}
         onClick={() => {
-          if (isSearchForced) {
-            setIsSearchForced(false);
-          } else {
-            setIsSearchForced(true);
-            setTimeout(() => searchInputRef.current?.focus(), 100);
-          }
+          lenisRef.current?.scrollTo(0, { immediate: false, duration: 1.2 });
         }}
         style={{ zIndex: 1005 }}
+        title="Scroll Up"
       >
-        {isSearchForced ? (
-          <X size={22} color="var(--danger-color)" />
-        ) : (
-          <Menu size={22} color="var(--text-secondary)" />
-        )}
+        <ArrowUp size={22} color="var(--text-secondary)" />
       </div>
 
       <AnimatePresence>
@@ -614,7 +600,6 @@ function App() {
               <div className="modal-header">
                 <h2 style={{ marginBottom: '12px' }}>{selectedTea.name}</h2>
                 <div className="modal-tags">
-                  {selectedTea.categories?.map(c => <span key={c} className={`modal-tag ${getCategoryColorClass(c)}`}>{c}</span>)}
                   {selectedTea.favoriteS && (
                     <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
                       <Star className="favorite-icon" size={20} fill="#FF9500" color="#FF9500" />
@@ -626,6 +611,13 @@ function App() {
                       <Star className="favorite-icon" size={20} fill="#34C759" color="#34C759" />
                       <span style={{ position: 'absolute', fontSize: '9px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>K</span>
                     </div>
+                  )}
+                  {selectedTea.categories?.map(c => <span key={c} className={`modal-tag ${getCategoryColorClass(c)}`}>{c}</span>)}
+                  {selectedTea.liquor && (
+                    <span className="modal-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', backgroundColor: selectedTea.liquorColor ? `${selectedTea.liquorColor}15` : 'var(--pill-bg)', color: selectedTea.liquorColor || 'var(--text-primary)', border: `1px solid ${selectedTea.liquorColor ? `${selectedTea.liquorColor}30` : 'var(--border-color)'}` }}>
+                      <TeaCupIcon size={16} liquidColor={selectedTea.liquorColor || '#B07D46'} cupColor={selectedTea.liquorColor || 'currentColor'} />
+                      <span style={{ fontWeight: 600 }}>{selectedTea.liquor}</span>
+                    </span>
                   )}
                 </div>
               </div>
@@ -834,7 +826,7 @@ function App() {
                           e.stopPropagation();
                           setExpandedAddon(prev => prev?.id === addon.id ? null : addon);
                         }}>
-                          <Sparkles size={14} className="addon-sparkle" />
+                          <PlusCircle size={14} className="addon-icon" />
                           <span>{addon.name}</span>
                         </button>
                       ))}

@@ -154,6 +154,8 @@ export default function TeaAdmin({ teas: initialTeas, onClose }) {
             temperature: "",
             description: "",
             aiSemanticProfile: "",
+            liquor: "",
+            liquorColor: "",
             scales: { intensity: 50, mouthfeel: 50, flavor: 50, sweetness: 50 },
             inStock: true,
             favoriteS: isFav ? true : false,
@@ -412,6 +414,33 @@ export default function TeaAdmin({ teas: initialTeas, onClose }) {
                                             <div className="field-group hero-field">
                                                 <label>AI Semantic Profile (Emotions, Scenarios & Concepts)</label>
                                                 <textarea value={tea.aiSemanticProfile || ''} onChange={e => updateTea(tea.id, 'aiSemanticProfile', e.target.value)} placeholder="e.g. cozy, rainy day, relaxing, deep thought, nostalgic..." className="admin-input admin-textarea" />
+                                            </div>
+
+                                            <div className="admin-field-row auto-grid">
+                                                <div className="field-group">
+                                                    <label>Liquor Description</label>
+                                                    <input value={tea.liquor || ''} onChange={e => updateTea(tea.id, 'liquor', e.target.value)} placeholder="e.g. Deep Amber" className="admin-input" />
+                                                </div>
+                                                <div className="field-group">
+                                                    <label>Liquor Hex Color</label>
+                                                    <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                                                        <input 
+                                                            type="color" 
+                                                            value={tea.liquorColor || '#B07D46'} 
+                                                            onChange={e => updateTea(tea.id, 'liquorColor', e.target.value)} 
+                                                            style={{
+                                                                width: '36px', height: '36px', padding: 0, border: 'none', borderRadius: '4px', cursor: 'pointer', background: 'none'
+                                                            }}
+                                                        />
+                                                        <input 
+                                                            value={tea.liquorColor || ''} 
+                                                            onChange={e => updateTea(tea.id, 'liquorColor', e.target.value)} 
+                                                            placeholder="e.g. #B07D46" 
+                                                            className="admin-input" 
+                                                            style={{ flex: 1 }}
+                                                        />
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div className="field-group hero-field">

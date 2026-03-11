@@ -57,6 +57,15 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Hide scrollbars but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+  display: none;
 }
 
 /* Scroll Lock Helper */
@@ -909,6 +918,13 @@ html.lenis body {
   -webkit-overflow-scrolling: touch;
   /* Re-enable vertical touch for the content box specifically */
   touch-action: pan-y;
+  /* Hide scrollbars but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.modal-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1256,7 +1272,7 @@ html.lenis body {
   transform: translateY(-1px);
 }
 
-.inline-addon-sparkle {
+.inline-addon-icon {
   color: #af52de;
 }
 
@@ -1282,7 +1298,7 @@ html.lenis body {
   transition: all 0.2s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-.addon-sparkle {
+.addon-icon {
   color: #af52de;
 }
 
@@ -1299,11 +1315,11 @@ html.lenis body {
     color: #e5a1ff;
   }
 
-  .inline-addon-sparkle {
+  .inline-addon-icon {
     color: #e5a1ff;
   }
 
-  .addon-sparkle {
+  .addon-icon {
     color: #e5a1ff;
   }
 

@@ -21,6 +21,8 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Cinnamon, cardamom, ginger, black pepper kick",
+    "liquor": "Deep Spiced Amber",
+    "liquorColor": "#9C4E15",
     "aiSemanticProfile": "warm, cozy, winter, autumn, fall, fireplaces, studying, rain, storm, melancholy, comfort, nostalgic, morning energy, spicy, bold, holiday, christmas, snuggle, blanket, reading, energetic, robust, invigorating, hearty, rich, deep, wake up, kickstart, sharp, strong start, productive, focus, alert, warming, fire, masala, cardamom kick, digestion, gut health, nausea, sick day, tummy ache, immune, recovery, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
     "scales": {
       "intensity": 85,
@@ -55,6 +57,8 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Bergamot citrus, smooth black tea, clean finish",
+    "liquor": "Muted Copper",
+    "liquorColor": "#A0623A",
     "aiSemanticProfile": "evening, bedtime, night, elegant, relaxing, wind down, reading, rainy day, classic, cozy, calm, smooth, decaf, after dinner, gentle, soothing, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, london fog, bergamot, citrus, london, classy, afternoon tea, fancy, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
     "scales": {
       "intensity": 70,
@@ -89,6 +93,8 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Ginger, lemongrass, pear",
+    "liquor": "Warm Olive Gold",
+    "liquorColor": "#B8B872",
     "aiSemanticProfile": "energy, focus, study, morning, refresh, digestion, sick, nausea, bright, lively, working, desk, hangover, stomach ache, uplifting, refreshing, clean, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, gut health, sick day, tummy ache, immune, warming, spicy, recovery, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
     "scales": {
       "intensity": 55,
@@ -123,6 +129,8 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Hibiscus, orange peel, rosehip, cinnamon",
+    "liquor": "Vibrant Magenta Red",
+    "liquorColor": "#D31252",
     "aiSemanticProfile": "tart, summer, iced, tropical, sunshine, lively, afternoon, fun, playful, bright, vitamin c, pool, beach, hot weather, refreshing, vibrant, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, healing, comforting, wellness, nurturing, hug in a mug, tangy, iced tea, poolside, red, juicy, romantic, delicate, love, date night, floral, fancy, feminine, beautiful, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
     "scales": {
       "intensity": 70,
@@ -167,7 +175,9 @@
     "gongfu": {
       "baseSec": 15,
       "maxSteeps": 5
-    }
+    },
+    "liquor": "Pale Mint Green",
+    "liquorColor": "#C8DCA0"
   },
   {
     "id": "1773011480040",
@@ -201,7 +211,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 3
-    }
+    },
+    "liquor": "Pale Amber Green",
+    "liquorColor": "#C9C88C"
   },
   {
     "id": "1773011480041",
@@ -235,7 +247,9 @@
     "gongfu": {
       "baseSec": 10,
       "maxSteeps": 6
-    }
+    },
+    "liquor": "Dark Amber",
+    "liquorColor": "#7A3B1E"
   },
   {
     "id": "1773011480042",
@@ -270,7 +284,9 @@
     "gongfu": {
       "baseSec": 10,
       "maxSteeps": 5
-    }
+    },
+    "liquor": "Amber Gold",
+    "liquorColor": "#C47A2E"
   },
   {
     "id": "1773011480043",
@@ -304,7 +320,9 @@
     "gongfu": {
       "baseSec": 8,
       "maxSteeps": 8
-    }
+    },
+    "liquor": "Reddish Gold",
+    "liquorColor": "#CA5C2B"
   },
   {
     "id": "1773011480045",
@@ -338,7 +356,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 3
-    }
+    },
+    "liquor": "Pale Herbaceous Yellow",
+    "liquorColor": "#DED98E"
   },
   {
     "id": "1773011480046",
@@ -372,7 +392,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 3
-    }
+    },
+    "liquor": "Warm Marigold Gold",
+    "liquorColor": "#EBBA40"
   },
   {
     "id": "1773011480047",
@@ -406,7 +428,9 @@
     "gongfu": {
       "baseSec": 12,
       "maxSteeps": 10
-    }
+    },
+    "liquor": "Luminous Gold",
+    "liquorColor": "#E1C052"
   },
   {
     "id": "1773011480048",
@@ -441,7 +465,9 @@
     "gongfu": {
       "baseSec": 10,
       "maxSteeps": 5
-    }
+    },
+    "liquor": "Light Floral Amber",
+    "liquorColor": "#BC7535"
   },
   {
     "id": "1773011480049",
@@ -476,7 +502,9 @@
     "gongfu": {
       "baseSec": 10,
       "maxSteeps": 5
-    }
+    },
+    "liquor": "Warm Amber",
+    "liquorColor": "#B87030"
   },
   {
     "id": "1773011480051",
@@ -510,7 +538,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 3
-    }
+    },
+    "liquor": "Clear Pale Straw",
+    "liquorColor": "#DEE0A3"
   },
   {
     "id": "1773011480052",
@@ -544,7 +574,9 @@
     "gongfu": {
       "baseSec": 12,
       "maxSteeps": 6
-    }
+    },
+    "liquor": "Pale Golden Yellow",
+    "liquorColor": "#DCCF78"
   },
   {
     "id": "1773011480053",
@@ -578,7 +610,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 3
-    }
+    },
+    "liquor": "Ruby Red",
+    "liquorColor": "#C62940"
   },
   {
     "id": "1773011480054",
@@ -612,7 +646,9 @@
     "gongfu": {
       "baseSec": 15,
       "maxSteeps": 4
-    }
+    },
+    "liquor": "Blush Gold",
+    "liquorColor": "#D4A882"
   },
   {
     "id": "1773011480055",
@@ -641,7 +677,9 @@
       "mouthfeel": 15,
       "flavor": 10,
       "sweetness": 15
-    }
+    },
+    "liquor": "Pale Rose Water",
+    "liquorColor": "#E8A2AD"
   },
   {
     "id": "1773011480056",
@@ -670,7 +708,9 @@
       "mouthfeel": 70,
       "flavor": 25,
       "sweetness": 60
-    }
+    },
+    "liquor": "Pale Straw Green",
+    "liquorColor": "#DEE0A3"
   },
   {
     "id": "1773011480057",
@@ -699,7 +739,9 @@
       "mouthfeel": 85,
       "flavor": 80,
       "sweetness": 95
-    }
+    },
+    "liquor": "Vibrant Golden Yellow",
+    "liquorColor": "#F9AB00"
   },
   {
     "id": "1773011480058",
@@ -728,7 +770,9 @@
       "mouthfeel": 45,
       "flavor": 50,
       "sweetness": 75
-    }
+    },
+    "liquor": "Light Tawny",
+    "liquorColor": "#D4B184"
   },
   {
     "id": "1773011480059",
@@ -762,7 +806,9 @@
     "gongfu": {
       "baseSec": 10,
       "maxSteeps": 8
-    }
+    },
+    "liquor": "Pale Golden Champagne",
+    "liquorColor": "#E4C585"
   },
   {
     "id": "1773011480060",
@@ -796,7 +842,9 @@
     "gongfu": {
       "baseSec": 15,
       "maxSteeps": 4
-    }
+    },
+    "liquor": "Pale Luminous Gold",
+    "liquorColor": "#ECCF89"
   },
   {
     "id": "1773011480061",
@@ -830,7 +878,9 @@
     "gongfu": {
       "baseSec": 15,
       "maxSteeps": 4
-    }
+    },
+    "liquor": "Soft Golden Green",
+    "liquorColor": "#CCD285"
   },
   {
     "id": "1773011480062",
@@ -864,7 +914,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 2
-    }
+    },
+    "liquor": "Golden Amber",
+    "liquorColor": "#D09230"
   },
   {
     "id": "1773011480063",
@@ -898,7 +950,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 3
-    }
+    },
+    "liquor": "Warm Gold",
+    "liquorColor": "#EBC050"
   },
   {
     "id": "1773011480064",
@@ -932,7 +986,9 @@
     "gongfu": {
       "baseSec": 10,
       "maxSteeps": 7
-    }
+    },
+    "liquor": "Pale Jade Green",
+    "liquorColor": "#C5D480"
   },
   {
     "id": "1773011480065",
@@ -966,7 +1022,9 @@
     "gongfu": {
       "baseSec": 8,
       "maxSteeps": 7
-    }
+    },
+    "liquor": "Smoky Amber",
+    "liquorColor": "#BA5523"
   },
   {
     "id": "1773011480066",
@@ -1000,7 +1058,9 @@
     "gongfu": {
       "baseSec": 8,
       "maxSteeps": 8
-    }
+    },
+    "liquor": "Bright Ruby Red",
+    "liquorColor": "#B03020"
   },
   {
     "id": "1773011480067",
@@ -1029,7 +1089,9 @@
       "mouthfeel": 80,
       "flavor": 15,
       "sweetness": 15
-    }
+    },
+    "liquor": "Warm Ruby Orange",
+    "liquorColor": "#D45540"
   },
   {
     "id": "1773011480068",
@@ -1063,7 +1125,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 2
-    }
+    },
+    "liquor": "Warm Gold",
+    "liquorColor": "#DDA240"
   },
   {
     "id": "1773011480069",
@@ -1097,7 +1161,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 3
-    }
+    },
+    "liquor": "Pale Yellow-Green",
+    "liquorColor": "#E3DE8E"
   },
   {
     "id": "1773011480070",
@@ -1131,7 +1197,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 2
-    }
+    },
+    "liquor": "Bright Lemon Yellow",
+    "liquorColor": "#EDDC52"
   },
   {
     "id": "1773011480071",
@@ -1165,7 +1233,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 3
-    }
+    },
+    "liquor": "Pale Honey Yellow",
+    "liquorColor": "#E8D568"
   },
   {
     "id": "1773011480072",
@@ -1199,7 +1269,9 @@
     "gongfu": {
       "baseSec": 10,
       "maxSteeps": 6
-    }
+    },
+    "liquor": "Light Amber Gold",
+    "liquorColor": "#CC8040"
   },
   {
     "id": "1773011480073",
@@ -1233,7 +1305,9 @@
     "gongfu": {
       "baseSec": 10,
       "maxSteeps": 4
-    }
+    },
+    "liquor": "Dark Cinnamon Amber",
+    "liquorColor": "#BA4E18"
   },
   {
     "id": "1773011480074",
@@ -1267,7 +1341,9 @@
     "gongfu": {
       "baseSec": 15,
       "maxSteeps": 4
-    }
+    },
+    "liquor": "Pale Green-Gold",
+    "liquorColor": "#BCC878"
   },
   {
     "id": "1773011480075",
@@ -1301,7 +1377,9 @@
     "gongfu": {
       "baseSec": 12,
       "maxSteeps": 5
-    }
+    },
+    "liquor": "Light Celadon Yellow",
+    "liquorColor": "#D5DDA0"
   },
   {
     "id": "1773011480076",
@@ -1335,7 +1413,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 3
-    }
+    },
+    "liquor": "Rich Russet Red",
+    "liquorColor": "#A03020"
   },
   {
     "id": "1773011480077",
@@ -1369,7 +1449,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 3
-    }
+    },
+    "liquor": "Warm Rooibos Amber",
+    "liquorColor": "#A84825"
   },
   {
     "id": "1773011480078",
@@ -1403,7 +1485,9 @@
     "gongfu": {
       "baseSec": 10,
       "maxSteeps": 5
-    }
+    },
+    "liquor": "Bright Copper Amber",
+    "liquorColor": "#9B4A1E"
   },
   {
     "id": "1773011480079",
@@ -1437,7 +1521,9 @@
     "gongfu": {
       "baseSec": 10,
       "maxSteeps": 5
-    }
+    },
+    "liquor": "Vibrant Ceylon Amber",
+    "liquorColor": "#A85020"
   },
   {
     "id": "1773011480080",
@@ -1471,7 +1557,9 @@
     "gongfu": {
       "baseSec": 12,
       "maxSteeps": 5
-    }
+    },
+    "liquor": "Pale Sencha Green",
+    "liquorColor": "#BDC870"
   },
   {
     "id": "1773011480081",
@@ -1505,7 +1593,9 @@
     "gongfu": {
       "baseSec": 10,
       "maxSteeps": 5
-    }
+    },
+    "liquor": "Light Rosy Amber",
+    "liquorColor": "#A04825"
   },
   {
     "id": "1773011480082",
@@ -1539,7 +1629,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 3
-    }
+    },
+    "liquor": "Dull Golden Yellow",
+    "liquorColor": "#E0B34E"
   },
   {
     "id": "1773011480083",
@@ -1573,7 +1665,9 @@
     "gongfu": {
       "baseSec": 10,
       "maxSteeps": 7
-    }
+    },
+    "liquor": "Soft Golden Yellow",
+    "liquorColor": "#D8D480"
   },
   {
     "id": "1773011480084",
@@ -1607,7 +1701,9 @@
     "gongfu": {
       "baseSec": 12,
       "maxSteeps": 5
-    }
+    },
+    "liquor": "Pale Sencha Gold",
+    "liquorColor": "#C5D080"
   },
   {
     "id": "1773011480085",
@@ -1641,7 +1737,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 3
-    }
+    },
+    "liquor": "Pale Straw Yellow",
+    "liquorColor": "#E2E5A1"
   },
   {
     "id": "1773011480086",
@@ -1675,7 +1773,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 3
-    }
+    },
+    "liquor": "Warm Peach Amber",
+    "liquorColor": "#B0502D"
   },
   {
     "id": "1773011480087",
@@ -1709,7 +1809,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 3
-    }
+    },
+    "liquor": "Bright Lemon Yellow",
+    "liquorColor": "#E1D250"
   },
   {
     "id": "1773011480088",
@@ -1743,7 +1845,9 @@
     "gongfu": {
       "baseSec": 10,
       "maxSteeps": 6
-    }
+    },
+    "liquor": "Rich Jade Green",
+    "liquorColor": "#7DAD38"
   },
   {
     "id": "1773011480089",
@@ -1777,7 +1881,9 @@
     "gongfu": {
       "baseSec": 20,
       "maxSteeps": 3
-    }
+    },
+    "liquor": "Deep Purple-Red",
+    "liquorColor": "#8B2342"
   },
   {
     "id": "1773011480090",
@@ -1811,7 +1917,9 @@
     "gongfu": {
       "baseSec": 8,
       "maxSteeps": 7
-    }
+    },
+    "liquor": "Deep Rose Amber",
+    "liquorColor": "#8C3518"
   },
   {
     "id": "1773011480091",
@@ -1845,7 +1953,9 @@
     "gongfu": {
       "baseSec": 8,
       "maxSteeps": 6
-    }
+    },
+    "liquor": "Dark Mahogany Red",
+    "liquorColor": "#571607"
   },
   {
     "id": "1773011480092",
@@ -1879,7 +1989,9 @@
     "gongfu": {
       "baseSec": 10,
       "maxSteeps": 5
-    }
+    },
+    "liquor": "Warm Creamy Amber",
+    "liquorColor": "#A87038"
   },
   {
     "id": "1773011480093",
@@ -1908,6 +2020,8 @@
       "mouthfeel": 5,
       "flavor": 15,
       "sweetness": 5
-    }
+    },
+    "liquor": "Golden Honey",
+    "liquorColor": "#D0882C"
   }
 ]
