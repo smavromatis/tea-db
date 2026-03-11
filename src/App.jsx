@@ -450,14 +450,15 @@ function App() {
 
   return (
     <>
-      <AnimatePresence>
-        {isCoffeeMode && (
+      <AnimatePresence mode="wait">
+        {isCoffeeMode ? (
           <motion.div 
+            key="coffee-screen"
             className="coffee-intervention"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 1.05 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
             <motion.div 
               className="coffee-icon-wrapper"
@@ -513,49 +514,53 @@ function App() {
               </button>
             </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        ) : (
+          <motion.div 
+            key="tea-app"
+            className="app-wrapper"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <AnimatePresence>
+              <motion.div
+                key={activeCategory}
+                className={`bg-gradient ${getGradientClass(activeCategory)}`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8 }}
+              />
+            </AnimatePresence>
 
-      <div className="app-wrapper">
+            <div className="hero-header">
+              <h1 className="page-title">Tea Collection</h1>
+              <p className="page-subtitle">Our personal collection of fine teas, curated to share with family and guests.</p>
+            </div>
 
-      <AnimatePresence>
-        <motion.div
-          key={activeCategory}
-          className={`bg-gradient ${getGradientClass(activeCategory)}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-        />
-      </AnimatePresence>
+            <div className="floating-nav-container">
+              {renderNav(false)}
+            </div>
 
-      <div className="hero-header">
-        <h1 className="page-title">Tea Collection</h1>
-        <p className="page-subtitle">Our personal collection of fine teas, curated to share with family and guests.</p>
-      </div>
-
-      <div className="floating-nav-container">
-        {renderNav(false)}
-      </div>
-
-      <main className="content">
-        <AnimatePresence mode="popLayout">
-          {displayedCategories.length === 0 ? (
-            <motion.div
-              key="empty"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.2 }}
-              className="empty-state"
-            >
-              <div className="empty-icon-wrapper">
-                <Leaf size={40} className="empty-icon" />
-              </div>
-              <h3>No results found</h3>
-              <p>Try tweaking your search or category.</p>
-            </motion.div>
-          ) : (
+            <main className="content">
+              <AnimatePresence mode="popLayout">
+                {displayedCategories.length === 0 ? (
+                  <motion.div
+                    key="empty"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="empty-state"
+                  >
+                    <div className="empty-icon-wrapper">
+                      <Leaf size={40} className="empty-icon" />
+                    </div>
+                    <h3>No results found</h3>
+                    <p>Try tweaking your search or category.</p>
+                  </motion.div>
+                ) : (
             displayedCategories.map((category) => (
               <motion.section
                 key={category}
@@ -973,20 +978,21 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
+    </motion.div>
+  )}
+</AnimatePresence>
 
+{isAdminOpen && (
+  <Suspense fallback={null}>
+    <TeaAdmin teas={teasData} onClose={() => setIsAdminOpen(false)} />
+  </Suspense>
+)}
 
-      {isAdminOpen && (
-        <Suspense fallback={null}>
-          <TeaAdmin teas={teasData} onClose={() => setIsAdminOpen(false)} />
-        </Suspense>
-      )}
-
-      {import.meta.env.DEV && !isAdminOpen && (
-        <button className="floating-edit-btn" onClick={() => setIsAdminOpen(true)}>
-          <Pencil size={24} />
-        </button>
-      )}
-    </div>
+{import.meta.env.DEV && !isAdminOpen && (
+  <button className="floating-edit-btn" onClick={() => setIsAdminOpen(true)}>
+    <Pencil size={24} />
+  </button>
+)}
     </>
   );
 }
