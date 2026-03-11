@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
   /* Zen Parchment — warm washi paper light theme */
@@ -57,6 +57,8 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Smooth color blending for theme/easter egg switches */
+  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   /* Hide scrollbars but keep functionality */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
@@ -1483,7 +1485,6 @@ html.lenis body {
   text-align: center;
   background-color: #1C1109; 
   color: #ffffff;
-  font-family: 'Inter', sans-serif;
   overflow: hidden;
 }
 
@@ -1595,15 +1596,7 @@ body.coffee-mode {
   border-color: rgba(175, 82, 222, 0.6) !important;
 }
 
-.ambulance-flash {
-  animation: flashApple 0.6s infinite cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-@keyframes flashApple {
-  0% { transform: scale(1); opacity: 1; color: #FF2D55; }
-  50% { transform: scale(1.2); opacity: 0.8; color: #ffffff; }
-  100% { transform: scale(1); opacity: 1; color: #FF2D55; }
-}
 
 @media (max-width: 480px) {
   .coffee-title {

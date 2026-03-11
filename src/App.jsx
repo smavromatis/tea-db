@@ -63,7 +63,7 @@ const TeaAdmin = lazy(() => import('./TeaAdmin'));
 
 const renderTextWithAddonHighlight = (text) => {
   if (!text) return null;
-  
+
   // Extract all House Add-on names directly from data to create dynamic regex
   const addOnNames = teasData.filter(t => t.categories?.includes("Add-Ons")).map(t => t.name);
   addOnNames.sort((a, b) => b.length - a.length); // match longest names first
@@ -107,15 +107,14 @@ function App() {
   const [aiSearchResults, setAiSearchResults] = useState(null);
   const [aiExplanations, setAiExplanations] = useState({});
   const [isTimerFlipped, setIsTimerFlipped] = useState(false);
-  const [isCoffeeInterventionActive, setIsCoffeeInterventionActive] = useState(false);
-  const [isInterventionClosing, setIsInterventionClosing] = useState(false);
+  const [isCoffeeMode, setIsCoffeeMode] = useState(false);
   const lenisRef = useRef(null);
   const searchInputRef = useRef(null);
 
   // Trigger intervention and reset background immediately
   useEffect(() => {
     if (searchQuery.toLowerCase().trim() === 'coffee') {
-      setIsCoffeeInterventionActive(true);
+      setIsCoffeeMode(true);
       setSearchQuery("");
       // Dismiss the keyboard on mobile
       if (document.activeElement instanceof HTMLElement) {
@@ -124,16 +123,13 @@ function App() {
     }
   }, [searchQuery]);
 
-  const isCoffeeMode = isCoffeeInterventionActive && !isInterventionClosing;
-
   // Handle controlled exit for smooth transitions
   const handleExitCoffeeMode = (callback) => {
-    setIsInterventionClosing(true);
-    setTimeout(() => {
-      setIsCoffeeInterventionActive(false);
-      setIsInterventionClosing(false);
-      if (callback) callback();
-    }, 500); 
+    setIsCoffeeMode(false);
+    if (callback) {
+      // Small delay to allow 'exit' transition to start before logic runs
+      setTimeout(callback, 50);
+    }
   };
 
 
@@ -177,24 +173,30 @@ function App() {
     const defaultColor = isDark ? '#131A12' : '#EDE8DC';
     const coffeeColor = '#1C1109';
 
+    let timeoutId;
+
     if (selectedTea || isAdminOpen || isCoffeeMode) {
       document.body.classList.add('lock-scroll');
+      lenisRef.current?.stop();
+
       if (isCoffeeMode) {
         document.body.classList.add('coffee-mode');
         document.querySelector('meta[name="theme-color"]')?.setAttribute('content', coffeeColor);
       }
-      if (lenisRef.current) lenisRef.current.stop();
     } else {
+      // Immediate class removal triggers the CSS transition smoothly
       document.body.classList.remove('lock-scroll');
       document.body.classList.remove('coffee-mode');
       document.querySelector('meta[name="theme-color"]')?.setAttribute('content', defaultColor);
-      if (lenisRef.current) lenisRef.current.start();
+
+      // Delay lenis slightly so it doesn't jump during the fade
+      timeoutId = setTimeout(() => {
+        lenisRef.current?.start();
+      }, 400);
     }
+
     return () => {
-      document.body.classList.remove('lock-scroll');
-      document.body.classList.remove('coffee-mode');
-      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', defaultColor);
-      if (lenisRef.current) lenisRef.current.start();
+      if (timeoutId) clearTimeout(timeoutId);
     };
   }, [selectedTea, isAdminOpen, isCoffeeMode]);
 
@@ -450,9 +452,24 @@ function App() {
 
   return (
     <>
-      <AnimatePresence mode="wait">
+      <div className="app-main-bg-layer">
+        <AnimatePresence initial={false}>
+          {!isCoffeeMode && (
+            <motion.div
+              key={activeCategory}
+              className={`bg-gradient ${getGradientClass(activeCategory)}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6 }}
+            />
+          )}
+        </AnimatePresence>
+      </div>
+
+      <AnimatePresence mode="wait" initial={false}>
         {isCoffeeMode ? (
-          <motion.div 
+          <motion.div
             key="coffee-screen"
             className="coffee-intervention"
             initial={{ opacity: 0 }}
@@ -460,7 +477,7 @@ function App() {
             exit={{ opacity: 0, scale: 1.05 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
-            <motion.div 
+            <motion.div
               className="coffee-icon-wrapper"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -472,7 +489,7 @@ function App() {
               </div>
             </motion.div>
 
-            <motion.h1 
+            <motion.h1
               className="coffee-title"
               initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -480,23 +497,23 @@ function App() {
             >
               Wait, let's talk.
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               className="coffee-message"
               initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
             >
-              It seems you've wandered into the wrong neighborhood, friend. We only speak 'Tea' here. Don't worry, we won't call for help just yet. Perhaps a surprise selection would help you find your way back?
+              It seems you've wandered into the wrong neighbourhood, friend. We only speak 'Tea' here. Don't worry, we won't call for help just yet. Perhaps a surprise selection would help you find your way back?
             </motion.p>
 
-            <motion.div 
+            <motion.div
               className="coffee-actions"
               initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
             >
-              <button 
+              <button
                 className="coffee-btn coffee-btn-surprise"
                 onClick={() => {
                   handleExitCoffeeMode(() => handleSurpriseMe());
@@ -505,8 +522,8 @@ function App() {
                 <Sparkles size={18} />
                 Surprise Me Instead
               </button>
-              
-              <button 
+
+              <button
                 className="coffee-btn coffee-btn-secondary"
                 onClick={() => handleExitCoffeeMode()}
               >
@@ -515,25 +532,14 @@ function App() {
             </motion.div>
           </motion.div>
         ) : (
-          <motion.div 
+          <motion.div
             key="tea-app"
             className="app-wrapper"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4 }}
           >
-            <AnimatePresence>
-              <motion.div
-                key={activeCategory}
-                className={`bg-gradient ${getGradientClass(activeCategory)}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.8 }}
-              />
-            </AnimatePresence>
-
             <div className="hero-header">
               <h1 className="page-title">Tea Collection</h1>
               <p className="page-subtitle">Our personal collection of fine teas, curated to share with family and guests.</p>
@@ -561,208 +567,275 @@ function App() {
                     <p>Try tweaking your search or category.</p>
                   </motion.div>
                 ) : (
-            displayedCategories.map((category) => (
-              <motion.section
-                key={category}
-                className="list-section"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-              >
-                {(() => {
-                  const isFlatList = activeCategory === 'All' || activeCategory === 'Favorites' || activeCategory === 'Add-Ons';
-                  return (
-                    <h2 className="section-title sticky-title" style={{ opacity: isFlatList ? 0 : 1, height: isFlatList ? '0' : 'auto', margin: isFlatList ? '0' : undefined, padding: isFlatList ? '0' : undefined }}>{category}</h2>
-                  );
-                })()}
-                <motion.div
-                  className="list-card"
-                  variants={containerVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  <AnimatePresence mode="popLayout" initial={false}>
-                    {groupedTeas[category].map((tea, index) => {
-                      const isAddOn = (tea.categories || []).includes('Add-Ons');
-                      return (
-                        <motion.div
-                          key={tea.id}
-                          className={`list-row ${!tea.inStock ? 'out-of-stock' : ''}`}
-                          variants={itemVariants}
-                          initial="hidden"
-                          animate="visible"
-                          exit={{ opacity: 0, scale: 0.96 }}
-                          layout
-                        >
-                          <div className="row-content" onClick={() => handleSelectTea(tea)} style={{ cursor: 'pointer' }}>
-                            <div className="row-header">
-                              <div className="title-group">
-                                {tea.favoriteS && (
-                                  <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <Star className="favorite-icon" size={18} fill="#FF9500" color="#FF9500" />
-                                    <span style={{ position: 'absolute', fontSize: '9px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>S</span>
-                                  </div>
-                                )}
-                                {tea.favoriteK && (
-                                  <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <Star className="favorite-icon" size={18} fill="#34C759" color="#34C759" />
-                                    <span style={{ position: 'absolute', fontSize: '9px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>K</span>
-                                  </div>
-                                )}
-                                <span className="tea-name">{tea.name}</span>
-                              </div>
-                              {!tea.inStock && <span className="badge">Out of Stock</span>}
-                            </div>
-
-                            <p className="tea-desc">{tea.flavourNotes}</p>
-
-                            <div className="tea-meta">
-                              {(() => {
-                                const showAllTags = activeCategory === "All" || activeCategory === "Favorites";
-                                const hasSubCat = tea.categories?.some(c => isSubCategory(c));
-                                if (showAllTags || hasSubCat) {
-                                  return tea.categories?.map((c, i) => (
-                                    <div key={i} className={`meta-pill category-meta ${getCategoryColorClass(c)}`}>
-                                      <Tag size={12} /> <span>{c}</span>
-                                    </div>
-                                  ));
-                                }
-                                return null;
-                              })()}
-                              {tea.origin && tea.origin !== "Unknown" && (
-                                <div className="meta-pill">
-                                  <MapPin size={14} /> <span>{tea.origin}</span>
-                                </div>
-                              )}
-                              {!isAddOn && tea.temperature && (
-                                <div className="meta-pill">
-                                  <Thermometer size={14} /> <span>{tea.temperature}</span>
-                                </div>
-                              )}
-                              {!isAddOn && tea.brewTime && (
-                                <div className="meta-pill">
-                                  <Clock size={14} /> <span>{tea.brewTime}</span>
-                                </div>
-                              )}
-                            </div>
-
-                            {aiSearchResults && aiSearchResults.find(r => r.id === tea.id) && searchQuery.trim() !== "" && (
-                              <div className="ai-explanation-row">
-                                <span className="ai-explain-badge match-confidence-badge" style={{ backgroundColor: 'var(--accent-color)', color: '#fff' }}>
-                                  {Math.round(aiSearchResults.find(r => r.id === tea.id).score * 100)}% Match
-                                </span>
-                                {aiExplanations[tea.id] && aiExplanations[tea.id].length > 0 && (
-                                  <>
-                                    <Sparkles size={11} className="ai-explain-icon" style={{ marginLeft: '4px' }} />
-                                    {aiExplanations[tea.id].map((concept, ci) => (
-                                      <span key={ci} className="ai-explain-badge">{concept}</span>
-                                    ))}
-                                  </>
-                                )}
-                              </div>
-                            )}
-                          </div>
-
-                          {index !== groupedTeas[category].length - 1 && <div className="hairline"></div>}
-                        </motion.div>
-                      )
-                    })}
-                  </AnimatePresence>
-                </motion.div>
-              </motion.section>
-            ))
-          )}
-        </AnimatePresence>
-      </main>
-
-
-      <div
-        className={`floating-search-bubble ${isScrolled ? 'visible' : ''}`}
-        onClick={() => {
-          lenisRef.current?.scrollTo(0, { immediate: false, duration: 1.2 });
-        }}
-        style={{ zIndex: 1005 }}
-        title="Scroll Up"
-      >
-        <ArrowUp size={22} color="var(--text-secondary)" />
-      </div>
-
-      <AnimatePresence>
-        {selectedTea && (
-          <motion.div
-            className="modal-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => handleSelectTea(null)}
-          >
-            <motion.div
-              className="modal-content"
-              data-lenis-prevent
-              initial={{ y: 50, opacity: 0, scale: 0.95 }}
-              animate={{ y: 0, opacity: 1, scale: 1 }}
-              exit={{ y: 20, opacity: 0, scale: 0.95 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button className="modal-close" onClick={() => handleSelectTea(null)}>
-                <X size={24} />
-              </button>
-
-              <div className="modal-header">
-                <h2 style={{ marginBottom: '12px' }}>{selectedTea.name}</h2>
-                <div className="modal-tags">
-                  {selectedTea.favoriteS && (
-                    <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <Star className="favorite-icon" size={20} fill="#FF9500" color="#FF9500" />
-                      <span style={{ position: 'absolute', fontSize: '9px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>S</span>
-                    </div>
-                  )}
-                  {selectedTea.favoriteK && (
-                    <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <Star className="favorite-icon" size={20} fill="#34C759" color="#34C759" />
-                      <span style={{ position: 'absolute', fontSize: '9px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>K</span>
-                    </div>
-                  )}
-                  {selectedTea.categories?.map(c => <span key={c} className={`modal-tag ${getCategoryColorClass(c)}`}>{c}</span>)}
-                  {selectedTea.liquor && (
-                    <span className="modal-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', backgroundColor: selectedTea.liquorColor ? `${selectedTea.liquorColor}15` : 'var(--pill-bg)', color: selectedTea.liquorColor || 'var(--text-primary)', border: `1px solid ${selectedTea.liquorColor ? `${selectedTea.liquorColor}30` : 'var(--border-color)'}` }}>
-                      <TeaCupIcon size={16} liquidColor={selectedTea.liquorColor || '#B07D46'} cupColor={selectedTea.liquorColor || 'currentColor'} />
-                      <span style={{ fontWeight: 600 }}>{selectedTea.liquor}</span>
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              <div className="modal-body">
-                <p className="modal-desc">{renderTextWithAddonHighlight(selectedTea.description)}</p>
-
-                {(!selectedTea.categories?.includes("Add-Ons")) ? (
-                  <div className="flip-container" style={{ margin: '24px 0', perspective: '1000px', width: '100%' }}>
-                    <motion.div
-                      className="flip-inner"
-                      initial={false}
-                      animate={{ rotateY: isTimerFlipped ? 180 : 0 }}
-                      transition={{ duration: 0.6, type: "spring", stiffness: 200, damping: 20 }}
-                      style={{ position: 'relative', width: '100%', transformStyle: 'preserve-3d' }}
+                  displayedCategories.map((category) => (
+                    <motion.section
+                      key={category}
+                      className="list-section"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
                     >
-                      {/* Front: Grid */}
-                      <div
-                        className="flip-front"
-                        style={{
-                          backfaceVisibility: 'hidden',
-                          opacity: isTimerFlipped ? 0 : 1,
-                          transition: 'opacity 0.2s',
-                          position: 'relative',
-                          top: 0,
-                          left: 0,
-                          width: '100%',
-                          height: '100%',
-                          pointerEvents: isTimerFlipped ? 'none' : 'auto'
-                        }}
+                      {(() => {
+                        const isFlatList = activeCategory === 'All' || activeCategory === 'Favorites' || activeCategory === 'Add-Ons';
+                        return (
+                          <h2 className="section-title sticky-title" style={{ opacity: isFlatList ? 0 : 1, height: isFlatList ? '0' : 'auto', margin: isFlatList ? '0' : undefined, padding: isFlatList ? '0' : undefined }}>{category}</h2>
+                        );
+                      })()}
+                      <motion.div
+                        className="list-card"
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
                       >
-                        <div className="detail-grid" style={{ margin: 0 }}>
+                        <AnimatePresence mode="popLayout" initial={false}>
+                          {groupedTeas[category].map((tea, index) => {
+                            const isAddOn = (tea.categories || []).includes('Add-Ons');
+                            return (
+                              <motion.div
+                                key={tea.id}
+                                className={`list-row ${!tea.inStock ? 'out-of-stock' : ''}`}
+                                variants={itemVariants}
+                                initial="hidden"
+                                animate="visible"
+                                exit={{ opacity: 0, scale: 0.96 }}
+                                layout
+                              >
+                                <div className="row-content" onClick={() => handleSelectTea(tea)} style={{ cursor: 'pointer' }}>
+                                  <div className="row-header">
+                                    <div className="title-group">
+                                      {tea.favoriteS && (
+                                        <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                                          <Star className="favorite-icon" size={18} fill="#FF9500" color="#FF9500" />
+                                          <span style={{ position: 'absolute', fontSize: '9px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>S</span>
+                                        </div>
+                                      )}
+                                      {tea.favoriteK && (
+                                        <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                                          <Star className="favorite-icon" size={18} fill="#34C759" color="#34C759" />
+                                          <span style={{ position: 'absolute', fontSize: '9px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>K</span>
+                                        </div>
+                                      )}
+                                      <span className="tea-name">{tea.name}</span>
+                                    </div>
+                                    {!tea.inStock && <span className="badge">Out of Stock</span>}
+                                  </div>
+
+                                  <p className="tea-desc">{tea.flavourNotes}</p>
+
+                                  <div className="tea-meta">
+                                    {(() => {
+                                      const showAllTags = activeCategory === "All" || activeCategory === "Favorites";
+                                      const hasSubCat = tea.categories?.some(c => isSubCategory(c));
+                                      if (showAllTags || hasSubCat) {
+                                        return tea.categories?.map((c, i) => (
+                                          <div key={i} className={`meta-pill category-meta ${getCategoryColorClass(c)}`}>
+                                            <Tag size={12} /> <span>{c}</span>
+                                          </div>
+                                        ));
+                                      }
+                                      return null;
+                                    })()}
+                                    {tea.origin && tea.origin !== "Unknown" && (
+                                      <div className="meta-pill">
+                                        <MapPin size={14} /> <span>{tea.origin}</span>
+                                      </div>
+                                    )}
+                                    {!isAddOn && tea.temperature && (
+                                      <div className="meta-pill">
+                                        <Thermometer size={14} /> <span>{tea.temperature}</span>
+                                      </div>
+                                    )}
+                                    {!isAddOn && tea.brewTime && (
+                                      <div className="meta-pill">
+                                        <Clock size={14} /> <span>{tea.brewTime}</span>
+                                      </div>
+                                    )}
+                                  </div>
+
+                                  {aiSearchResults && aiSearchResults.find(r => r.id === tea.id) && searchQuery.trim() !== "" && (
+                                    <div className="ai-explanation-row">
+                                      <span className="ai-explain-badge match-confidence-badge" style={{ backgroundColor: 'var(--accent-color)', color: '#fff' }}>
+                                        {Math.round(aiSearchResults.find(r => r.id === tea.id).score * 100)}% Match
+                                      </span>
+                                      {aiExplanations[tea.id] && aiExplanations[tea.id].length > 0 && (
+                                        <>
+                                          <Sparkles size={11} className="ai-explain-icon" style={{ marginLeft: '4px' }} />
+                                          {aiExplanations[tea.id].map((concept, ci) => (
+                                            <span key={ci} className="ai-explain-badge">{concept}</span>
+                                          ))}
+                                        </>
+                                      )}
+                                    </div>
+                                  )}
+                                </div>
+
+                                {index !== groupedTeas[category].length - 1 && <div className="hairline"></div>}
+                              </motion.div>
+                            )
+                          })}
+                        </AnimatePresence>
+                      </motion.div>
+                    </motion.section>
+                  ))
+                )}
+              </AnimatePresence>
+            </main>
+
+
+            <div
+              className={`floating-search-bubble ${isScrolled ? 'visible' : ''}`}
+              onClick={() => {
+                lenisRef.current?.scrollTo(0, { immediate: false, duration: 1.2 });
+              }}
+              style={{ zIndex: 1005 }}
+              title="Scroll Up"
+            >
+              <ArrowUp size={22} color="var(--text-secondary)" />
+            </div>
+
+            <AnimatePresence>
+              {selectedTea && (
+                <motion.div
+                  className="modal-overlay"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => handleSelectTea(null)}
+                >
+                  <motion.div
+                    className="modal-content"
+                    data-lenis-prevent
+                    initial={{ y: 50, opacity: 0, scale: 0.95 }}
+                    animate={{ y: 0, opacity: 1, scale: 1 }}
+                    exit={{ y: 20, opacity: 0, scale: 0.95 }}
+                    transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <button className="modal-close" onClick={() => handleSelectTea(null)}>
+                      <X size={24} />
+                    </button>
+
+                    <div className="modal-header">
+                      <h2 style={{ marginBottom: '12px' }}>{selectedTea.name}</h2>
+                      <div className="modal-tags">
+                        {selectedTea.favoriteS && (
+                          <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <Star className="favorite-icon" size={20} fill="#FF9500" color="#FF9500" />
+                            <span style={{ position: 'absolute', fontSize: '9px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>S</span>
+                          </div>
+                        )}
+                        {selectedTea.favoriteK && (
+                          <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <Star className="favorite-icon" size={20} fill="#34C759" color="#34C759" />
+                            <span style={{ position: 'absolute', fontSize: '9px', color: '#fff', fontWeight: 'bold', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', marginTop: '1px' }}>K</span>
+                          </div>
+                        )}
+                        {selectedTea.categories?.map(c => <span key={c} className={`modal-tag ${getCategoryColorClass(c)}`}>{c}</span>)}
+                        {selectedTea.liquor && (
+                          <span className="modal-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', backgroundColor: selectedTea.liquorColor ? `${selectedTea.liquorColor}15` : 'var(--pill-bg)', color: selectedTea.liquorColor || 'var(--text-primary)', border: `1px solid ${selectedTea.liquorColor ? `${selectedTea.liquorColor}30` : 'var(--border-color)'}` }}>
+                            <TeaCupIcon size={16} liquidColor={selectedTea.liquorColor || '#B07D46'} cupColor={selectedTea.liquorColor || 'currentColor'} />
+                            <span style={{ fontWeight: 600 }}>{selectedTea.liquor}</span>
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="modal-body">
+                      <p className="modal-desc">{renderTextWithAddonHighlight(selectedTea.description)}</p>
+
+                      {(!selectedTea.categories?.includes("Add-Ons")) ? (
+                        <div className="flip-container" style={{ margin: '24px 0', perspective: '1000px', width: '100%' }}>
+                          <motion.div
+                            className="flip-inner"
+                            initial={false}
+                            animate={{ rotateY: isTimerFlipped ? 180 : 0 }}
+                            transition={{ duration: 0.6, type: "spring", stiffness: 200, damping: 20 }}
+                            style={{ position: 'relative', width: '100%', transformStyle: 'preserve-3d' }}
+                          >
+                            {/* Front: Grid */}
+                            <div
+                              className="flip-front"
+                              style={{
+                                backfaceVisibility: 'hidden',
+                                opacity: isTimerFlipped ? 0 : 1,
+                                transition: 'opacity 0.2s',
+                                position: 'relative',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                pointerEvents: isTimerFlipped ? 'none' : 'auto'
+                              }}
+                            >
+                              <div className="detail-grid" style={{ margin: 0 }}>
+                                {selectedTea.temperature && (
+                                  <div className="detail-item">
+                                    <Thermometer size={18} className="detail-icon" />
+                                    <div className="detail-text">
+                                      <span className="detail-label">Temperature</span>
+                                      <span className="detail-value">{selectedTea.temperature}</span>
+                                    </div>
+                                  </div>
+                                )}
+                                {selectedTea.brewTime && (
+                                  <div
+                                    className="detail-item tappable-timer"
+                                    onClick={() => setIsTimerFlipped(true)}
+                                    title="Start Smart Timer"
+                                  >
+                                    <div className="flex-row-center" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                      <Clock size={18} className="detail-icon" style={{ color: 'var(--accent-color)' }} />
+                                      <div className="detail-text">
+                                        <span className="detail-label" style={{ color: 'var(--accent-color)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                          Steep Time <ChevronRight size={14} />
+                                        </span>
+                                        <span className="detail-value">{selectedTea.brewTime}</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                )}
+                                <div className="detail-item">
+                                  <MapPin size={18} className="detail-icon" />
+                                  <div className="detail-text">
+                                    <span className="detail-label">Origin</span>
+                                    <span className="detail-value">{selectedTea.origin || "Unknown"}</span>
+                                  </div>
+                                </div>
+                                <div className="detail-item">
+                                  <Info size={18} className="detail-icon" />
+                                  <div className="detail-text">
+                                    <span className="detail-label">Caffeine</span>
+                                    <span className="detail-value">{selectedTea.caffeinated || "Unknown"}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Back: Timer */}
+                            <div
+                              className="flip-back"
+                              style={{
+                                backfaceVisibility: 'hidden',
+                                transform: 'rotateY(180deg)',
+                                opacity: isTimerFlipped ? 1 : 0,
+                                transition: 'opacity 0.2s',
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                pointerEvents: isTimerFlipped ? 'auto' : 'none'
+                              }}
+                            >
+                              <SmartTimer tea={selectedTea} onClose={() => setIsTimerFlipped(false)} />
+                            </div>
+                          </motion.div>
+                        </div>
+                      ) : (
+                        <div className="detail-grid" style={{ margin: '24px 0' }}>
                           {selectedTea.temperature && (
                             <div className="detail-item">
                               <Thermometer size={18} className="detail-icon" />
@@ -773,19 +846,11 @@ function App() {
                             </div>
                           )}
                           {selectedTea.brewTime && (
-                            <div 
-                              className="detail-item tappable-timer" 
-                              onClick={() => setIsTimerFlipped(true)}
-                              title="Start Smart Timer"
-                            >
-                              <div className="flex-row-center" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <Clock size={18} className="detail-icon" style={{ color: 'var(--accent-color)' }} />
-                                <div className="detail-text">
-                                  <span className="detail-label" style={{ color: 'var(--accent-color)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                    Steep Time <ChevronRight size={14} />
-                                  </span>
-                                  <span className="detail-value">{selectedTea.brewTime}</span>
-                                </div>
+                            <div className="detail-item">
+                              <Clock size={18} className="detail-icon" />
+                              <div className="detail-text">
+                                <span className="detail-label">Steep Time</span>
+                                <span className="detail-value">{selectedTea.brewTime}</span>
                               </div>
                             </div>
                           )}
@@ -804,195 +869,136 @@ function App() {
                             </div>
                           </div>
                         </div>
-                      </div>
-
-                      {/* Back: Timer */}
-                      <div
-                        className="flip-back"
-                        style={{
-                          backfaceVisibility: 'hidden',
-                          transform: 'rotateY(180deg)',
-                          opacity: isTimerFlipped ? 1 : 0,
-                          transition: 'opacity 0.2s',
-                          position: 'absolute',
-                          top: 0,
-                          left: 0,
-                          width: '100%',
-                          height: '100%',
-                          display: 'flex',
-                          justifyContent: 'center',
-                          pointerEvents: isTimerFlipped ? 'auto' : 'none'
-                        }}
-                      >
-                        <SmartTimer tea={selectedTea} onClose={() => setIsTimerFlipped(false)} />
-                      </div>
-                    </motion.div>
-                  </div>
-                ) : (
-                  <div className="detail-grid" style={{ margin: '24px 0' }}>
-                    {selectedTea.temperature && (
-                      <div className="detail-item">
-                        <Thermometer size={18} className="detail-icon" />
-                        <div className="detail-text">
-                          <span className="detail-label">Temperature</span>
-                          <span className="detail-value">{selectedTea.temperature}</span>
-                        </div>
-                      </div>
-                    )}
-                    {selectedTea.brewTime && (
-                      <div className="detail-item">
-                        <Clock size={18} className="detail-icon" />
-                        <div className="detail-text">
-                          <span className="detail-label">Steep Time</span>
-                          <span className="detail-value">{selectedTea.brewTime}</span>
-                        </div>
-                      </div>
-                    )}
-                    <div className="detail-item">
-                      <MapPin size={18} className="detail-icon" />
-                      <div className="detail-text">
-                        <span className="detail-label">Origin</span>
-                        <span className="detail-value">{selectedTea.origin || "Unknown"}</span>
-                      </div>
-                    </div>
-                    <div className="detail-item">
-                      <Info size={18} className="detail-icon" />
-                      <div className="detail-text">
-                        <span className="detail-label">Caffeine</span>
-                        <span className="detail-value">{selectedTea.caffeinated || "Unknown"}</span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                <div className="detail-section">
-                  <h3>Flavour Notes</h3>
-                  <p>{selectedTea.flavourNotes}</p>
-                </div>
-
-                {selectedTea.scales && (
-                  <div className="tea-scales-section" style={{ marginBottom: '24px' }}>
-                    <h3>Tasting Profile</h3>
-                    
-                    <div className="tea-scale scale-intensity">
-                      <div className="tea-scale-labels">
-                        <span>Mild & Easy</span>
-                        <span>Strong & Bold</span>
-                      </div>
-                      <div className="tea-scale-track">
-                        <div className="tea-scale-fill" style={{ width: `${selectedTea.scales.intensity}%` }}></div>
-                      </div>
-                    </div>
-
-                    <div className="tea-scale scale-mouthfeel">
-                      <div className="tea-scale-labels">
-                        <span>Smooth & Silky</span>
-                        <span>Crisp & Punchy</span>
-                      </div>
-                      <div className="tea-scale-track">
-                        <div className="tea-scale-fill" style={{ width: `${selectedTea.scales.mouthfeel}%` }}></div>
-                      </div>
-                    </div>
-
-                    <div className="tea-scale scale-flavor">
-                      <div className="tea-scale-labels">
-                        <span>Fresh & Bright</span>
-                        <span>Deep & Roasted</span>
-                      </div>
-                      <div className="tea-scale-track">
-                        <div className="tea-scale-fill" style={{ width: `${selectedTea.scales.flavor}%` }}></div>
-                      </div>
-                    </div>
-
-                    <div className="tea-scale scale-sweetness">
-                      <div className="tea-scale-labels">
-                        <span>Sweet & Fruity</span>
-                        <span>Earthy & Spiced</span>
-                      </div>
-                      <div className="tea-scale-track">
-                        <div className="tea-scale-fill" style={{ width: `${selectedTea.scales.sweetness}%` }}></div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {selectedTea.tips && (
-                  <div className="detail-section" style={{ marginTop: '24px' }}>
-                    <h3>Pro Tips</h3>
-                    <p>{renderTextWithAddonHighlight(selectedTea.tips)}</p>
-                  </div>
-                )}
-
-                {selectedTea.brand && (
-                  <div className="detail-section">
-                    <h3>Brand</h3>
-                    <p>{selectedTea.brand}</p>
-                  </div>
-                )}
-
-                {(!selectedTea.categories || !selectedTea.categories.includes("Add-Ons")) && (
-                  <div className="detail-section">
-                    <h3>House Add-Ons</h3>
-                    <div className="addon-pills-container">
-                      {teasData.filter(t => t.categories?.includes("Add-Ons")).map(addon => (
-                        <button key={addon.id} className={`addon-suggestion-btn ${expandedAddon?.id === addon.id ? 'active' : ''}`} onClick={(e) => {
-                          e.stopPropagation();
-                          setExpandedAddon(prev => prev?.id === addon.id ? null : addon);
-                        }}>
-                          <PlusCircle size={14} className="addon-icon" />
-                          <span>{addon.name}</span>
-                        </button>
-                      ))}
-                    </div>
-                    <AnimatePresence>
-                      {expandedAddon && (
-                        <motion.div
-                          className="expanded-addon-card"
-                          initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                          animate={{ opacity: 1, height: 'auto', marginTop: 12 }}
-                          exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                          transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-                        >
-                          <div className="expanded-addon-content">
-                            <h4>{expandedAddon.name}</h4>
-                            <p className="addon-desc">{expandedAddon.description}</p>
-                            {expandedAddon.tips && (
-                              <div className="addon-tips">
-                                <strong>Tip: </strong> {expandedAddon.tips}
-                              </div>
-                            )}
-                          </div>
-                        </motion.div>
                       )}
-                    </AnimatePresence>
-                  </div>
-                )}
 
-                {selectedTea.location && (
-                  <div style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '12px', marginTop: '8px' }}>
-                    Location: {selectedTea.location}
-                  </div>
-                )}
-              </div>
-            </motion.div>
+                      <div className="detail-section">
+                        <h3>Flavour Notes</h3>
+                        <p>{selectedTea.flavourNotes}</p>
+                      </div>
+
+                      {selectedTea.scales && (
+                        <div className="tea-scales-section" style={{ marginBottom: '24px' }}>
+                          <h3>Tasting Profile</h3>
+
+                          <div className="tea-scale scale-intensity">
+                            <div className="tea-scale-labels">
+                              <span>Mild & Easy</span>
+                              <span>Strong & Bold</span>
+                            </div>
+                            <div className="tea-scale-track">
+                              <div className="tea-scale-fill" style={{ width: `${selectedTea.scales.intensity}%` }}></div>
+                            </div>
+                          </div>
+
+                          <div className="tea-scale scale-mouthfeel">
+                            <div className="tea-scale-labels">
+                              <span>Smooth & Silky</span>
+                              <span>Crisp & Punchy</span>
+                            </div>
+                            <div className="tea-scale-track">
+                              <div className="tea-scale-fill" style={{ width: `${selectedTea.scales.mouthfeel}%` }}></div>
+                            </div>
+                          </div>
+
+                          <div className="tea-scale scale-flavor">
+                            <div className="tea-scale-labels">
+                              <span>Fresh & Bright</span>
+                              <span>Deep & Roasted</span>
+                            </div>
+                            <div className="tea-scale-track">
+                              <div className="tea-scale-fill" style={{ width: `${selectedTea.scales.flavor}%` }}></div>
+                            </div>
+                          </div>
+
+                          <div className="tea-scale scale-sweetness">
+                            <div className="tea-scale-labels">
+                              <span>Sweet & Fruity</span>
+                              <span>Earthy & Spiced</span>
+                            </div>
+                            <div className="tea-scale-track">
+                              <div className="tea-scale-fill" style={{ width: `${selectedTea.scales.sweetness}%` }}></div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {selectedTea.tips && (
+                        <div className="detail-section" style={{ marginTop: '24px' }}>
+                          <h3>Pro Tips</h3>
+                          <p>{renderTextWithAddonHighlight(selectedTea.tips)}</p>
+                        </div>
+                      )}
+
+                      {selectedTea.brand && (
+                        <div className="detail-section">
+                          <h3>Brand</h3>
+                          <p>{selectedTea.brand}</p>
+                        </div>
+                      )}
+
+                      {(!selectedTea.categories || !selectedTea.categories.includes("Add-Ons")) && (
+                        <div className="detail-section">
+                          <h3>House Add-Ons</h3>
+                          <div className="addon-pills-container">
+                            {teasData.filter(t => t.categories?.includes("Add-Ons")).map(addon => (
+                              <button key={addon.id} className={`addon-suggestion-btn ${expandedAddon?.id === addon.id ? 'active' : ''}`} onClick={(e) => {
+                                e.stopPropagation();
+                                setExpandedAddon(prev => prev?.id === addon.id ? null : addon);
+                              }}>
+                                <PlusCircle size={14} className="addon-icon" />
+                                <span>{addon.name}</span>
+                              </button>
+                            ))}
+                          </div>
+                          <AnimatePresence>
+                            {expandedAddon && (
+                              <motion.div
+                                className="expanded-addon-card"
+                                initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                                animate={{ opacity: 1, height: 'auto', marginTop: 12 }}
+                                exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                                transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+                              >
+                                <div className="expanded-addon-content">
+                                  <h4>{expandedAddon.name}</h4>
+                                  <p className="addon-desc">{expandedAddon.description}</p>
+                                  {expandedAddon.tips && (
+                                    <div className="addon-tips">
+                                      <strong>Tip: </strong> {expandedAddon.tips}
+                                    </div>
+                                  )}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      )}
+
+                      {selectedTea.location && (
+                        <div style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '12px', marginTop: '8px' }}>
+                          Location: {selectedTea.location}
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
-  )}
-</AnimatePresence>
 
-{isAdminOpen && (
-  <Suspense fallback={null}>
-    <TeaAdmin teas={teasData} onClose={() => setIsAdminOpen(false)} />
-  </Suspense>
-)}
+      {isAdminOpen && (
+        <Suspense fallback={null}>
+          <TeaAdmin teas={teasData} onClose={() => setIsAdminOpen(false)} />
+        </Suspense>
+      )}
 
-{import.meta.env.DEV && !isAdminOpen && (
-  <button className="floating-edit-btn" onClick={() => setIsAdminOpen(true)}>
-    <Pencil size={24} />
-  </button>
-)}
+      {import.meta.env.DEV && !isAdminOpen && (
+        <button className="floating-edit-btn" onClick={() => setIsAdminOpen(true)}>
+          <Pencil size={24} />
+        </button>
+      )}
     </>
   );
 }
