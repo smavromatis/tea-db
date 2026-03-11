@@ -671,8 +671,54 @@ function App() {
                   <p>{selectedTea.flavourNotes}</p>
                 </div>
 
+                {selectedTea.scales && (
+                  <div className="tea-scales-section" style={{ marginBottom: '24px' }}>
+                    <h3>Tasting Profile</h3>
+                    
+                    <div className="tea-scale scale-intensity">
+                      <div className="tea-scale-labels">
+                        <span>Mild & Easy</span>
+                        <span>Strong & Bold</span>
+                      </div>
+                      <div className="tea-scale-track">
+                        <div className="tea-scale-fill" style={{ width: `${selectedTea.scales.intensity}%` }}></div>
+                      </div>
+                    </div>
+
+                    <div className="tea-scale scale-mouthfeel">
+                      <div className="tea-scale-labels">
+                        <span>Smooth & Silky</span>
+                        <span>Crisp & Punchy</span>
+                      </div>
+                      <div className="tea-scale-track">
+                        <div className="tea-scale-fill" style={{ width: `${selectedTea.scales.mouthfeel}%` }}></div>
+                      </div>
+                    </div>
+
+                    <div className="tea-scale scale-flavor">
+                      <div className="tea-scale-labels">
+                        <span>Fresh & Bright</span>
+                        <span>Deep & Roasted</span>
+                      </div>
+                      <div className="tea-scale-track">
+                        <div className="tea-scale-fill" style={{ width: `${selectedTea.scales.flavor}%` }}></div>
+                      </div>
+                    </div>
+
+                    <div className="tea-scale scale-sweetness">
+                      <div className="tea-scale-labels">
+                        <span>Sweet & Fruity</span>
+                        <span>Earthy & Spiced</span>
+                      </div>
+                      <div className="tea-scale-track">
+                        <div className="tea-scale-fill" style={{ width: `${selectedTea.scales.sweetness}%` }}></div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {selectedTea.tips && (
-                  <div className="detail-section">
+                  <div className="detail-section" style={{ marginTop: '24px' }}>
                     <h3>Pro Tips</h3>
                     <p>{renderTextWithAddonHighlight(selectedTea.tips)}</p>
                   </div>

@@ -203,7 +203,24 @@ async function run() {
             .slice(0, 20)
             .map(c => c.word)
             .filter(w => !manualProfile.toLowerCase().includes(w.toLowerCase()));
-        const fullProfile = [manualProfile, ...autoWords].filter(Boolean).join(', ');
+            
+        // Embed scale meanings
+        const scaleWords = [];
+        if (tea.scales) {
+            if (tea.scales.intensity >= 65) scaleWords.push("strong", "bold", "high intensity", "robust");
+            else if (tea.scales.intensity <= 35) scaleWords.push("mild", "easy", "low intensity", "delicate", "light");
+            
+            if (tea.scales.mouthfeel >= 65) scaleWords.push("crisp", "punchy", "brisk", "astringent", "dry");
+            else if (tea.scales.mouthfeel <= 35) scaleWords.push("smooth", "silky", "buttery", "mellow");
+            
+            if (tea.scales.flavor >= 65) scaleWords.push("deep", "roasted", "dark");
+            else if (tea.scales.flavor <= 35) scaleWords.push("bright", "fresh", "light flavor");
+            
+            if (tea.scales.sweetness >= 65) scaleWords.push("savory", "earthy", "spiced");
+            else if (tea.scales.sweetness <= 35) scaleWords.push("sweet", "fruity", "dessert");
+        }
+        
+        const fullProfile = [manualProfile, ...autoWords, ...scaleWords].filter(Boolean).join(', ');
 
         if (autoWords.length > 0) enrichedCount++;
 

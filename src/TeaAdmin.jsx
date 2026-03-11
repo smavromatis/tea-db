@@ -83,6 +83,14 @@ export default function TeaAdmin({ teas: initialTeas, onClose }) {
         setTeas(prev => prev.map(t => t.id === id ? { ...t, [field]: value } : t));
     };
 
+    const updateScale = (id, scaleField, value) => {
+        setTeas(prev => prev.map(t => {
+            if (t.id !== id) return t;
+            const newScales = { ...(t.scales || { intensity: 50, mouthfeel: 50, flavor: 50, sweetness: 50 }), [scaleField]: parseInt(value, 10) };
+            return { ...t, scales: newScales };
+        }));
+    };
+
     const toggleTeaCategory = (id, category) => {
         setTeas(prev => prev.map(t => {
             if (t.id !== id) return t;
@@ -146,6 +154,7 @@ export default function TeaAdmin({ teas: initialTeas, onClose }) {
             temperature: "",
             description: "",
             aiSemanticProfile: "",
+            scales: { intensity: 50, mouthfeel: 50, flavor: 50, sweetness: 50 },
             inStock: true,
             favoriteS: isFav ? true : false,
             favoriteK: false
@@ -392,6 +401,28 @@ export default function TeaAdmin({ teas: initialTeas, onClose }) {
                                             <div className="field-group hero-field">
                                                 <label>AI Semantic Profile (Emotions, Scenarios & Concepts)</label>
                                                 <textarea value={tea.aiSemanticProfile || ''} onChange={e => updateTea(tea.id, 'aiSemanticProfile', e.target.value)} placeholder="e.g. cozy, rainy day, relaxing, deep thought, nostalgic..." className="admin-input admin-textarea" />
+                                            </div>
+
+                                            <div className="field-group hero-field">
+                                                <label>Tasting Profile Scales</label>
+                                                <div className="admin-field-row auto-grid">
+                                                    <div>
+                                                        <label style={{fontSize: '11px', color: 'var(--text-secondary)'}}>Intensity (Mild → Bold)</label>
+                                                        <input type="range" min="5" max="95" value={tea.scales?.intensity || 50} onChange={e => updateScale(tea.id, 'intensity', e.target.value)} style={{width: '100%', accentColor: 'var(--accent-color)'}} />
+                                                    </div>
+                                                    <div>
+                                                        <label style={{fontSize: '11px', color: 'var(--text-secondary)'}}>Mouthfeel (Smooth → Brisk)</label>
+                                                        <input type="range" min="5" max="95" value={tea.scales?.mouthfeel || 50} onChange={e => updateScale(tea.id, 'mouthfeel', e.target.value)} style={{width: '100%', accentColor: 'var(--accent-color)'}} />
+                                                    </div>
+                                                    <div>
+                                                        <label style={{fontSize: '11px', color: 'var(--text-secondary)'}}>Flavor (Bright → Roasted)</label>
+                                                        <input type="range" min="5" max="95" value={tea.scales?.flavor || 50} onChange={e => updateScale(tea.id, 'flavor', e.target.value)} style={{width: '100%', accentColor: 'var(--accent-color)'}} />
+                                                    </div>
+                                                    <div>
+                                                        <label style={{fontSize: '11px', color: 'var(--text-secondary)'}}>Sweetness (Sweet → Savory)</label>
+                                                        <input type="range" min="5" max="95" value={tea.scales?.sweetness || 50} onChange={e => updateScale(tea.id, 'sweetness', e.target.value)} style={{width: '100%', accentColor: 'var(--accent-color)'}} />
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div className="admin-field-row auto-grid">

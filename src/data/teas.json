@@ -21,7 +21,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Cinnamon, cardamom, ginger, black pepper kick",
-    "aiSemanticProfile": "warm, cozy, winter, autumn, fall, fireplaces, studying, rain, storm, melancholy, comfort, nostalgic, morning energy, spicy, bold, holiday, christmas, snuggle, blanket, reading, energetic, robust, invigorating, hearty, rich, deep, wake up, kickstart, sharp, strong start, productive, focus, alert, warming, fire, masala, cardamom kick, digestion, gut health, nausea, sick day, tummy ache, immune, recovery, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "warm, cozy, winter, autumn, fall, fireplaces, studying, rain, storm, melancholy, comfort, nostalgic, morning energy, spicy, bold, holiday, christmas, snuggle, blanket, reading, energetic, robust, invigorating, hearty, rich, deep, wake up, kickstart, sharp, strong start, productive, focus, alert, warming, fire, masala, cardamom kick, digestion, gut health, nausea, sick day, tummy ache, immune, recovery, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 85,
+      "mouthfeel": 70,
+      "flavor": 80,
+      "sweetness": 85
+    }
   },
   {
     "id": "1773011480036",
@@ -45,7 +51,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Bergamot citrus, smooth black tea, clean finish",
-    "aiSemanticProfile": "evening, bedtime, night, elegant, relaxing, wind down, reading, rainy day, classic, cozy, calm, smooth, decaf, after dinner, gentle, soothing, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, london fog, bergamot, citrus, london, classy, afternoon tea, fancy, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "evening, bedtime, night, elegant, relaxing, wind down, reading, rainy day, classic, cozy, calm, smooth, decaf, after dinner, gentle, soothing, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, london fog, bergamot, citrus, london, classy, afternoon tea, fancy, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 70,
+      "mouthfeel": 65,
+      "flavor": 70,
+      "sweetness": 50
+    }
   },
   {
     "id": "1773011480037",
@@ -69,7 +81,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Ginger, lemongrass, pear",
-    "aiSemanticProfile": "energy, focus, study, morning, refresh, digestion, sick, nausea, bright, lively, working, desk, hangover, stomach ache, uplifting, refreshing, clean, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, gut health, sick day, tummy ache, immune, warming, spicy, recovery, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "energy, focus, study, morning, refresh, digestion, sick, nausea, bright, lively, working, desk, hangover, stomach ache, uplifting, refreshing, clean, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, gut health, sick day, tummy ache, immune, warming, spicy, recovery, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 55,
+      "mouthfeel": 50,
+      "flavor": 35,
+      "sweetness": 70
+    }
   },
   {
     "id": "1773011480038",
@@ -93,7 +111,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Hibiscus, orange peel, rosehip, cinnamon",
-    "aiSemanticProfile": "tart, summer, iced, tropical, sunshine, lively, afternoon, fun, playful, bright, vitamin c, pool, beach, hot weather, refreshing, vibrant, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, healing, comforting, wellness, nurturing, hug in a mug, tangy, iced tea, poolside, red, juicy, romantic, delicate, love, date night, floral, fancy, feminine, beautiful, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "tart, summer, iced, tropical, sunshine, lively, afternoon, fun, playful, bright, vitamin c, pool, beach, hot weather, refreshing, vibrant, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, healing, comforting, wellness, nurturing, hug in a mug, tangy, iced tea, poolside, red, juicy, romantic, delicate, love, date night, floral, fancy, feminine, beautiful, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 70,
+      "mouthfeel": 85,
+      "flavor": 15,
+      "sweetness": 10
+    }
   },
   {
     "id": "1773011480039",
@@ -117,7 +141,13 @@
     "favoriteS": false,
     "favoriteK": true,
     "flavourNotes": "Spearmint, lemon verbena, lemongrass, green tea",
-    "aiSemanticProfile": "meditation, focus, study, calming, soothing, balanced, clear mind, morning, working, zen, peace, anxiety, stress relief, fresh, cool, refreshing, clean, lively, bright, grassy, detox, cleansing, clarity, mindful, zen mode, breath, peppermint, stomach, digestion, clear head, after meal, soothe, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "meditation, focus, study, calming, soothing, balanced, clear mind, morning, working, zen, peace, anxiety, stress relief, fresh, cool, refreshing, clean, lively, bright, grassy, detox, cleansing, clarity, mindful, zen mode, breath, peppermint, stomach, digestion, clear head, after meal, soothe, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 45,
+      "mouthfeel": 25,
+      "flavor": 15,
+      "sweetness": 30
+    }
   },
   {
     "id": "1773011480040",
@@ -141,7 +171,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Earthy caraway, rosemary, peppermint",
-    "aiSemanticProfile": "digestion, bloated, stomach ache, full, heavy meal, post-dinner, tummy, settling, soothing, comfort, evening, calm, caffeine-free, decaf, gentle, relax, unwind, bedtime, healing, comforting, wellness, nurturing, hug in a mug, refreshing, cool, breath, peppermint, stomach, clear head, after meal, soothe, romantic, delicate, love, date night, floral, fancy, feminine, beautiful, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "digestion, bloated, stomach ache, full, heavy meal, post-dinner, tummy, settling, soothing, comfort, evening, calm, caffeine-free, decaf, gentle, relax, unwind, bedtime, healing, comforting, wellness, nurturing, hug in a mug, refreshing, cool, breath, peppermint, stomach, clear head, after meal, soothe, romantic, delicate, love, date night, floral, fancy, feminine, beautiful, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 40,
+      "mouthfeel": 35,
+      "flavor": 40,
+      "sweetness": 80
+    }
   },
   {
     "id": "1773011480041",
@@ -165,7 +201,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Bergamot, blueberry, black tea",
-    "aiSemanticProfile": "elegant, morning, breakfast, sophisticated, floral, spring, bright, focus, work, tea time, fancy, energetic, uplifting, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, alert, london fog, bergamot, citrus, london, classy, rainy day, reading, afternoon tea, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "elegant, morning, breakfast, sophisticated, floral, spring, bright, focus, work, tea time, fancy, energetic, uplifting, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, alert, london fog, bergamot, citrus, london, classy, rainy day, reading, afternoon tea, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 70,
+      "mouthfeel": 55,
+      "flavor": 65,
+      "sweetness": 35
+    }
   },
   {
     "id": "1773011480042",
@@ -190,7 +232,13 @@
     "favoriteS": false,
     "favoriteK": true,
     "flavourNotes": "Mango, mixed black and green tea",
-    "aiSemanticProfile": "exotic, complex, afternoon, story time, reading, sweet, tropical, energy, focus, daydreaming, adventurous, fun, vibrant, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, alert, refreshing, clean, lively, bright, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, study, vacation, island, sunny, beach, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "exotic, complex, afternoon, story time, reading, sweet, tropical, energy, focus, daydreaming, adventurous, fun, vibrant, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, alert, refreshing, clean, lively, bright, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, study, vacation, island, sunny, beach, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 55,
+      "mouthfeel": 40,
+      "flavor": 40,
+      "sweetness": 20
+    }
   },
   {
     "id": "1773011480043",
@@ -214,7 +262,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Malt, roasted notes, smooth finish",
-    "aiSemanticProfile": "morning, bold, wake up, robust, rich, strong, breakfast, traditional, focus, energy, hearty, toasty, invigorating, deep, kickstart, morning energy, sharp, strong start, productive, alert, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, quick brew, impatient"
+    "aiSemanticProfile": "morning, bold, wake up, robust, rich, strong, breakfast, traditional, focus, energy, hearty, toasty, invigorating, deep, kickstart, morning energy, sharp, strong start, productive, alert, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, quick brew, impatient",
+    "scales": {
+      "intensity": 80,
+      "mouthfeel": 60,
+      "flavor": 80,
+      "sweetness": 60
+    }
   },
   {
     "id": "1773011480045",
@@ -238,7 +292,13 @@
     "favoriteS": false,
     "favoriteK": true,
     "flavourNotes": "Raspberry leaf, lemongrass, marjoram, wild rose",
-    "aiSemanticProfile": "happy, cheerful, mood boost, uplifting, bright, positive, joyful, summer, spring, light, refreshing, afternoon, floral, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, healing, comforting, wellness, nurturing, hug in a mug, romantic, delicate, love, date night, fancy, feminine, beautiful, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "happy, cheerful, mood boost, uplifting, bright, positive, joyful, summer, spring, light, refreshing, afternoon, floral, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, healing, comforting, wellness, nurturing, hug in a mug, romantic, delicate, love, date night, fancy, feminine, beautiful, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 30,
+      "mouthfeel": 20,
+      "flavor": 20,
+      "sweetness": 25
+    }
   },
   {
     "id": "1773011480046",
@@ -262,7 +322,13 @@
     "favoriteS": true,
     "favoriteK": false,
     "flavourNotes": "Chamomile, lemongrass, rose",
-    "aiSemanticProfile": "sleep, sleepy, insomnia, bedtime, sad, crying, lonely, comfort, anxiety, stress, relax, unwind, calm, peace, gentle, hug, caffeine-free, decaf, soothing, evening, healing, comforting, wellness, nurturing, hug in a mug, nightmare, stress relief, calming, peaceful, bedtime routine, romantic, delicate, love, date night, floral, fancy, feminine, beautiful, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "sleep, sleepy, insomnia, bedtime, sad, crying, lonely, comfort, anxiety, stress, relax, unwind, calm, peace, gentle, hug, caffeine-free, decaf, soothing, evening, healing, comforting, wellness, nurturing, hug in a mug, nightmare, stress relief, calming, peaceful, bedtime routine, romantic, delicate, love, date night, floral, fancy, feminine, beautiful, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 15,
+      "mouthfeel": 10,
+      "flavor": 15,
+      "sweetness": 20
+    }
   },
   {
     "id": "1773011480047",
@@ -286,7 +352,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Creamy, buttery, light floral notes",
-    "aiSemanticProfile": "creamy, buttery, luxurious, smooth, relaxing, comforting, sophisticated, afternoon, calm, elegant, mellow, treat, dessert substitute, complex, layered, contemplative, expert, artisan, craft, connoisseur, afternoon stretch, slow down, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "creamy, buttery, luxurious, smooth, relaxing, comforting, sophisticated, afternoon, calm, elegant, mellow, treat, dessert substitute, complex, layered, contemplative, expert, artisan, craft, connoisseur, afternoon stretch, slow down, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 45,
+      "mouthfeel": 5,
+      "flavor": 40,
+      "sweetness": 15
+    }
   },
   {
     "id": "1773011480048",
@@ -311,7 +383,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Bergamot, jasmine, rose",
-    "aiSemanticProfile": "fancy, elegant, romantic, date night, impress, morning, afternoon tea, floral, beautiful, delicate, fragrant, uplifting, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, refreshing, clean, lively, bright, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, study, london fog, bergamot, citrus, london, classy, rainy day, reading, love, feminine, soothing, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "fancy, elegant, romantic, date night, impress, morning, afternoon tea, floral, beautiful, delicate, fragrant, uplifting, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, refreshing, clean, lively, bright, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, study, london fog, bergamot, citrus, london, classy, rainy day, reading, love, feminine, soothing, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 65,
+      "mouthfeel": 50,
+      "flavor": 55,
+      "sweetness": 30
+    }
   },
   {
     "id": "1773011480049",
@@ -336,7 +414,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Vanilla, jasmine, hint of bergamot",
-    "aiSemanticProfile": "sweet, comforting, nostalgic, dessert, smooth, focus, reading, studying, calm energy, morning, cozy, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, alert, refreshing, clean, lively, bright, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, study, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "sweet, comforting, nostalgic, dessert, smooth, focus, reading, studying, calm energy, morning, cozy, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, alert, refreshing, clean, lively, bright, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, study, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 60,
+      "mouthfeel": 35,
+      "flavor": 60,
+      "sweetness": 15
+    }
   },
   {
     "id": "1773011480051",
@@ -360,7 +444,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Peppermint, cool menthol",
-    "aiSemanticProfile": "refreshing, cool, stomach, digestion, headache, hangover, after meal, morning, focus, bright, tummy, sick, clear head, breath, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, healing, comforting, wellness, nurturing, hug in a mug, peppermint, soothe, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "refreshing, cool, stomach, digestion, headache, hangover, after meal, morning, focus, bright, tummy, sick, clear head, breath, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, healing, comforting, wellness, nurturing, hug in a mug, peppermint, soothe, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 75,
+      "mouthfeel": 80,
+      "flavor": 10,
+      "sweetness": 40
+    }
   },
   {
     "id": "1773011480052",
@@ -384,7 +474,13 @@
     "favoriteS": true,
     "favoriteK": true,
     "flavourNotes": "Sweet jasmine, vegetal green tea notes",
-    "aiSemanticProfile": "romantic, beautiful, elegant, evening, spring, graceful, peaceful, delicate, fragrant, floral, relax, perfume, evening walk, aesthetic, uplifting, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, quick brew, impatient"
+    "aiSemanticProfile": "romantic, beautiful, elegant, evening, spring, graceful, peaceful, delicate, fragrant, floral, relax, perfume, evening walk, aesthetic, uplifting, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, quick brew, impatient",
+    "scales": {
+      "intensity": 45,
+      "mouthfeel": 30,
+      "flavor": 20,
+      "sweetness": 25
+    }
   },
   {
     "id": "1773011480053",
@@ -408,7 +504,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Fennel, mint, tart hibiscus",
-    "aiSemanticProfile": "happy, digestion, digestive, settling, stomach, calm, sweet, afternoon, wellness, health, tummy, post meal, caffeine-free, decaf, soothing, gentle, relax, unwind, bedtime, evening, healing, comforting, nurturing, hug in a mug, refreshing, cool, breath, peppermint, clear head, after meal, soothe, tart, tangy, summer, iced tea, poolside, vibrant, vitamin c, red, juicy, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "happy, digestion, digestive, settling, stomach, calm, sweet, afternoon, wellness, health, tummy, post meal, caffeine-free, decaf, soothing, gentle, relax, unwind, bedtime, evening, healing, comforting, nurturing, hug in a mug, refreshing, cool, breath, peppermint, clear head, after meal, soothe, tart, tangy, summer, iced tea, poolside, vibrant, vitamin c, red, juicy, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 35,
+      "mouthfeel": 20,
+      "flavor": 25,
+      "sweetness": 30
+    }
   },
   {
     "id": "1773011480054",
@@ -432,7 +534,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Rose, raspberry, strawberry",
-    "aiSemanticProfile": "summer, iced, party, celebration, fun, playful, berry, sweet, sunshine, refreshing, bright, afternoon, picnic, clean, lively, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, focus, study, romantic, delicate, love, date night, floral, fancy, feminine, soothing, beautiful, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "summer, iced, party, celebration, fun, playful, berry, sweet, sunshine, refreshing, bright, afternoon, picnic, clean, lively, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, focus, study, romantic, delicate, love, date night, floral, fancy, feminine, soothing, beautiful, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 40,
+      "mouthfeel": 30,
+      "flavor": 15,
+      "sweetness": 10
+    }
   },
   {
     "id": "1773011480055",
@@ -455,7 +563,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Floral rose, natural sweetness",
-    "aiSemanticProfile": "romantic, love, floral, delicate, beautiful, calm, elegant, feminine, additive, mix, customize, enhance, custom, spice up, personalize, creative, date night, fancy, soothing, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "romantic, love, floral, delicate, beautiful, calm, elegant, feminine, additive, mix, customize, enhance, custom, spice up, personalize, creative, date night, fancy, soothing, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 15,
+      "mouthfeel": 15,
+      "flavor": 10,
+      "sweetness": 15
+    }
   },
   {
     "id": "1773011480056",
@@ -478,7 +592,13 @@
     "favoriteS": false,
     "favoriteK": true,
     "flavourNotes": "Bold mint, earthy notes",
-    "aiSemanticProfile": "earthy, strong, bold, refresh, cool, digestion, morning, focus, custom, mix, enhance, additive, spice up, personalize, creative, refreshing, breath, peppermint, stomach, clear head, after meal, soothe, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "earthy, strong, bold, refresh, cool, digestion, morning, focus, custom, mix, enhance, additive, spice up, personalize, creative, refreshing, breath, peppermint, stomach, clear head, after meal, soothe, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 80,
+      "mouthfeel": 70,
+      "flavor": 25,
+      "sweetness": 60
+    }
   },
   {
     "id": "1773011480057",
@@ -501,7 +621,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Earthy turmeric, spicy ginger",
-    "aiSemanticProfile": "sick, immune, health, wellness, cold, flu, golden milk, anti-inflammatory, warming, cozy, healing, recovery, custom, enhance, mix, additive, spice up, personalize, creative, digestion, gut health, nausea, sick day, tummy ache, spicy, immunity, ayurveda, earthy, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "sick, immune, health, wellness, cold, flu, golden milk, anti-inflammatory, warming, cozy, healing, recovery, custom, enhance, mix, additive, spice up, personalize, creative, digestion, gut health, nausea, sick day, tummy ache, spicy, immunity, ayurveda, earthy, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 90,
+      "mouthfeel": 85,
+      "flavor": 80,
+      "sweetness": 95
+    }
   },
   {
     "id": "1773011480058",
@@ -524,7 +650,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Spicy floral, honey-like notes",
-    "aiSemanticProfile": "spicy, wild, floral, custom, enhance, nature, rustic, earthy, herbal, mix, additive, spice up, personalize, creative, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "spicy, wild, floral, custom, enhance, nature, rustic, earthy, herbal, mix, additive, spice up, personalize, creative, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 55,
+      "mouthfeel": 45,
+      "flavor": 50,
+      "sweetness": 75
+    }
   },
   {
     "id": "1773011480059",
@@ -548,7 +680,13 @@
     "favoriteS": true,
     "favoriteK": true,
     "flavourNotes": "Jasmine, light green tea",
-    "aiSemanticProfile": "impressive, show off, fancy, tea ceremony, expert, elegant, romantic, evening, relaxing, beautiful, focus, floral, spring, delicate, fragrant, perfume, graceful, evening walk, aesthetic, uplifting, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, quick brew, impatient"
+    "aiSemanticProfile": "impressive, show off, fancy, tea ceremony, expert, elegant, romantic, evening, relaxing, beautiful, focus, floral, spring, delicate, fragrant, perfume, graceful, evening walk, aesthetic, uplifting, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, quick brew, impatient",
+    "scales": {
+      "intensity": 50,
+      "mouthfeel": 35,
+      "flavor": 25,
+      "sweetness": 20
+    }
   },
   {
     "id": "1773011480060",
@@ -572,7 +710,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Light green tea, subtle floral notes",
-    "aiSemanticProfile": "impressive, beautiful, fancy, blooming, tea ceremony, relax, aesthetic, visual, calm, spring, elegant, refreshing, clean, lively, bright, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, focus, study, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "impressive, beautiful, fancy, blooming, tea ceremony, relax, aesthetic, visual, calm, spring, elegant, refreshing, clean, lively, bright, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, focus, study, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 25,
+      "mouthfeel": 20,
+      "flavor": 20,
+      "sweetness": 35
+    }
   },
   {
     "id": "1773011480061",
@@ -596,7 +740,13 @@
     "favoriteS": true,
     "favoriteK": true,
     "flavourNotes": "Coconut, lemongrass, ginger, hint of vanilla",
-    "aiSemanticProfile": "tropical, summer, beach, vacation, island, refreshing, sweet, iced, lively, afternoon, energetic, clean, bright, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, focus, study, digestion, gut health, nausea, sick day, tummy ache, immune, warming, spicy, recovery, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "tropical, summer, beach, vacation, island, refreshing, sweet, iced, lively, afternoon, energetic, clean, bright, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, focus, study, digestion, gut health, nausea, sick day, tummy ache, immune, warming, spicy, recovery, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 50,
+      "mouthfeel": 30,
+      "flavor": 30,
+      "sweetness": 15
+    }
   },
   {
     "id": "1773011480062",
@@ -620,7 +770,13 @@
     "favoriteS": true,
     "favoriteK": false,
     "flavourNotes": "Lemon verbena, ginger, hint of licorice, +zinc+",
-    "aiSemanticProfile": "sick, cold, flu, fever, cough, unwell, recovery, healing, health, immunity, comfort, warm, soothe, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, comforting, wellness, nurturing, hug in a mug, digestion, gut health, nausea, sick day, tummy ache, immune, warming, spicy, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "sick, cold, flu, fever, cough, unwell, recovery, healing, health, immunity, comfort, warm, soothe, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, comforting, wellness, nurturing, hug in a mug, digestion, gut health, nausea, sick day, tummy ache, immune, warming, spicy, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 65,
+      "mouthfeel": 55,
+      "flavor": 35,
+      "sweetness": 75
+    }
   },
   {
     "id": "1773011480063",
@@ -644,7 +800,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Chamomile, light honey-like sweetness",
-    "aiSemanticProfile": "sleep, calm, anxiety, stress, relax, sad, upset, crying, lonely, comfort, baby, gentle, peace, bedtime, caffeine-free, decaf, soothing, unwind, evening, healing, comforting, wellness, nurturing, hug in a mug, insomnia, nightmare, stress relief, calming, peaceful, bedtime routine, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "sleep, calm, anxiety, stress, relax, sad, upset, crying, lonely, comfort, baby, gentle, peace, bedtime, caffeine-free, decaf, soothing, unwind, evening, healing, comforting, wellness, nurturing, hug in a mug, insomnia, nightmare, stress relief, calming, peaceful, bedtime routine, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 10,
+      "mouthfeel": 10,
+      "flavor": 15,
+      "sweetness": 15
+    }
   },
   {
     "id": "1773011480064",
@@ -668,7 +830,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Nutty, toasted, marine vegetal notes",
-    "aiSemanticProfile": "nutty, roasted, focus, zen, study, work, traditional, mindful, quiet, morning, high quality, expert, refreshing, clean, lively, bright, grassy, detox, cleansing, balanced, clarity, zen mode, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, quick brew, impatient"
+    "aiSemanticProfile": "nutty, roasted, focus, zen, study, work, traditional, mindful, quiet, morning, high quality, expert, refreshing, clean, lively, bright, grassy, detox, cleansing, balanced, clarity, zen mode, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, quick brew, impatient",
+    "scales": {
+      "intensity": 65,
+      "mouthfeel": 45,
+      "flavor": 70,
+      "sweetness": 60
+    }
   },
   {
     "id": "1773011480065",
@@ -692,7 +860,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Strong pinewood smoke, campfire notes",
-    "aiSemanticProfile": "campfire, smoke, winter, intense, acquired taste, outdoors, moody, bold, masculine, adventurous, strong, whisky, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "campfire, smoke, winter, intense, acquired taste, outdoors, moody, bold, masculine, adventurous, strong, whisky, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 98,
+      "mouthfeel": 85,
+      "flavor": 98,
+      "sweetness": 90
+    }
   },
   {
     "id": "1773011480066",
@@ -716,7 +890,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Cinnamon, mint, honey, hint of cocoa",
-    "aiSemanticProfile": "complex, connoisseur, pure, honey, mint, expert, fancy, focus, afternoon, unique, special, sophisticated, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, alert, refreshing, cool, breath, peppermint, stomach, digestion, clear head, after meal, soothe, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "complex, connoisseur, pure, honey, mint, expert, fancy, focus, afternoon, unique, special, sophisticated, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, alert, refreshing, cool, breath, peppermint, stomach, digestion, clear head, after meal, soothe, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 75,
+      "mouthfeel": 55,
+      "flavor": 75,
+      "sweetness": 55
+    }
   },
   {
     "id": "1773011480067",
@@ -739,7 +919,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Tart berry, citrus notes",
-    "aiSemanticProfile": "tart, vitamin c, immunity, healthy, summer, bright, mix, enhance, custom, health, red, additive, spice up, personalize, creative, romantic, delicate, love, date night, floral, fancy, feminine, soothing, beautiful, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "tart, vitamin c, immunity, healthy, summer, bright, mix, enhance, custom, health, red, additive, spice up, personalize, creative, romantic, delicate, love, date night, floral, fancy, feminine, soothing, beautiful, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 40,
+      "mouthfeel": 80,
+      "flavor": 15,
+      "sweetness": 15
+    }
   },
   {
     "id": "1773011480068",
@@ -763,7 +949,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Ginger, orange, turmeric, cinnamon",
-    "aiSemanticProfile": "sick, under the weather, cold, flu, recovery, healing, wellness, health, comfort, snuggle, warm, ginger, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, comforting, nurturing, hug in a mug, digestion, gut health, nausea, sick day, tummy ache, immune, warming, spicy, tart, tangy, summer, iced tea, poolside, vibrant, vitamin c, red, juicy, refreshing, anti-inflammatory, golden milk, immunity, ayurveda, earthy, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "sick, under the weather, cold, flu, recovery, healing, wellness, health, comfort, snuggle, warm, ginger, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, comforting, nurturing, hug in a mug, digestion, gut health, nausea, sick day, tummy ache, immune, warming, spicy, tart, tangy, summer, iced tea, poolside, vibrant, vitamin c, red, juicy, refreshing, anti-inflammatory, golden milk, immunity, ayurveda, earthy, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 75,
+      "mouthfeel": 60,
+      "flavor": 60,
+      "sweetness": 80
+    }
   },
   {
     "id": "1773011480069",
@@ -787,7 +979,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Earthy herbs, mild sweetness",
-    "aiSemanticProfile": "earthy, rustic, folk remedy, traditional, grandmother, nostalgic, pure, health, gentle, mild, calming, caffeine-free, decaf, soothing, calm, relax, unwind, bedtime, evening, healing, comforting, wellness, nurturing, hug in a mug, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "earthy, rustic, folk remedy, traditional, grandmother, nostalgic, pure, health, gentle, mild, calming, caffeine-free, decaf, soothing, calm, relax, unwind, bedtime, evening, healing, comforting, wellness, nurturing, hug in a mug, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 35,
+      "mouthfeel": 20,
+      "flavor": 50,
+      "sweetness": 85
+    }
   },
   {
     "id": "1773011480070",
@@ -811,7 +1009,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Lemon, ginger, hint of turmeric",
-    "aiSemanticProfile": "digestion, stomach, unwell, bloating, sick, nausea, settling, health, gut, wellness, immune, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, healing, comforting, nurturing, hug in a mug, gut health, sick day, tummy ache, warming, spicy, recovery, anti-inflammatory, golden milk, immunity, ayurveda, earthy, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "digestion, stomach, unwell, bloating, sick, nausea, settling, health, gut, wellness, immune, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, healing, comforting, nurturing, hug in a mug, gut health, sick day, tummy ache, warming, spicy, recovery, anti-inflammatory, golden milk, immunity, ayurveda, earthy, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 65,
+      "mouthfeel": 65,
+      "flavor": 25,
+      "sweetness": 75
+    }
   },
   {
     "id": "1773011480071",
@@ -835,7 +1039,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Ginger, lemongrass, hint of hibiscus",
-    "aiSemanticProfile": "warming, cold, sick, sick day, flu, nausea, tummy, digestion, soothing, tart, comfort, evening, caffeine-free, decaf, gentle, calm, relax, unwind, bedtime, healing, comforting, wellness, nurturing, hug in a mug, gut health, tummy ache, immune, spicy, recovery, tangy, summer, iced tea, poolside, vibrant, vitamin c, red, juicy, refreshing, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "warming, cold, sick, sick day, flu, nausea, tummy, digestion, soothing, tart, comfort, evening, caffeine-free, decaf, gentle, calm, relax, unwind, bedtime, healing, comforting, wellness, nurturing, hug in a mug, gut health, tummy ache, immune, spicy, recovery, tangy, summer, iced tea, poolside, vibrant, vitamin c, red, juicy, refreshing, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 60,
+      "mouthfeel": 60,
+      "flavor": 25,
+      "sweetness": 75
+    }
   },
   {
     "id": "1773011480072",
@@ -859,7 +1069,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Muscatel grape, light tea flavour",
-    "aiSemanticProfile": "afternoon tea, champagne, elegant, fancy, high tea, refined, delicate, floral, spring, light, sophisticated, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "afternoon tea, champagne, elegant, fancy, high tea, refined, delicate, floral, spring, light, sophisticated, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 60,
+      "mouthfeel": 75,
+      "flavor": 55,
+      "sweetness": 40
+    }
   },
   {
     "id": "1773011480073",
@@ -883,7 +1099,13 @@
     "favoriteS": false,
     "favoriteK": true,
     "flavourNotes": "Strong cinnamon, orange, cloves",
-    "aiSemanticProfile": "cozy, winter, fall, autumn, sweet, spicy, holiday, christmas, fireplace, bold, energetic, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "cozy, winter, fall, autumn, sweet, spicy, holiday, christmas, fireplace, bold, energetic, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 85,
+      "mouthfeel": 70,
+      "flavor": 75,
+      "sweetness": 10
+    }
   },
   {
     "id": "1773011480074",
@@ -907,7 +1129,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Cherry blossom, vanilla, light green tea",
-    "aiSemanticProfile": "spring, beautiful, floral, delicate, romantic, refreshing, happy, light, uplifting, afternoon, clean, lively, bright, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, focus, study, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "spring, beautiful, floral, delicate, romantic, refreshing, happy, light, uplifting, afternoon, clean, lively, bright, grassy, detox, cleansing, balanced, clarity, mindful, zen, zen mode, focus, study, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 35,
+      "mouthfeel": 25,
+      "flavor": 15,
+      "sweetness": 20
+    }
   },
   {
     "id": "1773011480075",
@@ -931,7 +1159,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Vegetal green tea, grassy notes",
-    "aiSemanticProfile": "everyday, staple, simple, focus, healthy, detox, work, study, morning, clean, fresh, refreshing, lively, bright, grassy, cleansing, balanced, clarity, mindful, zen, zen mode, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "everyday, staple, simple, focus, healthy, detox, work, study, morning, clean, fresh, refreshing, lively, bright, grassy, cleansing, balanced, clarity, mindful, zen, zen mode, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 45,
+      "mouthfeel": 50,
+      "flavor": 35,
+      "sweetness": 50
+    }
   },
   {
     "id": "1773011480076",
@@ -955,7 +1189,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Earthy rooibos, raspberry flavour",
-    "aiSemanticProfile": "sweet, fruity, dessert, caffeine free, kids, bedtime, evening, summer, iced, playful, fun, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "sweet, fruity, dessert, caffeine free, kids, bedtime, evening, summer, iced, playful, fun, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 55,
+      "mouthfeel": 35,
+      "flavor": 50,
+      "sweetness": 20
+    }
   },
   {
     "id": "1773011480077",
@@ -979,7 +1219,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Earthy rooibos, wild rose, rosehip, mint",
-    "aiSemanticProfile": "wellness, health, balance, mindfulness, yoga, meditation, calming, grounding, spice, natural, refreshing, cool, breath, peppermint, stomach, digestion, clear head, after meal, soothe, romantic, delicate, love, date night, floral, fancy, feminine, soothing, beautiful, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "wellness, health, balance, mindfulness, yoga, meditation, calming, grounding, spice, natural, refreshing, cool, breath, peppermint, stomach, digestion, clear head, after meal, soothe, romantic, delicate, love, date night, floral, fancy, feminine, soothing, beautiful, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 50,
+      "mouthfeel": 40,
+      "flavor": 65,
+      "sweetness": 85
+    }
   },
   {
     "id": "1773011480078",
@@ -1003,7 +1249,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Bergamot, orange, tangerine, black tea",
-    "aiSemanticProfile": "citrus, elegant, evening, sophisticated, fancy, classic, relaxing, reading, smooth, uplifting, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, london fog, bergamot, london, classy, rainy day, afternoon tea, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "citrus, elegant, evening, sophisticated, fancy, classic, relaxing, reading, smooth, uplifting, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, london fog, bergamot, london, classy, rainy day, afternoon tea, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 70,
+      "mouthfeel": 55,
+      "flavor": 65,
+      "sweetness": 30
+    }
   },
   {
     "id": "1773011480079",
@@ -1027,7 +1279,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Raspberry, jasmine, medium-bodied black tea",
-    "aiSemanticProfile": "celebration, bright, bold, fun, party, exciting, lively, fruit, energetic, special, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "celebration, bright, bold, fun, party, exciting, lively, fruit, energetic, special, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 70,
+      "mouthfeel": 55,
+      "flavor": 75,
+      "sweetness": 40
+    }
   },
   {
     "id": "1773011480080",
@@ -1051,7 +1309,13 @@
     "favoriteS": true,
     "favoriteK": false,
     "flavourNotes": "Grassy green tea, mango, pineapple",
-    "aiSemanticProfile": "tropical, summer, sweet, fun, bright, lively, beach, pool, iced, refreshing, cheerful, happy, vacation, island, exotic, sunny, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "tropical, summer, sweet, fun, bright, lively, beach, pool, iced, refreshing, cheerful, happy, vacation, island, exotic, sunny, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 50,
+      "mouthfeel": 45,
+      "flavor": 25,
+      "sweetness": 15
+    }
   },
   {
     "id": "1773011480081",
@@ -1075,7 +1339,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Blueberry, smooth black tea",
-    "aiSemanticProfile": "berry, fruity, sweet, afternoon, summer, refreshing, lively, cheerful, light, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "berry, fruity, sweet, afternoon, summer, refreshing, lively, cheerful, light, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 45,
+      "mouthfeel": 35,
+      "flavor": 30,
+      "sweetness": 20
+    }
   },
   {
     "id": "1773011480082",
@@ -1099,7 +1369,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Chamomile, lavender",
-    "aiSemanticProfile": "sleep, deep sleep, bedtime, relax, anxiety, stress, panic, peace, calm, unwind, soft, comfort, sad, soothing, caffeine-free, decaf, gentle, evening, healing, comforting, wellness, nurturing, hug in a mug, insomnia, nightmare, stress relief, calming, peaceful, bedtime routine, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "sleep, deep sleep, bedtime, relax, anxiety, stress, panic, peace, calm, unwind, soft, comfort, sad, soothing, caffeine-free, decaf, gentle, evening, healing, comforting, wellness, nurturing, hug in a mug, insomnia, nightmare, stress relief, calming, peaceful, bedtime routine, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 25,
+      "mouthfeel": 15,
+      "flavor": 25,
+      "sweetness": 30
+    }
   },
   {
     "id": "1773011480083",
@@ -1123,7 +1399,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Jasmine, light green tea, subtle bitterness",
-    "aiSemanticProfile": "jasmine, elegant, beautiful, romantic, delicate, fragrant, graceful, spring, peaceful, floral, perfume, evening walk, aesthetic, uplifting, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "jasmine, elegant, beautiful, romantic, delicate, fragrant, graceful, spring, peaceful, floral, perfume, evening walk, aesthetic, uplifting, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 40,
+      "mouthfeel": 25,
+      "flavor": 20,
+      "sweetness": 25
+    }
   },
   {
     "id": "1773011480084",
@@ -1147,7 +1429,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Lemongrass, ginger, grassy green tea",
-    "aiSemanticProfile": "lemon, blueberry, tart, summer, refreshing, iced, bright, happy, playful, fun, afternoon, digestion, gut health, nausea, sick day, tummy ache, immune, warming, spicy, recovery, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "lemon, blueberry, tart, summer, refreshing, iced, bright, happy, playful, fun, afternoon, digestion, gut health, nausea, sick day, tummy ache, immune, warming, spicy, recovery, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 50,
+      "mouthfeel": 45,
+      "flavor": 20,
+      "sweetness": 15
+    }
   },
   {
     "id": "1773011480085",
@@ -1171,7 +1459,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Lemongrass, ginger",
-    "aiSemanticProfile": "lemon, ginger, upset stomach, nausea, sick, bright, digestion, fresh, lively, cold, flu, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, healing, comforting, wellness, nurturing, hug in a mug, gut health, sick day, tummy ache, immune, warming, spicy, recovery, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "lemon, ginger, upset stomach, nausea, sick, bright, digestion, fresh, lively, cold, flu, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, healing, comforting, wellness, nurturing, hug in a mug, gut health, sick day, tummy ache, immune, warming, spicy, recovery, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 60,
+      "mouthfeel": 55,
+      "flavor": 30,
+      "sweetness": 75
+    }
   },
   {
     "id": "1773011480086",
@@ -1195,7 +1489,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Peach, earthy rooibos",
-    "aiSemanticProfile": "peach, calm, sweet, relaxing, summer, iced, mindfulness, caffeine free, kids, peaceful, gentle, fruity, iced tea, picnic, sunny, orchard, juicy, friendly, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "peach, calm, sweet, relaxing, summer, iced, mindfulness, caffeine free, kids, peaceful, gentle, fruity, iced tea, picnic, sunny, orchard, juicy, friendly, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 35,
+      "mouthfeel": 25,
+      "flavor": 20,
+      "sweetness": 10
+    }
   },
   {
     "id": "1773011480087",
@@ -1219,7 +1519,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Lemon punch, light ginger",
-    "aiSemanticProfile": "citrus, punch, fun, lively, bright, summer, party, fruity, tart, refreshing, happy, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, healing, comforting, wellness, nurturing, hug in a mug, digestion, gut health, nausea, sick day, tummy ache, immune, warming, spicy, recovery, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "citrus, punch, fun, lively, bright, summer, party, fruity, tart, refreshing, happy, caffeine-free, decaf, soothing, gentle, calm, relax, unwind, bedtime, evening, healing, comforting, wellness, nurturing, hug in a mug, digestion, gut health, nausea, sick day, tummy ache, immune, warming, spicy, recovery, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 60,
+      "mouthfeel": 80,
+      "flavor": 15,
+      "sweetness": 15
+    }
   },
   {
     "id": "1773011480088",
@@ -1243,7 +1549,13 @@
     "favoriteS": true,
     "favoriteK": true,
     "flavourNotes": "Marine umami, rich texture, grassy sweetness",
-    "aiSemanticProfile": "green, vegetal, healthy, fresh, focus, zen, study, work, crisp, clean, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "green, vegetal, healthy, fresh, focus, zen, study, work, crisp, clean, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 65,
+      "mouthfeel": 70,
+      "flavor": 35,
+      "sweetness": 65
+    }
   },
   {
     "id": "1773011480089",
@@ -1267,7 +1579,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Tart hibiscus, sweet fennel, aromatic rosemary",
-    "aiSemanticProfile": "dreams, sleep, bedtime, night, calm, unwind, relax, peace, deep sleep, soothing, comfort, caffeine-free, decaf, gentle, evening, healing, comforting, wellness, nurturing, hug in a mug, tart, tangy, summer, iced tea, poolside, vibrant, vitamin c, red, juicy, refreshing, romantic, delicate, love, date night, floral, fancy, feminine, beautiful, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "dreams, sleep, bedtime, night, calm, unwind, relax, peace, deep sleep, soothing, comfort, caffeine-free, decaf, gentle, evening, healing, comforting, wellness, nurturing, hug in a mug, tart, tangy, summer, iced tea, poolside, vibrant, vitamin c, red, juicy, refreshing, romantic, delicate, love, date night, floral, fancy, feminine, beautiful, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 35,
+      "mouthfeel": 20,
+      "flavor": 35,
+      "sweetness": 15
+    }
   },
   {
     "id": "1773011480090",
@@ -1291,7 +1609,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Smooth black tea, rose scent",
-    "aiSemanticProfile": "rose, floral, romantic, black tea, elegant, sophisticated, smooth, afternoon, classic, fancy, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, delicate, love, date night, feminine, soothing, beautiful, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "rose, floral, romantic, black tea, elegant, sophisticated, smooth, afternoon, classic, fancy, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, delicate, love, date night, feminine, soothing, beautiful, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 65,
+      "mouthfeel": 45,
+      "flavor": 65,
+      "sweetness": 30
+    }
   },
   {
     "id": "1773011480091",
@@ -1315,7 +1639,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Malt, caramel, full-bodied",
-    "aiSemanticProfile": "bold, strong, morning, wake up, breakfast, hearty, rich, robust, energy, sleepy, tired, invigorating, deep, kickstart, morning energy, sharp, strong start, productive, focus, alert, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "bold, strong, morning, wake up, breakfast, hearty, rich, robust, energy, sleepy, tired, invigorating, deep, kickstart, morning energy, sharp, strong start, productive, focus, alert, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 90,
+      "mouthfeel": 85,
+      "flavor": 85,
+      "sweetness": 55
+    }
   },
   {
     "id": "1773011480092",
@@ -1339,7 +1669,13 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Bergamot, vanilla, creamy black tea",
-    "aiSemanticProfile": "creamy, vanilla, smooth, elegant, comforting, cozy, sweet, romantic, afternoon, luxurious, relaxing, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, london fog, bergamot, citrus, london, classy, rainy day, reading, afternoon tea, fancy, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient"
+    "aiSemanticProfile": "creamy, vanilla, smooth, elegant, comforting, cozy, sweet, romantic, afternoon, luxurious, relaxing, bold, robust, invigorating, hearty, rich, deep, wake up, kickstart, morning energy, sharp, strong start, productive, focus, alert, london fog, bergamot, citrus, london, classy, rainy day, reading, afternoon tea, fancy, 3pm slump, morning routine, workday, stay awake, energy boost, pre-workout, slow living, patient",
+    "scales": {
+      "intensity": 65,
+      "mouthfeel": 10,
+      "flavor": 60,
+      "sweetness": 5
+    }
   },
   {
     "id": "1773011480093",
@@ -1362,6 +1698,12 @@
     "favoriteS": false,
     "favoriteK": false,
     "flavourNotes": "Floral sweetness, wildflower",
-    "aiSemanticProfile": "sweet, soothing, comfort, sick, sore throat, cough, natural, healing, mix, enhance, remedy, custom, additive, spice up, personalize, creative, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient"
+    "aiSemanticProfile": "sweet, soothing, comfort, sick, sore throat, cough, natural, healing, mix, enhance, remedy, custom, additive, spice up, personalize, creative, late night, evening wind down, caffeine sensitive, pregnancy safe, kids safe, relaxing night, slow living, patient",
+    "scales": {
+      "intensity": 80,
+      "mouthfeel": 5,
+      "flavor": 15,
+      "sweetness": 5
+    }
   }
 ]
