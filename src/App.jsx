@@ -117,6 +117,10 @@ function App() {
     if (searchQuery.toLowerCase().trim() === 'coffee') {
       setIsCoffeeInterventionActive(true);
       setSearchQuery("");
+      // Dismiss the keyboard on mobile
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
     }
   }, [searchQuery]);
 
@@ -433,15 +437,15 @@ function App() {
 
 
   return (
-    <div className="app-wrapper">
+    <>
       <AnimatePresence>
         {isCoffeeMode && (
           <motion.div 
             className="coffee-intervention"
             initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(40px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(25px)" }}
             exit={{ opacity: 0, scale: 1.05, backdropFilter: "blur(0px)" }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="coffee-mesh" />
             
@@ -504,6 +508,8 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <div className="app-wrapper">
 
       <AnimatePresence>
         <motion.div
@@ -974,6 +980,7 @@ function App() {
         </button>
       )}
     </div>
+    </>
   );
 }
 
