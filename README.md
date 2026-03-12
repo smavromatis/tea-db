@@ -52,4 +52,4 @@ This project was built using the following open-source technologies:
 *   **[Lenis](https://lenis.studiofreight.com/)**: For the buttery smooth scrolling experience.
 *   **[Lucide Icons](https://lucide.dev/)**: Beautiful, consistent icons for the app.
 
-A big thank you to the creators and communities behind these tools!
+A big thank you to the creators and communities behind these tools! :)
