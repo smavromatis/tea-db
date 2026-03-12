@@ -27,5 +27,3 @@ dist-ssr
 # Git restricts files over 100MB
 public/models/Xenova/all-MiniLM-L12-v2/onnx/model.onnx
 
-# Local one-off scripts
-modify_data.cjs
