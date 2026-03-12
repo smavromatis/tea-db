@@ -4,6 +4,7 @@ import precomputedData from '../data/embeddings.json';
 // Disallow loading from the Hugging Face hub
 env.allowRemoteModels = false;
 env.localModelPath = (import.meta.env.BASE_URL || '/') + 'models/';
+env.backends.onnx.wasm.wasmPaths = (import.meta.env.BASE_URL || '/') + 'wasm/';
 
 let pipelineInstance = null;
 let initialized = false;
