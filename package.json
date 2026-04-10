@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run update-ai && vite build",
+    "build": "npm run update-semantic && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "update-ai": "node src/ai/compute_embeddings.mjs"
+    "update-semantic": "node src/semantic/compute_embeddings.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
