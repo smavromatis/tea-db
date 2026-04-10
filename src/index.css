@@ -409,7 +409,7 @@ html.lenis body {
   transition: all 0.3s ease;
 }
 
-.ai-spinner {
+.semantic-spinner {
   width: 16px;
   height: 16px;
   border: 2px solid var(--accent-color);
@@ -417,12 +417,12 @@ html.lenis body {
   border-radius: 50%;
 }
 
-.ai-glowing-icon {
+.semantic-glowing-icon {
   color: var(--accent-color);
   filter: drop-shadow(0 0 4px var(--accent-soft));
 }
 
-.search-container.ai-waking-up .search-input {
+.search-container.semantic-waking-up .search-input {
   box-shadow: inset 0 0 0 1px var(--accent-color);
   background-color: var(--card-bg);
 }
@@ -688,7 +688,7 @@ html.lenis body {
   opacity: 0.8;
 }
 
-.ai-explanation-row {
+.semantic-explanation-row {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -696,13 +696,13 @@ html.lenis body {
   flex-wrap: wrap;
 }
 
-.ai-explain-icon {
+.semantic-explain-icon {
   color: var(--accent-color);
   opacity: 0.6;
   flex-shrink: 0;
 }
 
-.ai-explain-badge {
+.semantic-explain-badge {
   font-size: 11px;
   font-weight: 500;
   color: var(--accent-color);

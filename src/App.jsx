@@ -56,7 +56,7 @@ const itemVariants = {
 };
 import teasData from './data/teas.json';
 import './admin.css';
-import { aiSearch } from './ai/aiService';
+import { semanticSearch } from './semantic/semanticService';
 import SmartTimer from './SmartTimer';
 
 const TeaAdmin = lazy(() => import('./TeaAdmin'));
@@ -102,10 +102,10 @@ function App() {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [selectedTea, setSelectedTea] = useState(null);
   const [expandedAddon, setExpandedAddon] = useState(null);
-  const [isAiReady, setIsAiReady] = useState(false);
-  const [isAiWakingUp, setIsAiWakingUp] = useState(true);
-  const [aiSearchResults, setAiSearchResults] = useState(null);
-  const [aiExplanations, setAiExplanations] = useState({});
+  const [isSemanticReady, setIsSemanticReady] = useState(false);
+  const [isSemanticWakingUp, setIsSemanticWakingUp] = useState(true);
+  const [semanticSearchResults, setSemanticSearchResults] = useState(null);
+  const [semanticExplanations, setSemanticExplanations] = useState({});
   const [isTimerFlipped, setIsTimerFlipped] = useState(false);
   const [isCoffeeMode, setIsCoffeeMode] = useState(false);
   const lenisRef = useRef(null);
@@ -206,41 +206,44 @@ function App() {
     setIsTimerFlipped(false);
   };
 
-  // Initialize AI Search
+  // Initialize Semantic Search
   useEffect(() => {
-    aiSearch.init(teasData, () => {
-      setIsAiReady(true);
-      setIsAiWakingUp(false);
+    semanticSearch.init(teasData, () => {
+      setIsSemanticReady(true);
+      setIsSemanticWakingUp(false);
+    }, () => {
+      setIsSemanticReady(false);
+      setIsSemanticWakingUp(false);
     });
   }, []);
 
-  // Update AI search query
+  // Update Semantic search query
   useEffect(() => {
     let active = true;
     const performSearch = async () => {
-      if (isAiReady) {
+      if (isSemanticReady) {
         if (searchQuery.trim().length > 1) {
-          const res = await aiSearch.search(searchQuery);
+          const res = await semanticSearch.search(searchQuery);
           if (active) {
             if (res && res.results) {
-              setAiSearchResults(res.results);
-              setAiExplanations(res.explanations || {});
+              setSemanticSearchResults(res.results);
+              setSemanticExplanations(res.explanations || {});
             } else {
-              setAiSearchResults(res);
-              setAiExplanations({});
+              setSemanticSearchResults(res);
+              setSemanticExplanations({});
             }
           }
         } else {
           if (active) {
-            setAiSearchResults(null);
-            setAiExplanations({});
+            setSemanticSearchResults(null);
+            setSemanticExplanations({});
           }
         }
       }
     };
     performSearch();
     return () => { active = false; };
-  }, [searchQuery, isAiReady]);
+  }, [searchQuery, isSemanticReady]);
 
   const handleSurpriseMe = (e) => {
     e?.preventDefault();
@@ -316,11 +319,11 @@ function App() {
 
     if (searchQuery.trim() !== "") {
       const q = searchQuery.toLowerCase();
-      if (aiSearchResults && aiSearchResults.length > 0) {
-        // AI returned results
-        filtered = filtered.filter(tea => aiSearchResults.some(r => r.id === tea.id));
-      } else if (aiSearchResults && aiSearchResults.length === 0) {
-        // AI returned empty
+      if (semanticSearchResults && semanticSearchResults.length > 0) {
+        // Semantic model returned results
+        filtered = filtered.filter(tea => semanticSearchResults.some(r => r.id === tea.id));
+      } else if (semanticSearchResults && semanticSearchResults.length === 0) {
+        // Semantic model returned empty
         filtered = [];
       } else {
         // Fallback to text search
@@ -337,11 +340,11 @@ function App() {
 
     // Sort globally
     let sortedFiltered = [...filtered];
-    if (aiSearchResults && aiSearchResults.length > 0 && searchQuery.trim() !== "") {
-      // Sort by AI confidence
+    if (semanticSearchResults && semanticSearchResults.length > 0 && searchQuery.trim() !== "") {
+      // Sort by Semantic confidence
       sortedFiltered.sort((a, b) => {
-        const scoreA = aiSearchResults.find(r => r.id === a.id)?.score || 0;
-        const scoreB = aiSearchResults.find(r => r.id === b.id)?.score || 0;
+        const scoreA = semanticSearchResults.find(r => r.id === a.id)?.score || 0;
+        const scoreB = semanticSearchResults.find(r => r.id === b.id)?.score || 0;
         return scoreB - scoreA;
       });
     } else {
@@ -368,7 +371,7 @@ function App() {
     }
 
     return groups;
-  }, [searchQuery, activeCategory, caffeineFilter, aiSearchResults]);
+  }, [searchQuery, activeCategory, caffeineFilter, semanticSearchResults]);
 
   // Sort groups alphabetically
   const displayedCategories = Object.keys(groupedTeas).sort();
@@ -377,19 +380,19 @@ function App() {
     <div className="floating-nav">
       <div className="nav-content">
         <div className="search-row">
-          <div className={`search-container ${isAiWakingUp ? 'ai-waking-up' : ''} ${isAiReady ? 'ai-ready' : ''}`}>
+          <div className={`search-container ${isSemanticWakingUp ? 'semantic-waking-up' : ''} ${isSemanticReady ? 'semantic-ready' : ''}`}>
             <div className="search-icon-wrapper">
-              {isAiWakingUp ? (
-                <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1.5, ease: 'linear' }} className="ai-spinner" />
+              {isSemanticWakingUp ? (
+                <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1.5, ease: 'linear' }} className="semantic-spinner" />
               ) : (
-                <Search className={isAiReady ? "search-icon ai-glowing-icon" : "search-icon"} size={18} />
+                <Search className={isSemanticReady ? "search-icon semantic-glowing-icon" : "search-icon"} size={18} />
               )}
             </div>
             <input
               ref={isForced ? searchInputRef : null}
               type="text"
               className="search-input"
-              placeholder={isAiWakingUp ? "Brewing AI..." : (isAiReady ? "Spill the tea!" : "Search...")}
+              placeholder={isSemanticWakingUp ? "Waking Semantic Engine..." : (isSemanticReady ? "Spill the tea!" : "Search...")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onFocus={() => setIsSearchFocused(true)}
@@ -653,16 +656,16 @@ function App() {
                                     )}
                                   </div>
 
-                                  {aiSearchResults && aiSearchResults.find(r => r.id === tea.id) && searchQuery.trim() !== "" && (
-                                    <div className="ai-explanation-row">
-                                      <span className="ai-explain-badge match-confidence-badge" style={{ backgroundColor: 'var(--accent-color)', color: '#fff' }}>
-                                        {Math.round(aiSearchResults.find(r => r.id === tea.id).score * 100)}% Match
+                                  {semanticSearchResults && semanticSearchResults.find(r => r.id === tea.id) && searchQuery.trim() !== "" && (
+                                    <div className="semantic-explanation-row">
+                                      <span className="semantic-explain-badge match-confidence-badge" style={{ backgroundColor: 'var(--accent-color)', color: '#fff' }}>
+                                        {Math.round(semanticSearchResults.find(r => r.id === tea.id).score * 100)}% Match
                                       </span>
-                                      {aiExplanations[tea.id] && aiExplanations[tea.id].length > 0 && (
+                                      {semanticExplanations[tea.id] && semanticExplanations[tea.id].length > 0 && (
                                         <>
-                                          <Sparkles size={11} className="ai-explain-icon" style={{ marginLeft: '4px' }} />
-                                          {aiExplanations[tea.id].map((concept, ci) => (
-                                            <span key={ci} className="ai-explain-badge">{concept}</span>
+                                          <Sparkles size={11} className="semantic-explain-icon" style={{ marginLeft: '4px' }} />
+                                          {semanticExplanations[tea.id].map((concept, ci) => (
+                                            <span key={ci} className="semantic-explain-badge">{concept}</span>
                                           ))}
                                         </>
                                       )}

@@ -198,7 +198,7 @@ async function run() {
         }
 
         // Combine hand-written profile with auto-generated concepts
-        const manualProfile = tea.aiSemanticProfile || '';
+        const manualProfile = tea.semanticProfile || '';
         const autoWords = matchedConcepts
             .slice(0, 20)
             .map(c => c.word)

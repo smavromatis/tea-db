@@ -153,7 +153,7 @@ export default function TeaAdmin({ teas: initialTeas, onClose }) {
             brewTime: "",
             temperature: "",
             description: "",
-            aiSemanticProfile: "",
+            semanticProfile: "",
             liquor: "",
             liquorColor: "",
             scales: { intensity: 50, mouthfeel: 50, flavor: 50, sweetness: 50 },
@@ -412,8 +412,8 @@ export default function TeaAdmin({ teas: initialTeas, onClose }) {
                                             </div>
 
                                             <div className="field-group hero-field">
-                                                <label>AI Semantic Profile (Emotions, Scenarios & Concepts)</label>
-                                                <textarea value={tea.aiSemanticProfile || ''} onChange={e => updateTea(tea.id, 'aiSemanticProfile', e.target.value)} placeholder="e.g. cozy, rainy day, relaxing, deep thought, nostalgic..." className="admin-input admin-textarea" />
+                                                <label>Semantic Profile (Emotions, Scenarios & Concepts)</label>
+                                                <textarea value={tea.semanticProfile || ''} onChange={e => updateTea(tea.id, 'semanticProfile', e.target.value)} placeholder="e.g. cozy, rainy day, relaxing, deep thought, nostalgic..." className="admin-input admin-textarea" />
                                             </div>
 
                                             <div className="admin-field-row auto-grid">

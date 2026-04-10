@@ -1,15 +1,25 @@
-export class AISearchService {
+export class SemanticSearchService {
     constructor() {
         this.worker = null;
         this.isReady = false;
         this.resolves = {};
     }
 
-    init(teas, onReady) {
+    init(teas, onReady, onError) {
         if (!this.worker) {
-            this.worker = new Worker(new URL('./aiWorker.js', import.meta.url), {
+            this.worker = new Worker(new URL('./semanticWorker.js', import.meta.url), {
                 type: 'module'
             });
+
+            this.worker.onerror = (workerError) => {
+                console.error("Worker Error:", workerError);
+                if (onError) onError(workerError);
+                // Resolve hanging search promises
+                for (const query of Object.keys(this.resolves)) {
+                    this.resolves[query]({ results: null, explanations: {} });
+                    delete this.resolves[query];
+                }
+            };
 
             this.worker.addEventListener('message', (event) => {
                 const { type, payload } = event.data;
@@ -24,7 +34,13 @@ export class AISearchService {
                         delete this.resolves[query];
                     }
                 } else if (type === 'ERROR') {
-                    console.error("AI Search Error:", payload);
+                    console.error("Semantic Search Error:", payload);
+                    if (onError) onError(payload);
+                    // Resolve any hanging search promises
+                    for (const query of Object.keys(this.resolves)) {
+                        this.resolves[query]({ results: null, explanations: {} });
+                        delete this.resolves[query];
+                    }
                 }
             });
 
@@ -43,4 +59,4 @@ export class AISearchService {
     }
 }
 
-export const aiSearch = new AISearchService();
+export const semanticSearch = new SemanticSearchService();

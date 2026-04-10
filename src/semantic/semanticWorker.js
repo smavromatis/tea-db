@@ -188,7 +188,7 @@ self.addEventListener('message', async (event) => {
                 searchText: [
                     tea.name, tea.flavourNotes, tea.description,
                     tea.categories?.join(' '), tea.origin, tea.brand,
-                    tea.aiSemanticProfile,
+                    tea.semanticProfile,
                 ].filter(Boolean).join(' '),
                 name: tea.name || '',
             }));
@@ -352,6 +352,6 @@ self.addEventListener('message', async (event) => {
             });
         }
     } catch (error) {
-        self.postMessage({ type: 'ERROR', payload: error.message });
+        self.postMessage({ type: 'ERROR', payload: error ? (error.message || error.toString()) : 'Unknown error' });
     }
 });
