@@ -383,7 +383,7 @@ function App() {
           <div className={`search-container ${isSemanticWakingUp ? 'semantic-waking-up' : ''} ${isSemanticReady ? 'semantic-ready' : ''}`}>
             <div className="search-icon-wrapper">
               {isSemanticWakingUp ? (
-                <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1.5, ease: 'linear' }} className="semantic-spinner" />
+                <div className="semantic-spinner" />
               ) : (
                 <Search className={isSemanticReady ? "search-icon semantic-glowing-icon" : "search-icon"} size={18} />
               )}
